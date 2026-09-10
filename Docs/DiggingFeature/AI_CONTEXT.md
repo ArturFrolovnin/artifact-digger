@@ -7,9 +7,11 @@ Read this file before modifying the digging system.
 ## Snapshot
 
 - Project: ArcheoDig / artifact-digger, Unreal Engine `5.8`.
-- Documented HEAD: `48ae26f23da91e08a8de7ccffa577cbf118abd5d` (`add smooth dynamic mesh excavation`).
+- Git HEAD at this checkpoint: `6fa2aea0a1ff09dedb6e2cb6e60ad02d90087b88` (`add readme`).
 - Test feature root: `/Game/DiggingPrototype/DiggingFeature`.
 - Current preferred path: `BP_DiggableGround_Smooth` using Dynamic Mesh + Geometry Script + Boolean Subtract.
+- Current player direction: `BP_DigPlayer_FirstPerson`, intentional full-body first person.
+- Current visual-material experiment: Quixel Megascans Soil Ground `MI_xdhhdhl` on `DigMesh`.
 - Status: working small-area prototype; not production- or large-world-proven.
 
 Important asset-name collision:
@@ -20,22 +22,22 @@ Important asset-name collision:
 
 ## Current goal
 
-Создать качественную digging mechanic, визуально близкую к **A Game About Digging A Hole** / **Hydroneer**: плавно изменяемая геометрия грунта и соответствующая физическая collision.
+Довести один `BP_DiggableGround_Smooth` до визуально приятного и удобного для first-person digging состояния: плавно изменяемая геометрия, надёжная collision, читаемый soil material и управляемая форма cutter.
 
-Не строить сейчас весь мир. Текущий приоритет — один качественный, устойчивый и измеренный diggable ground.
+Не строить сейчас весь мир. Material, cutter feel и benchmark одного участка идут раньше chunk manager.
 
 ## Current preferred implementation
 
 Основная ветка:
 
 ```text
-BP_DigPlayer.TryDigSmooth
+BP_DigPlayer_FirstPerson.TryDigSmooth
 → camera-based Line Trace
-→ ImpactPoint (World Space)
+→ ImpactPoint + ImpactNormal (World Space)
 → Cast To BP_DiggableGround_Smooth
-→ BP_DiggableGround_Smooth.DigAtPoint
-→ World-to-local conversion
-→ rebuild sphere DigCutter
+→ BP_DiggableGround_Smooth.DigAtPoint(ImpactPoint, ImpactNormal)
+→ World-to-local position and direction conversion
+→ rebuild and orient scaled-sphere DigCutter
 → DigMesh minus DigCutter
 → Update Collision
 ```
@@ -47,25 +49,67 @@ BP_DigPlayer.TryDigSmooth
 - `/Game/DiggingPrototype/DiggingFeature/L_DiggingFeature`
 - `/Game/DiggingPrototype/DiggingFeature/newLevel_Digging`
 - `/Game/DiggingPrototype/DiggingFeature/Blueprints/BP_DigPlayer`
+- `/Game/DiggingPrototype/DiggingFeature/Blueprints/BP_DigPlayer_FirstPerson`
 - `/Game/DiggingPrototype/DiggingFeature/Blueprints/BP_DiggableGround`
 - `/Game/DiggingPrototype/DiggingFeature/Blueprints/BP_DiggableGround_Smooth`
 - `/Game/DiggingPrototype/DiggingFeature/Blueprints/BP_DigGameMode`
 - `/Game/DiggingPrototype/DiggingFeature/Blueprints/BP_DigGameMode2`
+- `/Game/DiggingPrototype/DiggingFeature/Blueprints/WBP_DigCrosshair`
+- `/Game/Characters/Mannequins/Meshes/SK_Mannequin` (Skeleton containing `FP_Camera`)
+- `/Game/Characters/Mannequins/Meshes/SKM_Manny_Simple` (full-body mesh using that Skeleton)
+- `/Game/Fab/Megascans/Surfaces/Soil_Ground_xdhhdhl/Medium/xdhhdhl_tier_2/Materials/MI_xdhhdhl`
 
 Do not confuse these with `/Game/DiggingPrototype/L_DiggingTest` and `/Game/DiggingPrototype/BP_DiggableGround`.
 
-## Current known Blueprint architecture
+## Current player architecture
 
-### `BP_DigPlayer`
+### `BP_DigPlayer_FirstPerson`
 
-- `TryDig` = voxel implementation/reference.
-- `TryDigSmooth` = Dynamic Mesh implementation.
+- Current player direction; created separately so `BP_DigPlayer` third-person/reference is preserved.
+- Full-body first person: body intentionally remains visible when looking down.
+- Do not replace with floating FPS arms without explicit design decision.
+- `BP_DigGameMode2.DefaultPawnClass = BP_DigPlayer_FirstPerson`.
+- Retains `Move`, `Aim`, `TryDig`, `TryDigSmooth`, digging trace, movement/look/jump input.
+- Current left mouse execution calls `TryDigSmooth`; `TryDig` node exists as voxel reference but is not connected to the click chain.
 - Uses `FollowCamera` location and forward vector.
-- Computes trace end and calls `Line Trace By Channel`.
-- Reads `Hit Actor` and `ImpactPoint` from `Break Hit Result`.
+- Current trace distance in the graph is `550` cm; independent `DigReach` is not finalized.
+- Reads `Hit Actor`, `ImpactPoint`, and `ImpactNormal` from `Break Hit Result`.
 - Uses `Cast To BP_DiggableGround_Smooth`.
-- Calls `DigAtPoint(ImpactPoint)` on the correctly typed smooth-ground reference.
+- Calls `DigAtPoint(ImpactPoint, ImpactNormal)` on the correctly typed smooth-ground reference.
 - Player determines the point of interaction; it does not edit the ground mesh.
+- Prototype debug remains in `TryDigSmooth`: trace drawing `ForDuration`, `HIT`/`MISS` `Print String`, and `Draw Debug Sphere`.
+
+Camera / body setup:
+
+- `FollowCamera` parent = `Mesh` (confirmed component hierarchy).
+- Parent socket = `FP_Camera` (confirmed in asset data).
+- `FP_Camera` belongs to Skeleton `/Game/Characters/Mannequins/Meshes/SK_Mannequin`.
+- `FP_Camera` parent bone = `neck_02`.
+- Socket local Location ≈ `(14.4002, 12.8814, 0.2201)`, Rotation `(0,0,0)`, Scale `(1,1,1)`.
+- Camera relative Location/Rotation = `(0,0,0)`; relative Scale = `(1,1,1)`.
+- `FollowCamera.Use Pawn Control Rotation = true`.
+- `Use Controller Rotation Pitch = false`.
+- `Use Controller Rotation Yaw = true`.
+- `Use Controller Rotation Roll = false`.
+- `CharacterMovement.Orient Rotation to Movement = false`.
+- Horizontal controller yaw rotates the whole Character; vertical pitch remains camera-only.
+- `CameraBoom` still exists as a leftover component attached to the capsule, but it is not the parent of `FollowCamera`.
+
+Head experiment:
+
+- `Hide Bone By Name(head)` fixed head intrusion into local camera but removed the head from the character shadow.
+- Experiment was reverted: the node remains in `EventGraph` but has no execution connection and does not run.
+- Head currently remains part of the visible mesh; socket positioning prevents obstruction.
+- Do not enable head hiding as final solution without preserving full-body shadow.
+
+Crosshair:
+
+- `WBP_DigCrosshair` is spawned on `BeginPlay` and added to viewport.
+- Widget tree: `CanvasPanel` → `TextBlock` containing `○`.
+- Center anchors `(0.5,0.5)`, alignment `(0.5,0.5)`, slot `24×24`, font size `20`.
+- It is an interaction ring prototype, not a weapon crosshair.
+
+## Current ground architecture
 
 ### `BP_DiggableGround_Smooth`
 
@@ -80,6 +124,8 @@ Construction:
 DigMesh
 → Get Dynamic Mesh
 → Append Box
+→ Enable Complex as Simple Collision
+→ Set Override Render Material(MI_xdhhdhl)
 ```
 
 Current box values:
@@ -90,7 +136,7 @@ Current box values:
 - Result: top surface near local `Z = 0`.
 - Collision: `Enable Complex as Simple Collision`.
 
-`DigAtPoint(ImpactPoint: Vector)`:
+`DigAtPoint(ImpactPoint: Vector, ImpactNormal: Vector)`:
 
 ```text
 ImpactPoint (World Space)
@@ -98,16 +144,22 @@ ImpactPoint (World Space)
 → Inverse Transform Location
 → LocalImpactPoint
 
+ImpactNormal (World Space)
++ DigMesh.GetWorldTransform
+→ Inverse Transform Direction
+→ Make Rot from Z
+→ cutter local Rotation
+
 DigCutter.GetDynamicMesh
 → Reset
 → Append Sphere Lat Long
-   Radius = 50
-   Steps Phi = 16
-   Steps Theta = 24
+   Radius = DigRadius (default 25)
+   Steps Phi = DigCutterPhi (default 16)
+   Steps Theta = DigCutterTheta (default 24)
    Origin = Center
    Transform Location = LocalImpactPoint
-   Rotation = 0
-   Scale = 1
+   Rotation = Make Rot from Z(local ImpactNormal)
+   Scale = DigCutterScale (default 1,1,0.35)
 
 DigMesh.GetDynamicMesh
 → Apply Mesh Boolean
@@ -117,7 +169,46 @@ DigMesh.GetDynamicMesh
 → Update Collision (DigMesh)
 ```
 
+Editable cutter variables:
+
+- `DigRadius: Float = 25`
+- `DigCutterScale: Vector = (1,1,0.35)`
+- `DigCutterPhi: Integer = 16`
+- `DigCutterTheta: Integer = 24`
+- Category for all: `Digging|Cutter`
+- All are intended as `Instance Editable` for Details-panel iteration.
+
+Exact-name warning from current asset inspection: internal member names `DigCutterScale `, `DigCutterPhi `, `DigCutterTheta ` and function input `ImpactNormal ` contain a trailing space. Human-facing docs omit it. Match the actual pin/member when automating inspection; do not silently create duplicates.
+
 The exact wiring in the current Unreal Editor asset is authoritative. Binary `.uasset` files do not provide a useful textual Git diff.
+
+## Current material state
+
+- Fab UE Plugin is installed in local UE `5.8` at `Engine/Plugins/Fab`; inspected version `0.0.15`, enabled by default.
+- Preferred import workflow: Fab website → save exact asset to My Library → Unreal Editor Fab panel → Add to Project.
+- Imported asset: Quixel Megascans **Soil Ground**.
+- Confirmed Fab import id in `AssetImportData`: `1e20f0ed-b2ce-46db-8aaa-54d10f56e975`.
+- Current Material Instance: `/Game/Fab/Megascans/Surfaces/Soil_Ground_xdhhdhl/Medium/xdhhdhl_tier_2/Materials/MI_xdhhdhl`.
+- Textures: `T_xdhhdhl_2K_B`, `T_xdhhdhl_2K_N`, `T_xdhhdhl_2K_ORM`.
+- Parent: `/Game/Fab/Materials/Standard/M_MS_Srf`.
+- Applied in `BP_DiggableGround_Smooth.UserConstructionScript` with `Set Override Render Material`, `Target = DigMesh`.
+- `MI_xdhhdhl` renders on the Dynamic Mesh, but is not production-ready for deforming geometry.
+
+Known issue:
+
+- Standard UV mapping visibly stretches/distorts on Boolean-created surfaces.
+- Cavities show radial/star-like patterns and bad texture projection on inner walls.
+- Do not assume the imported Material Instance solves diggable-ground rendering.
+
+Likely next direction:
+
+- custom `M_DiggableSoil`;
+- imported Soil Ground textures as source data;
+- `WorldAlignedTexture` / triplanar projection for Base Color and scalar maps;
+- `WorldAlignedNormal` for Normal;
+- parameterized world-space texture scale.
+
+`M_DiggableSoil` does not exist yet. Do not delete Fab/Megascans shared Materials, Material Functions, Material Parameter Collections, or textures: the current instance references its master material and textures, and dependency cleanup must wait until a verified independent replacement exists.
 
 ## Voxel reference architecture
 
@@ -151,16 +242,22 @@ Treat these as project rules unless the user explicitly changes them:
 
 1. Player determines **WHERE** to dig.
 2. Ground determines **HOW** digging modifies itself.
-3. Do not move mesh-editing, cutter, Boolean, or collision-update logic into `BP_DigPlayer`.
+3. Keep mesh editing, cutter construction, Boolean, and collision update inside `BP_DiggableGround_Smooth`.
 4. Do not delete the working voxel reference implementation without explicit request.
-5. Do not build a chunk manager yet.
-6. First make one smooth ground robust and benchmark it.
-7. Do not return to tiny visible cube voxels as the main rendering solution unless measurements show Dynamic Mesh is unsuitable.
-8. Prefer small, understandable Blueprint changes; the developer is learning UE Blueprint architecture during implementation.
-9. Explain each new Blueprint node and its data flow before introducing a large graph.
-10. Do not perform large automatic refactors without explicit request.
-11. Keep interaction range (`DigReach`) conceptually separate from trace length.
-12. Verify asset paths because duplicate short names exist.
+5. `BP_DigPlayer_FirstPerson` is the current player direction; old `BP_DigPlayer` remains reference.
+6. Full-body first person is intentional because future inventory may physically exist on the body.
+7. Do not switch to floating FPS arms without explicit request.
+8. Do not hide the head bone as a final solution unless full-body shadow remains correct.
+9. Keep cutter parameters exposed for fast visual iteration.
+10. Do not build a chunk manager yet; first make one ground visually good, robust, and benchmarked.
+11. Do not assume standard UV materials work on Boolean Dynamic Mesh; investigate World Aligned / Triplanar soil.
+12. Do not delete Fab/Megascans shared dependencies until a replacement is verified independent.
+13. Do not return to tiny visible cube voxels as the main rendering solution unless measurements show Dynamic Mesh is unsuitable.
+14. Keep interaction range (`DigReach`) conceptually separate from trace length.
+15. Prefer small, understandable Blueprint changes; explain each new node and data flow before large graphs.
+16. Do not perform large automatic refactors without explicit request.
+17. Verify full asset paths because duplicate short names exist.
+18. Suggest a Git checkpoint after meaningful verified milestones.
 
 ## Known tested behavior
 
@@ -173,11 +270,18 @@ The current project checkpoint records these PIE results:
 - character can stand on the test Dynamic Mesh surface after enabling it;
 - smooth Boolean subtraction works in PIE;
 - repeated sphere cuts produce neighboring/connected rounded cavities;
+- collision around many overlapping Boolean cavities was validated;
+- player can physically enter cavities, stand on inner surfaces, and move among overlapping cuts;
 - voxel-style visual stepping and cube flicker are absent in the smooth result;
 - `Update Collision` is present in `DigAtPoint`;
-- current smooth result appears stable on the small prototype.
+- current smooth result appears stable on the small prototype;
+- full-body first-person camera works;
+- body follows controller yaw and stays visible when looking down;
+- centered `WBP_DigCrosshair` interaction ring appears in PIE and matches camera trace direction;
+- Quixel Soil Ground renders on `DigMesh`;
+- Boolean-created surfaces expose the known UV stretching problem.
 
-Do not generalize these results to deep cavities, long sessions, large terrain, multiplayer, or production performance.
+Do not generalize these results to measured `100`/`500+` Boolean stress tests, long sessions, large terrain, multiplayer, or production performance.
 
 ## Known abandoned or deferred work
 
@@ -188,44 +292,50 @@ Do not generalize these results to deep cavities, long sessions, large terrain, 
 - Persistence of excavated geometry is not implemented.
 - Voxel approach is retained as reference, not as the preferred visual solution.
 - Current Boolean implementation is not assumed production-performance ready.
+- Custom `M_DiggableSoil` with World Aligned / Triplanar projection is planned but not created.
+- Dedicated shadow-safe local head-hiding representation is deferred and is not the next priority.
 
 ## Next exact tasks
 
-First task for the next implementation session:
+Collision validation around overlapping cavities is complete. Next session order:
 
-> Validate physical collision inside and around several overlapping smooth Boolean cavities.
-
-Then, in order:
-
-1. Tune cutter radius, resolution, and shape.
-2. Replace the ideal sphere with a shovel-like excavation imprint.
-3. Add held input.
-4. Add/configure `DigInterval`.
-5. Add a separate `DigReach` independent of Line Trace length.
-6. Benchmark `10`, `100`, and `500+` Boolean operations; record operation time and FPS.
-7. Measure triangle-count growth across repeated Boolean operations.
-8. If measurements require it, investigate remesh/simplification and bounded mesh complexity.
-9. Only after this, design chunks.
-10. After chunks, consider `DigWorld`, streaming, soil layers, and persistence.
+1. Build custom `M_DiggableSoil` from imported Soil Ground textures using World Aligned / Triplanar projection.
+2. Verify texture density, Base Color, Normal, Roughness/AO on flat top, vertical side, and several Boolean cavities.
+3. Once surfaces are readable, tune `DigRadius` and `DigCutterScale` using exposed Details parameters.
+4. Add independent `DigDepth` / cutter offset into ground along `ImpactNormal`.
+5. Design a less spherical, shovel-like cutter shape.
+6. Evaluate several neighboring cuts for natural-looking excavation.
+7. Replace prototype Text `○` ring later if needed.
+8. Add held digging and `DigInterval`.
+9. Finalize `DigReach` separately from trace length.
+10. Benchmark `10`, `100`, and `500+` Boolean operations; record operation time and FPS.
+11. Measure triangle growth and `Update Collision` cost.
+12. Investigate remesh/simplification only if measurements justify it.
+13. Only after one smooth ground is robust and benchmarked, return to chunks / `DigWorld` manager.
 
 ## Current limitations
 
-- Ideal spherical cutter only.
-- Test cutter radius is `50` cm.
+- Cutter is still a scaled sphere / ellipsoid (`25`, scale `1,1,0.35`).
+- Excavation still looks like rounded bites.
 - No shovel-specific cut shape.
+- No independent `DigDepth` / normal offset.
+- Standard UV Megascans material distorts on Boolean-generated surfaces.
+- World Aligned / Triplanar `M_DiggableSoil` is not implemented.
+- `WBP_DigCrosshair` is still prototype Text `○`.
+- Full-body FPS remains a prototype.
 - No held-LMB loop / `DigInterval` in the smooth path.
 - No finalized independent `DigReach`.
 - No high-count Boolean benchmark.
 - No triangle-growth measurements.
+- No measured `Update Collision` cost.
 - No remesh/simplification strategy.
-- Deep/complex cavity collision needs testing.
 - No chunk manager.
 - No save/load for changed geometry.
 - No Dirt/Clay/Stone layers or hardness.
 - No resources/ore rewards.
 - No complete tool system.
 - No dirt particles, decals, or sound.
-- Test material only.
+- Imported soil material is a test, not final diggable-ground shading.
 - No proven replication/multiplayer behavior.
 
 ## Pitfalls already encountered
@@ -235,19 +345,32 @@ Then, in order:
 - Adjacent cube rendering produced visible flicker/artifacts.
 - Dynamic Mesh initially had no usable character collision until `Enable Complex as Simple Collision` was enabled.
 - `ImpactPoint` from Line Trace is World Space; cutter construction uses ground-local coordinates. Convert via `DigMesh.GetWorldTransform` + `Inverse Transform Location`.
+- `ImpactNormal` is also World Space. Convert with `Inverse Transform Direction`, then use `Make Rot from Z` for cutter orientation.
 - `Apply Mesh Boolean` must use ground as `Target Mesh`, cutter as `Tool Mesh`, and `Subtract` as operation.
 - `DigCutter` must be `Reset` before appending the next sphere.
 - Collision must be updated after modifying `DigMesh`.
 - Blueprint node target types matter. A `DigAtPoint` call created for `BP_DiggableGround` cannot accept `BP_DiggableGround_Smooth` as Target. Recreate the call from a correctly typed smooth-ground reference.
 - Duplicate short asset names can lead inspection or edits to the wrong Blueprint.
+- A full-body camera without controller yaw allowed the camera to look back into the Character's neck. Current fix: `Use Controller Rotation Yaw=true`, `Orient Rotation to Movement=false`.
+- `Hide Bone By Name(head)` removed local head obstruction but also removed the head shadow; it was disconnected/reverted.
+- Direct standard-UV Megascans material is insufficient for Boolean-generated surfaces.
+- `MI_xdhhdhl` depends on `M_MS_Srf` and imported textures; do not delete Fab dependencies blindly.
+- Internal names `DigCutterScale `, `DigCutterPhi `, `DigCutterTheta `, `ImpactNormal ` currently include trailing whitespace.
+- `CameraBoom` remains in `BP_DigPlayer_FirstPerson`, but `FollowCamera` is parented directly to `Mesh`.
 - Do not infer Blueprint graph changes from LFS pointer diffs.
 
 ## Git checkpoints
 
-- `dc5abe3fc8010f443ea89281b4cb91556de78f63` — `add manual voxel digging prototype`. First manually assembled voxel implementation in the feature-local Blueprints.
-- `48ae26f23da91e08a8de7ccffa577cbf118abd5d` — `add smooth dynamic mesh excavation`. Added `BP_DiggableGround_Smooth` and updated player/level assets for Dynamic Mesh Boolean excavation.
+Implementation milestones:
 
-At the time of this checkpoint, `48ae26f` is `HEAD` and there are no newer relevant commits.
+- `dc5abe3fc8010f443ea89281b4cb91556de78f63` — `add manual voxel digging prototype`. First manually assembled voxel implementation in feature-local Blueprints.
+- `48ae26f23da91e08a8de7ccffa577cbf118abd5d` — `add smooth dynamic mesh excavation`. Added `BP_DiggableGround_Smooth` and Dynamic Mesh Boolean excavation.
+
+Documentation milestone:
+
+- `6fa2aea0a1ff09dedb6e2cb6e60ad02d90087b88` — `add readme`. Previous documentation checkpoint and Git `HEAD` when this update was prepared.
+
+Full-body FPS, surface-aware cutter, crosshair, collision validation, and Fab/Soil Ground work are newer than the implementation milestone above. Inspect current Git history and assets before assigning a new implementation SHA.
 
 ## How future AI should work
 

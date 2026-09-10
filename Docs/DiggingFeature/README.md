@@ -1,6 +1,6 @@
 # Digging Feature
 
-Документ описывает текущее состояние механики копания в Unreal Engine 5-проекте **ArcheoDig / artifact-digger** на коммите `48ae26f23da91e08a8de7ccffa577cbf118abd5d` (`add smooth dynamic mesh excavation`). Основной тестовый контур находится в `/Game/DiggingPrototype/DiggingFeature`.
+Документ описывает текущее состояние механики копания в Unreal Engine 5-проекте **ArcheoDig / artifact-digger**. Последний зафиксированный документационный коммит — `6fa2aea0a1ff09dedb6e2cb6e60ad02d90087b88` (`add readme`); описанные ниже последующие изменения проверены в текущих Unreal assets. Основной тестовый контур находится в `/Game/DiggingPrototype/DiggingFeature`.
 
 > В проекте есть два разных ассета с именем `BP_DiggableGround`: `/Game/DiggingPrototype/BP_DiggableGround` относится к более раннему отдельному voxel-тесту `L_DiggingTest`, а `/Game/DiggingPrototype/DiggingFeature/Blueprints/BP_DiggableGround` — к описанной здесь ветке `DiggingFeature`. При проверке и изменениях всегда сверяйте полный Content Browser path.
 
@@ -17,15 +17,34 @@
 1. `BP_DiggableGround` на основе `Instanced Static Mesh` — рабочий и понятный voxel-эталон.
 2. `BP_DiggableGround_Smooth` на основе `Dynamic Mesh`, Geometry Script и Boolean Subtract — текущее основное направление разработки.
 
+Эволюция текущей ветки выглядит так:
+
+```text
+Voxel / ISM
+→ Smooth Dynamic Mesh + Boolean Subtract
+→ проверка collision в пересекающихся cavities
+→ ориентация cutter по ImpactNormal
+→ full-body first person
+→ экранный interaction ring
+→ тест реального Quixel soil material
+→ обнаружение UV-проблемы на Boolean-поверхностях
+→ Instance Editable параметры cutter
+```
+
 Smooth-прототип уже умеет:
 
 - построить цельный блок земли размером `500 × 500 × 300` см;
 - определить точку попадания луча из камеры;
 - перевести эту точку из World Space в локальные координаты земли;
-- создать в точке попадания сферический cutter;
+- принять `ImpactPoint` и `ImpactNormal`;
+- создать в точке попадания приплюснутый сферический cutter и ориентировать его по поверхности;
 - вычесть cutter из геометрии земли;
 - обновить collision после изменения mesh;
-- повторными кликами создавать соседние округлые выемки, объединяющиеся в общую форму.
+- повторными кликами создавать соседние округлые выемки, объединяющиеся в общую форму;
+- сохранять физически проходимую collision-поверхность после большого числа пересекающихся вырезов;
+- назначить импортированный Quixel Megascans soil material на `DigMesh`.
+
+Текущим игровым направлением стал отдельный `BP_DigPlayer_FirstPerson`: камера находится на socket скелета, тело остаётся видимым, а центральное кольцо показывает направление взаимодействия.
 
 Это рабочий proof of concept одного небольшого участка, а не подтверждённое production-решение для большой карты.
 
@@ -146,7 +165,7 @@ DigMesh
 
 ### Запрос от игрока
 
-В `BP_DigPlayer` smooth-ветка вынесена в функцию `TryDigSmooth`. Старая `TryDig` остаётся рабочим voxel-эталоном и пока не должна удаляться.
+Smooth-ветка вынесена в функцию `TryDigSmooth`. Она сохранена как в исходном `BP_DigPlayer`, так и в текущем `BP_DigPlayer_FirstPerson`. Старая `TryDig` остаётся voxel-эталоном и пока не должна удаляться.
 
 ```text
 TryDigSmooth
@@ -155,19 +174,22 @@ TryDigSmooth
 → рассчитать End луча
 → Line Trace By Channel
 → Break Hit Result
-→ Hit Actor + Impact Point
+→ Hit Actor + Impact Point + Impact Normal
 → Cast To BP_DiggableGround_Smooth
-→ DigAtPoint(ImpactPoint)
+→ DigAtPoint(ImpactPoint, ImpactNormal)
 ```
 
-`ImpactPoint` — точка контакта trace с поверхностью в мировых координатах. Игрок не редактирует `DigMesh` напрямую: он вызывает публичное действие земли.
+`ImpactPoint` — точка контакта trace с поверхностью в мировых координатах. `ImpactNormal` — направленная наружу нормаль поверхности в этой точке. Игрок не редактирует `DigMesh` напрямую: он передаёт оба значения публичной функции земли.
 
 ### Перевод координат
 
 Сигнатура функции грунта:
 
 ```text
-BP_DiggableGround_Smooth.DigAtPoint(ImpactPoint: Vector)
+BP_DiggableGround_Smooth.DigAtPoint(
+    ImpactPoint: Vector,
+    ImpactNormal: Vector
+)
 ```
 
 `ImpactPoint` приходит из `Line Trace` в World Space, но геометрия cutter добавляется в локальном пространстве `DigMesh`. Поэтому точка обязательно преобразуется:
@@ -181,6 +203,20 @@ ImpactPoint + World Transform
 
 Это позволяет корректно копать Actor, даже если он перемещён относительно начала мира. Если пропустить преобразование, cutter будет смещён при любом ненулевом transform грунта.
 
+Нормаль также приходит в World Space и переводится отдельно:
+
+```text
+ImpactNormal
++ DigMesh World Transform
+→ Inverse Transform Direction
+→ Make Rot from Z
+→ Rotation для Make Transform cutter
+```
+
+`Inverse Transform Direction` переводит направление из мирового пространства в локальное пространство `DigMesh`, не обращаясь с ним как с позицией. `Make Rot from Z` создаёт rotation, чья локальная ось Z смотрит вдоль полученной normal. Поэтому приплюснутый cutter повторяет ориентацию пола, стены или наклонной поверхности вместо сохранения одного мирового поворота.
+
+Это техническая основа для управления глубиной выреза относительно поверхности, но сама ориентация не устраняет округлый характер текущих выемок.
+
 ### Создание cutter
 
 Для каждого действия служебная геометрия пересоздаётся:
@@ -192,15 +228,18 @@ DigCutter
 → Append Sphere Lat Long
 ```
 
-Текущие тестовые параметры:
+Параметры cutter вынесены в переменные `BP_DiggableGround_Smooth`, имеют `Instance Editable = true` и сгруппированы в категории `Digging|Cutter`:
 
-- `Radius = 50` см;
-- `Steps Phi = 16`;
-- `Steps Theta = 24`;
+- `DigRadius = 25` см;
+- `DigCutterScale = (1.0, 1.0, 0.35)`;
+- `DigCutterPhi = 16`;
+- `DigCutterTheta = 24`;
 - `Origin = Center`;
 - `Location = LocalImpactPoint`;
-- `Rotation = (0, 0, 0)`;
-- `Scale = (1, 1, 1)`.
+- `Rotation` формируется из локальной `ImpactNormal`;
+- `Scale` берётся из `DigCutterScale`.
+
+Это позволяет менять радиус, степень сплющивания и разрешение cutter через Details конкретного экземпляра земли без редактирования Blueprint graph. Текущая форма — scaled sphere, то есть эллипсоид, а не специальная геометрия лопаты.
 
 Transform сферы собирается через `Make Transform`. `Reset` перед `Append Sphere Lat Long` обязателен: без него старые сферы накапливались бы в `DigCutter`, и следующий Boolean использовал бы не один новый cutter, а всю накопленную служебную геометрию.
 
@@ -234,15 +273,155 @@ Target = DigMesh
 - один клик создаёт округлую выемку;
 - несколько кликов создают несколько выемок;
 - соседние выемки объединяются в одну непрерывную форму;
+- после большого числа пересекающихся сферических вырезов collision продолжает соответствовать изменённой форме;
+- персонаж может заходить внутрь cavities, стоять на внутренних поверхностях и перемещаться среди нескольких пересекающихся полостей;
 - характерное voxel-копание и мерцание соседних кубиков отсутствуют;
 - на небольшом тестовом участке результат выглядит стабильнее старой voxel-версии;
-- `Update Collision` включён в последовательность `DigAtPoint`.
+- `Update Collision` включён в последовательность `DigAtPoint`;
+- full-body first-person camera работает, тело видно при взгляде вниз, а yaw камеры разворачивает Character;
+- interaction ring отображается по центру экрана и совпадает с направлением camera-based Line Trace;
+- `MI_xdhhdhl` отображается на `DigMesh`;
+- на Boolean-generated surfaces визуально проявляется сильное растяжение обычной UV-развёртки.
 
-Это не означает, что уже проверены глубокие сложные полости, сотни Boolean-операций или пригодность подхода для большого мира. Первой следующей проверкой должна быть физическая коллизия внутри и вокруг нескольких перекрывающихся выемок.
+Пункт предыдущего плана «проверить collision внутри и вокруг нескольких перекрывающихся smooth Boolean cavities» выполнен. Это не означает, что уже проведены измеряемые stress tests на `100`/`500+` операций или доказана пригодность подхода для большого мира.
+
+## Full-body First Person
+
+Основная игра теперь развивается от первого лица. Копать с third-person camera оказалось неудобно, а будущая система инвентаря предполагает физическое взаимодействие с телом персонажа: при взгляде вниз игрок должен видеть torso, руки, ноги, пояс и будущие карманы.
+
+Поэтому выбран **full-body FPS**, а не отдельная плавающая пара рук. Переход на arms-only подход не должен происходить без отдельного архитектурного решения.
+
+### `BP_DigPlayer_FirstPerson`
+
+Новый Blueprint создан отдельно от `BP_DigPlayer`, чтобы сохранить рабочую third-person/reference версию. Он унаследовал существующие функции и input:
+
+- `Move`;
+- `Aim`;
+- `TryDig`;
+- `TryDigSmooth`;
+- camera-based digging `Line Trace`;
+- Enhanced Input для движения, взгляда и прыжка.
+
+`BP_DigGameMode2` использует `BP_DigPlayer_FirstPerson` как `Default Pawn Class`, а тестовый `L_DiggingFeature` ссылается на этот game mode.
+
+### Socket `FP_Camera`
+
+В Skeleton `/Game/Characters/Mannequins/Meshes/SK_Mannequin` создан socket `FP_Camera` с parent bone `neck_02`. Он вручную расположен в области глаз. В текущем asset его локальный transform относительно кости примерно равен:
+
+- Location: `(14.4002, 12.8814, 0.2201)`;
+- Rotation: `(0, 0, 0)`;
+- Scale: `(1, 1, 1)`.
+
+В `BP_DigPlayer_FirstPerson` компонент `FollowCamera` является дочерним для `Mesh`, прикреплён через `FP_Camera` и имеет нулевые relative Location/Rotation. `Use Pawn Control Rotation = true`.
+
+Старый `CameraBoom` всё ещё присутствует в Blueprint как оставшийся компонент, но `FollowCamera` больше не является его дочерней. Не следует ошибочно считать boom текущим источником положения first-person camera.
+
+### Вращение тела
+
+Текущие настройки Character:
+
+```text
+Use Controller Rotation Pitch = false
+Use Controller Rotation Yaw   = true
+Use Controller Rotation Roll  = false
+
+Character Movement:
+Orient Rotation to Movement = false
+```
+
+Горизонтальный yaw теперь разворачивает весь Character вместе с камерой. Вертикальный pitch остаётся камерным и не наклоняет целиком тело. Без controller yaw камера могла повернуться относительно неподвижного тела и фактически посмотреть персонажу в шею.
+
+### Эксперимент со скрытием головы
+
+Проверялся вариант `BeginPlay → Hide Bone By Name(head)`. Он убирал голову из локального first-person view, но одновременно делал тень персонажа безголовой, поэтому был отменён. В текущем Event Graph узел `Hide Bone By Name(head)` ещё существует, но не подключён к execution chain и не выполняется.
+
+Сейчас голова остаётся видимой частью full-body mesh, а socket настроен так, чтобы она не перекрывала обзор. Не следует снова включать `Hide Bone By Name(head)` как окончательное решение без сохранения корректной full-body shadow. Возможное будущее решение — отдельное first-person представление или отдельная shadow representation, но это не текущий приоритет.
+
+## Interaction ring
+
+`/Game/DiggingPrototype/DiggingFeature/Blueprints/WBP_DigCrosshair` — минимальный индикатор точки взаимодействия, а не оружейный crosshair.
+
+```text
+WBP_DigCrosshair
+└─ Canvas Panel
+   └─ Text Block: "○"
+```
+
+Text Block закреплён по центру Canvas с alignment `(0.5, 0.5)`, размером slot `24 × 24`; текущий размер шрифта — `20`. В `BP_DigPlayer_FirstPerson` виджет создаётся и добавляется во viewport из `Event BeginPlay`:
+
+```text
+Event BeginPlay
+→ Create WBP_DigCrosshair Widget
+→ Add to Viewport
+```
+
+Кольцо проверено в PIE: оно находится в центре и соответствует направлению camera-based Line Trace. Это временный прототип; позже Text `○` можно заменить texture- или material-based ring.
+
+## Fab и материал грунта
+
+### Текущий Fab workflow
+
+В локальную установку UE `5.8` установлен и включён по умолчанию Fab UE Plugin (`Engine/Plugins/Fab`, версия `0.0.15`). Текущий рабочий процесс:
+
+```text
+найти asset на Fab website
+→ сохранить в My Library
+→ открыть Fab внутри Unreal Editor
+→ Add to Project
+```
+
+Так разработчик может импортировать конкретный рекомендованный материал из своей Fab Library непосредственно в проект.
+
+### Quixel Megascans Soil Ground
+
+Для визуального теста импортирован **Soil Ground** от Quixel Megascans:
+
+- Fab listing/import id: `1e20f0ed-b2ce-46db-8aaa-54d10f56e975`;
+- Content root: `/Game/Fab/Megascans/Surfaces/Soil_Ground_xdhhdhl`;
+- Material Instance: `/Game/Fab/Megascans/Surfaces/Soil_Ground_xdhhdhl/Medium/xdhhdhl_tier_2/Materials/MI_xdhhdhl`;
+- textures: `T_xdhhdhl_2K_B`, `T_xdhhdhl_2K_N`, `T_xdhhdhl_2K_ORM`;
+- parent material: `/Game/Fab/Materials/Standard/M_MS_Srf`.
+
+Fab также импортировал shared Materials, Material Functions, Material Parameter Collection и default textures. Эти зависимости сознательно не очищались: `MI_xdhhdhl` ссылается на master material и свои textures, а master material использует общую Megascans infrastructure.
+
+### Назначение на Dynamic Mesh
+
+Обычный `Override Materials` slot в Details не оказался удобным для `Dynamic Mesh Component`, поэтому материал назначается в `BP_DiggableGround_Smooth` через Blueprint после создания box и настройки collision:
+
+```text
+Construction Script
+→ Append Box
+→ Enable Complex as Simple Collision
+→ Set Override Render Material
+   Target   = DigMesh
+   Material = MI_xdhhdhl
+```
+
+Soil Ground отображается на `DigMesh`, но этот Material Instance нельзя считать готовым материалом копаемой земли.
+
+### UV-проблема Boolean-поверхностей
+
+После нескольких `Boolean Subtract` стало заметно, что обычная UV-based проекция Megascans плохо переносится на вновь созданные поверхности:
+
+- верхняя исходная поверхность выглядит приемлемо;
+- texture на cavities сильно растягивается;
+- появляются радиальные/star-like patterns;
+- внутренние стенки имеют нестабильную развёртку.
+
+Boolean создаёт новую геометрию, для которой нет подходящей устойчивой UV-развёртки исходного box. Ближайшее направление — собственный `M_DiggableSoil` с World Aligned / Triplanar projection:
+
+```text
+Base Color  → WorldAlignedTexture
+Normal      → WorldAlignedNormal
+Roughness/AO→ согласованная world-space projection
+Scale       → настраиваемый parameter
+```
+
+`M_DiggableSoil` пока **не создан**. Сначала нужно собрать его из импортированных Soil Ground textures и проверить одинаковую плотность texture на плоском верху, вертикальной стене и нескольких Boolean cavities. Fab/Megascans dependencies нельзя удалять до появления проверенной независимой замены.
 
 ## Архитектура и ответственность
 
-### `BP_DigPlayer`
+### `BP_DigPlayer` и `BP_DigPlayer_FirstPerson`
 
 Отвечает за:
 
@@ -250,11 +429,13 @@ Target = DigMesh
 - работу с `FollowCamera`;
 - направление и длину `Line Trace`;
 - чтение `Hit Result`;
-- определение `ImpactPoint`;
+- определение `ImpactPoint` и `ImpactNormal`;
 - проверку типа объекта;
 - запрос `DigAtPoint`.
 
 Не должен создавать cutter, выполнять Boolean или напрямую изменять Dynamic Mesh земли.
+
+`BP_DigPlayer_FirstPerson` — текущее направление игрока; исходный `BP_DigPlayer` сохраняется как third-person/reference checkpoint.
 
 ### `BP_DiggableGround_Smooth`
 
@@ -262,7 +443,7 @@ Target = DigMesh
 
 - исходную форму грунта;
 - владение `DigMesh` и `DigCutter`;
-- перевод мировой точки воздействия в локальные координаты;
+- перевод мировой точки и normal воздействия в локальные координаты;
 - форму и разрешение cutter;
 - Boolean-операцию;
 - обновление collision;
@@ -285,38 +466,47 @@ Dynamic Mesh даёт:
 
 ## Текущие ограничения
 
-- Cutter пока является идеальной сферой.
-- Радиус `50` см — тестовое значение.
-- След от копания ещё не похож на движение конкретной лопаты.
+- Cutter остаётся scaled sphere / ellipsoid с тестовыми `DigRadius = 25` и `DigCutterScale = (1, 1, 0.35)`.
+- Копание визуально всё ещё состоит из округлых «укусов».
+- Нет shovel-specific cutter shape.
+- Нет отдельного независимого `DigDepth` или offset вдоль `ImpactNormal`.
+- Обычный UV-based Megascans material растягивается на Boolean-generated surfaces.
+- `M_DiggableSoil` с World Aligned / Triplanar projection ещё не реализован.
+- `WBP_DigCrosshair` пока использует prototype Text `○`.
+- Full-body first person остаётся прототипом; clipping и представление тела ещё требуют дальнейшей игровой проверки.
 - В smooth-ветке нет удержания ЛКМ с ограничением частоты.
+- Нет `DigInterval` для smooth-копания.
 - Нет отдельного законченного параметра `DigReach`; длина trace и допустимая дальность копания ещё должны быть разведены.
 - Нет benchmark для `10`, `100` и `500+` последовательных Boolean.
 - Не измерен рост числа triangles после повторных вырезов.
+- Не измерена стоимость `Update Collision` после роста геометрии.
 - Не внедрены remesh, simplification или другая очистка геометрии.
-- Не проверена коллизия внутри глубоких, узких и сильно перекрывающихся выемок.
 - Нет chunk manager и потоковой загрузки участков.
 - Нет сохранения выкопанной геометрии.
 - Нет слоёв `Dirt / Clay / Stone` и различной hardness.
 - Нет ресурсов, руды и выдачи предметов за копание.
 - Нет законченной системы инструментов.
 - Нет частиц, вылетающей земли, decal и звуков.
-- Материал грунта остаётся тестовым.
+- Текущий Soil Ground material остаётся визуальным тестом, а не production-ready решением.
 - Не подтверждена пригодность реализации для репликации или multiplayer.
 
 ## План дальнейшей разработки
 
 Приоритет работ:
 
-1. Проверить физическую коллизию после серии перекрывающихся Boolean-вырезов, особенно внутри и по краям глубоких полостей.
-2. Настроить радиус, разрешение и общую форму cutter.
-3. Сделать отпечаток визуально похожим на работу лопаты, а не на сферические укусы.
-4. Добавить удержание ЛКМ и параметр `DigInterval`.
-5. Ввести отдельный `DigReach`, не смешивая допустимую дальность взаимодействия с длиной `Line Trace`.
-6. Провести stress test на `10`, `100` и `500+` Boolean, измерить время операции и FPS.
-7. Измерить рост числа triangles после последовательных Boolean.
-8. При необходимости добавить remesh, simplification или другую стратегию ограничения сложности mesh.
-9. Только после проверки одного участка спроектировать chunks.
-10. После chunks проектировать `DigWorld`/chunk manager, загрузку и выгрузку, слои грунта и сохранение изменений.
+1. Создать `M_DiggableSoil` из импортированных Soil Ground textures с World Aligned / Triplanar projection.
+2. Проверить texture density, normal и roughness на плоском верху, вертикальной стороне и нескольких Boolean cavities.
+3. На читаемом материале настроить `DigRadius` и `DigCutterScale` через Instance Editable параметры.
+4. Добавить независимый `DigDepth` или cutter offset внутрь земли вдоль `ImpactNormal`.
+5. Спроектировать менее сферическую, shovel-like форму cutter.
+6. Оценить несколько соседних cuts как единую естественную выемку.
+7. При необходимости заменить Text `○` на texture-/material-based interaction ring.
+8. Добавить удержание ЛКМ и параметр `DigInterval`.
+9. Ввести отдельный `DigReach`, не смешивая допустимую дальность взаимодействия с длиной `Line Trace`.
+10. Провести stress test на `10`, `100` и `500+` Boolean, измерить время операции и FPS.
+11. Измерить рост числа triangles и стоимость `Update Collision`.
+12. Только если измерения требуют этого, добавить remesh, simplification или другую стратегию ограничения сложности mesh.
+13. Лишь после проверки и benchmark одного участка вернуться к chunks, `DigWorld`, загрузке/выгрузке и сохранению изменений.
 
 ## Полезные понятия
 
@@ -372,6 +562,18 @@ Blueprint-цикл по диапазону целых чисел. Три вло�
 
 Фактическая мировая точка контакта луча с поверхностью. Она передаётся из игрока в `DigAtPoint`.
 
+### Impact Normal
+
+Направление, перпендикулярное поверхности в точке попадания. Оно передаётся вместе с `ImpactPoint` и используется для ориентации локальной Z-оси cutter.
+
+### Inverse Transform Direction
+
+Преобразует направление из World Space в Local Space без применения translation. Здесь переводит `ImpactNormal` в координаты `DigMesh`.
+
+### Make Rot from Z
+
+Строит rotation так, чтобы его ось Z совпала с заданным направлением. Благодаря этому сплющенный cutter ориентируется по поверхности.
+
 ### Cast
 
 Проверка и получение ссылки конкретного Blueprint-типа. `Cast To BP_DiggableGround_Smooth` позволяет вызвать функцию smooth-грунта только при попадании в нужный Actor.
@@ -412,8 +614,23 @@ Mesh, геометрию которого можно создавать и ме�
 
 `add smooth dynamic mesh excavation`
 
-Добавлен `BP_DiggableGround_Smooth`; `BP_DigPlayer` и `L_DiggingFeature` обновлены для эксперимента с Dynamic Mesh, Geometry Script и Boolean excavation. На момент написания это `HEAD`, более новых профильных коммитов нет.
+Добавлен `BP_DiggableGround_Smooth`; `BP_DigPlayer` и `L_DiggingFeature` обновлены для эксперимента с Dynamic Mesh, Geometry Script и Boolean excavation.
+
+### `6fa2aea0a1ff09dedb6e2cb6e60ad02d90087b88`
+
+`add readme`
+
+Документационный milestone с первым подробным `README.md` и `AI_CONTEXT.md`. Это текущий Git `HEAD` на момент обновления документации; full-body FPS, surface-aware cutter, crosshair и Fab/Soil Ground отражают более новое текущее состояние Unreal assets.
 
 ## Основание документации
 
-Состояние сверено с Git history, списком текущих ассетов, настройкой проекта UE `5.8` и именами функций/компонентов, доступными в текущих `.uasset`. Точный текстовый diff Blueprint-графов через Git недоступен, поскольку Unreal assets хранятся как бинарные Git LFS-файлы. При дальнейшей работе фактический граф в Unreal Editor или через Unreal MCP имеет приоритет над этим документом.
+Состояние сверено с Git history и текущими Unreal assets через read-only Unreal MCP. Подтверждены Blueprint graphs, функции, зависимости, параметры cutter, component hierarchy, rotation settings, socket, widget tree и назначение материала.
+
+Выявленные технические нюансы текущих assets:
+
+- member names `DigCutterScale `, `DigCutterPhi `, `DigCutterTheta ` и вход `ImpactNormal ` фактически содержат завершающий пробел; в документации используются читаемые имена без пробела;
+- `CameraBoom` физически остаётся компонентом `BP_DigPlayer_FirstPerson`, хотя `FollowCamera` уже прикреплена напрямую к `Mesh`;
+- `Hide Bone By Name(head)` остаётся неподключённым узлом и не выполняется;
+- текущий `TryDigSmooth` всё ещё содержит prototype debug drawing и `HIT`/`MISS` Print String.
+
+Точный текстовый diff Blueprint-графов через Git недоступен, поскольку Unreal assets хранятся как бинарные Git LFS-файлы. При дальнейшей работе фактический граф в Unreal Editor или через Unreal MCP имеет приоритет над этим документом.
