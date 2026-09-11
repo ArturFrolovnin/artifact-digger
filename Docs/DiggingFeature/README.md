@@ -1,5 +1,9 @@
 # Digging Feature
 
+> **Checkpoint 2026-09-11:** этот файл сохраняет подробную историю ранних ISM и Dynamic Mesh прототипов. Текущее архитектурное решение, проверенные defaults assets, отклонённые remesh/smoothing эксперименты и план проверки VoxelFree находятся в [`../DiggingArchitecture.md`](../DiggingArchitecture.md). При расхождениях актуальным считается architecture checkpoint.
+
+Текущее направление: сохранить `BP_DiggableGround_Smooth` как рабочий reference, не усложнять его realtime Boolean-cleanup chain и проверить ограниченный voxel `Dig Site` в `/Game/DiggingPrototype/Voxel/L_VoxelDigTest`.
+
 Документ описывает текущее состояние механики копания в Unreal Engine 5-проекте **ArcheoDig / artifact-digger**. Последний зафиксированный документационный коммит — `6fa2aea0a1ff09dedb6e2cb6e60ad02d90087b88` (`add readme`); описанные ниже последующие изменения проверены в текущих Unreal assets. Основной тестовый контур находится в `/Game/DiggingPrototype/DiggingFeature`.
 
 > В проекте есть два разных ассета с именем `BP_DiggableGround`: `/Game/DiggingPrototype/BP_DiggableGround` относится к более раннему отдельному voxel-тесту `L_DiggingTest`, а `/Game/DiggingPrototype/DiggingFeature/Blueprints/BP_DiggableGround` — к описанной здесь ветке `DiggingFeature`. При проверке и изменениях всегда сверяйте полный Content Browser path.
