@@ -4,7 +4,7 @@
 
 Текущее направление: сохранить `BP_DiggableGround_Smooth` как рабочий reference, не усложнять его realtime Boolean-cleanup chain и проверить ограниченный voxel `Dig Site` в `/Game/DiggingPrototype/Voxel/L_VoxelDigTest`.
 
-Документ описывает текущее состояние механики копания в Unreal Engine 5-проекте **ArcheoDig / artifact-digger**. Последний зафиксированный документационный коммит — `6fa2aea0a1ff09dedb6e2cb6e60ad02d90087b88` (`add readme`); описанные ниже последующие изменения проверены в текущих Unreal assets. Основной тестовый контур находится в `/Game/DiggingPrototype/DiggingFeature`.
+Основная часть документа ниже — **historical snapshot этапа DiggingFeature / Dynamic Mesh**, сложившегося около документационного milestone `6fa2aea0a1ff09dedb6e2cb6e60ad02d90087b88` (`add readme`) и последующего first-person/cutter этапа. Формулировки «текущий» внутри historical sections относятся к тому этапу, а не к актуальному production-направлению проекта. Тестовый контур этого этапа находится в `/Game/DiggingPrototype/DiggingFeature`.
 
 > В проекте есть два разных ассета с именем `BP_DiggableGround`: `/Game/DiggingPrototype/BP_DiggableGround` относится к более раннему отдельному voxel-тесту `L_DiggingTest`, а `/Game/DiggingPrototype/DiggingFeature/Blueprints/BP_DiggableGround` — к описанной здесь ветке `DiggingFeature`. При проверке и изменениях всегда сверяйте полный Content Browser path.
 
@@ -12,16 +12,16 @@
 
 Цель — получить копание грунта, похожее по ощущению на **A Game About Digging A Hole** и **Hydroneer**: игрок должен постепенно вынимать объём земли, а поверхность и физическая коллизия должны принимать форму получившейся ямы.
 
-Главный ориентир — не разрушение заранее подготовленных кубов, а визуально плавное изменение цельной геометрии. На текущем этапе сознательно решается задача одного качественного копаемого участка. Большой мир, загрузка чанков и сохранение изменений пока не проектируются.
+Главный ориентир — не разрушение заранее подготовленных кубов, а визуально плавное изменение цельной геометрии. На описанном историческом этапе сознательно решалась задача одного качественного копаемого участка; большой мир, загрузка чанков и сохранение изменений ещё не проектировались.
 
-## Текущий статус
+## Historical snapshot: статус Dynamic Mesh этапа
 
 В репозитории сохранены два последовательных прототипа:
 
 1. `BP_DiggableGround` на основе `Instanced Static Mesh` — рабочий и понятный voxel-эталон.
-2. `BP_DiggableGround_Smooth` на основе `Dynamic Mesh`, Geometry Script и Boolean Subtract — текущее основное направление разработки.
+2. `BP_DiggableGround_Smooth` на основе `Dynamic Mesh`, Geometry Script и Boolean Subtract — основное экспериментальное направление **на момент этого snapshot**. Сейчас оно заморожено как working/reference checkpoint, а не выбрано production backend.
 
-Эволюция текущей ветки выглядит так:
+Историческая эволюция этой ветки выглядела так:
 
 ```text
 Voxel / ISM
@@ -48,7 +48,7 @@ Smooth-прототип уже умеет:
 - сохранять физически проходимую collision-поверхность после большого числа пересекающихся вырезов;
 - назначить импортированный Quixel Megascans soil material на `DigMesh`.
 
-Текущим игровым направлением стал отдельный `BP_DigPlayer_FirstPerson`: камера находится на socket скелета, тело остаётся видимым, а центральное кольцо показывает направление взаимодействия.
+В рамках этого этапа игровым направлением стал отдельный `BP_DigPlayer_FirstPerson`: камера находится на socket скелета, тело остаётся видимым, а центральное кольцо показывает направление взаимодействия. Этот interaction layer остаётся полезным и для следующего terrain backend.
 
 Это рабочий proof of concept одного небольшого участка, а не подтверждённое production-решение для большой карты.
 
@@ -127,9 +127,9 @@ DigAtPoint(ImpactPoint)
 
 Отдельно проверялась концепция чанков: несколько экземпляров одного Blueprint имели независимое состояние. Это показывает, что будущий мир можно разделить на `BP_DigChunk` или аналогичные участки. Однако chunk manager сознательно отложен: сначала нужно доказать качество и производительность одного smooth-участка.
 
-### 2. Smooth Dynamic Mesh prototype
+### 2. Smooth Dynamic Mesh prototype — historical implementation snapshot
 
-Коммит `48ae26f` добавил `BP_DiggableGround_Smooth` и перевёл основное направление эксперимента на цельную изменяемую геометрию.
+Коммит `48ae26f` добавил `BP_DiggableGround_Smooth` и на том этапе перевёл основное направление эксперимента на цельную изменяемую геометрию. После последующих исследований эта реализация была сохранена как frozen/reference checkpoint.
 
 Используются:
 
@@ -165,7 +165,7 @@ DigMesh
 
 Для `DigMesh` включён режим `Enable Complex as Simple Collision`. Без него персонаж проваливался через Dynamic Mesh; после включения персонаж может стоять на поверхности тестового блока.
 
-## Smooth Digging — текущая реализация
+## Smooth Digging — historical snapshot реализации
 
 ### Запрос от игрока
 
@@ -232,16 +232,19 @@ DigCutter
 → Append Sphere Lat Long
 ```
 
-Параметры cutter вынесены в переменные `BP_DiggableGround_Smooth`, имеют `Instance Editable = true` и сгруппированы в категории `Digging|Cutter`:
+В актуально сохранённом `BP_DiggableGround_Smooth` параметры cutter называются:
 
-- `DigRadius = 25` см;
-- `DigCutterScale = (1.0, 1.0, 0.35)`;
-- `DigCutterPhi = 16`;
-- `DigCutterTheta = 24`;
+- `CutterBaseRadiusCm = 25` см;
+- `CutterShapeScale = (1.0, 1.0, 0.35)`;
+- `CutterPhiSegments = 16`;
+- `CutterThetaSegments = 24`;
+- `CutterInsetCm = 5` см;
 - `Origin = Center`;
 - `Location = LocalImpactPoint`;
 - `Rotation` формируется из локальной `ImpactNormal`;
-- `Scale` берётся из `DigCutterScale`.
+- `Scale` берётся из `CutterShapeScale`.
+
+В ранней версии этого документа использовались старые имена `DigRadius`, `DigCutterScale`, `DigCutterPhi` и `DigCutterTheta`. Они относятся только к historical snapshot и больше не являются именами сохранённых Blueprint variables. Текущая категория пяти cutter-переменных — `Cutter`.
 
 Это позволяет менять радиус, степень сплющивания и разрешение cutter через Details конкретного экземпляра земли без редактирования Blueprint graph. Текущая форма — scaled sphere, то есть эллипсоид, а не специальная геометрия лопаты.
 
@@ -270,7 +273,7 @@ Target = DigMesh
 
 ## Что проверено в PIE
 
-Для текущего prototype milestone зафиксированы следующие результаты ручной проверки в PIE:
+Для historical Dynamic Mesh milestone были зафиксированы следующие результаты ручной проверки в PIE:
 
 - Dynamic Mesh box отображается;
 - после включения `Enable Complex as Simple Collision` персонаж стоит на верхней поверхности;
@@ -363,9 +366,9 @@ Event BeginPlay
 
 ## Fab и материал грунта
 
-### Текущий Fab workflow
+### Historical snapshot: Fab import workflow
 
-В локальную установку UE `5.8` установлен и включён по умолчанию Fab UE Plugin (`Engine/Plugins/Fab`, версия `0.0.15`). Текущий рабочий процесс:
+На момент этого этапа в локальной установке UE `5.8` был включён Fab UE Plugin (`Engine/Plugins/Fab`, версия `0.0.15`), а импорт выполнялся так:
 
 ```text
 найти asset на Fab website
@@ -388,9 +391,9 @@ Event BeginPlay
 
 Fab также импортировал shared Materials, Material Functions, Material Parameter Collection и default textures. Эти зависимости сознательно не очищались: `MI_xdhhdhl` ссылается на master material и свои textures, а master material использует общую Megascans infrastructure.
 
-### Назначение на Dynamic Mesh
+### Historical snapshot: прямое назначение Fab Material Instance
 
-Обычный `Override Materials` slot в Details не оказался удобным для `Dynamic Mesh Component`, поэтому материал назначается в `BP_DiggableGround_Smooth` через Blueprint после создания box и настройки collision:
+На этом раннем этапе обычный `Override Materials` slot в Details не оказался удобным для `Dynamic Mesh Component`, поэтому `MI_xdhhdhl` назначался в `BP_DiggableGround_Smooth` через Blueprint после создания box и настройки collision:
 
 ```text
 Construction Script
@@ -401,7 +404,7 @@ Construction Script
    Material = MI_xdhhdhl
 ```
 
-Soil Ground отображается на `DigMesh`, но этот Material Instance нельзя считать готовым материалом копаемой земли.
+Это описание сохранено как история эксперимента. В актуально сохранённом Construction Script вместо прямого `MI_xdhhdhl` назначается проектный материал `M_DiggableSoil`.
 
 ### UV-проблема Boolean-поверхностей
 
@@ -412,7 +415,7 @@ Soil Ground отображается на `DigMesh`, но этот Material Inst
 - появляются радиальные/star-like patterns;
 - внутренние стенки имеют нестабильную развёртку.
 
-Boolean создаёт новую геометрию, для которой нет подходящей устойчивой UV-развёртки исходного box. Ближайшее направление — собственный `M_DiggableSoil` с World Aligned / Triplanar projection:
+Boolean создаёт новую геометрию, для которой нет подходящей устойчивой UV-развёртки исходного box. На этом этапе следующим планировался собственный `M_DiggableSoil` с World Aligned / Triplanar projection:
 
 ```text
 Base Color  → WorldAlignedTexture
@@ -421,9 +424,9 @@ Roughness/AO→ согласованная world-space projection
 Scale       → настраиваемый parameter
 ```
 
-`M_DiggableSoil` пока **не создан**. Сначала нужно собрать его из импортированных Soil Ground textures и проверить одинаковую плотность texture на плоском верху, вертикальной стене и нескольких Boolean cavities. Fab/Megascans dependencies нельзя удалять до появления проверенной независимой замены.
+Этот пункт исторического плана **выполнен**: `/Game/DiggingPrototype/DiggingFeature/Materials/M_DiggableSoil` существует и назначается на `DigMesh`. Он использует `WorldAlignedTexture` для Base Color и ORM, `WorldAlignedNormal` для Normal, а Roughness/AO читает из packed texture. Texture size пока жёстко задан как `(200, 200, 200)`. Точное актуальное состояние материала зафиксировано в [`../DiggingArchitecture.md`](../DiggingArchitecture.md).
 
-## Архитектура и ответственность
+## Historical snapshot: архитектура и ответственность Dynamic Mesh ветки
 
 ### `BP_DigPlayer` и `BP_DigPlayer_FirstPerson`
 
@@ -439,7 +442,7 @@ Scale       → настраиваемый parameter
 
 Не должен создавать cutter, выполнять Boolean или напрямую изменять Dynamic Mesh земли.
 
-`BP_DigPlayer_FirstPerson` — текущее направление игрока; исходный `BP_DigPlayer` сохраняется как third-person/reference checkpoint.
+На этом этапе `BP_DigPlayer_FirstPerson` стал основным вариантом игрока; исходный `BP_DigPlayer` был сохранён как third-person/reference checkpoint. Full-body interaction layer по-прежнему сохраняется, но больше не означает выбор Dynamic Mesh как production backend.
 
 ### `BP_DiggableGround_Smooth`
 
@@ -453,9 +456,9 @@ Scale       → настраиваемый parameter
 - обновление collision;
 - непосредственное изменение земли.
 
-Такое разделение позволяет позже менять внутреннюю реализацию грунта, не переписывая прицеливание игрока. Следующий естественный шаг для снижения связанности — общий Blueprint Interface для копаемых объектов, но в текущем prototype используется прямой `Cast To BP_DiggableGround_Smooth`.
+Такое разделение позволяет менять внутреннюю реализацию грунта, не переписывая прицеливание игрока. На описанном этапе использовался прямой `Cast To BP_DiggableGround_Smooth`; идея общего Blueprint Interface сохраняется только как историческая заметка, а не как текущий приоритет.
 
-## Почему Dynamic Mesh выбран вместо маленьких voxel
+## Historical decision: почему Dynamic Mesh был выбран вместо маленьких voxel
 
 Уменьшение voxel лечит только размер ступеней, но не фундаментальную дискретность поверхности. Одновременно число элементов растёт по трём измерениям: уменьшение линейного размера ячейки вдвое требует примерно в восемь раз больше voxel для того же объёма.
 
@@ -466,41 +469,42 @@ Dynamic Mesh даёт:
 - округлые и объединяющиеся выемки;
 - collision, соответствующий изменённой форме после обновления.
 
-Однако Boolean по Dynamic Mesh тоже имеет стоимость. Пока не доказано, что текущая схема выдержит большую территорию, длительную сессию и сотни вырезов. Выбор Dynamic Mesh — предпочтительное направление текущего исследования, а не завершённое решение масштабирования.
+Однако Boolean по Dynamic Mesh тоже имеет стоимость. Уже тогда не было доказано, что схема выдержит большую территорию, длительную сессию и сотни вырезов. На момент snapshot Dynamic Mesh был предпочтительным направлением исследования; после тестов topology cleanup он был заморожен как reference, а не принят как production architecture.
 
-## Текущие ограничения
+## Historical snapshot: ограничения Dynamic Mesh этапа
 
-- Cutter остаётся scaled sphere / ellipsoid с тестовыми `DigRadius = 25` и `DigCutterScale = (1, 1, 0.35)`.
+- Cutter остаётся scaled sphere / ellipsoid; актуальные сохранённые параметры — `CutterBaseRadiusCm = 25`, `CutterShapeScale = (1, 1, 0.35)`, `CutterPhiSegments = 16`, `CutterThetaSegments = 24` и `CutterInsetCm = 5`.
 - Копание визуально всё ещё состоит из округлых «укусов».
 - Нет shovel-specific cutter shape.
-- Нет отдельного независимого `DigDepth` или offset вдоль `ImpactNormal`.
-- Обычный UV-based Megascans material растягивается на Boolean-generated surfaces.
-- `M_DiggableSoil` с World Aligned / Triplanar projection ещё не реализован.
+- Нет отдельного независимого `DigDepth`; позднее добавленный `CutterInsetCm` задаёт только offset вдоль `ImpactNormal`.
+- Обычный UV-based Megascans material растягивался на Boolean-generated surfaces; позднее это обошли через world-aligned `M_DiggableSoil`.
 - `WBP_DigCrosshair` пока использует prototype Text `○`.
 - Full-body first person остаётся прототипом; clipping и представление тела ещё требуют дальнейшей игровой проверки.
 - В smooth-ветке нет удержания ЛКМ с ограничением частоты.
 - Нет `DigInterval` для smooth-копания.
-- Нет отдельного законченного параметра `DigReach`; длина trace и допустимая дальность копания ещё должны быть разведены.
+- На момент snapshot не было отдельного законченного `DigReach`; позднее появился `DigReachCm` с сохранённым class default `500 cm`.
 - Нет benchmark для `10`, `100` и `500+` последовательных Boolean.
 - Не измерен рост числа triangles после повторных вырезов.
 - Не измерена стоимость `Update Collision` после роста геометрии.
-- Не внедрены remesh, simplification или другая очистка геометрии.
+- На момент snapshot remesh/smoothing ещё не были проверены; позднейшие realtime-тесты дали неприемлемый hitch/артефакты, после чего экспериментальные nodes удалили из активного graph.
 - Нет chunk manager и потоковой загрузки участков.
 - Нет сохранения выкопанной геометрии.
 - Нет слоёв `Dirt / Clay / Stone` и различной hardness.
 - Нет ресурсов, руды и выдачи предметов за копание.
 - Нет законченной системы инструментов.
 - Нет частиц, вылетающей земли, decal и звуков.
-- Текущий Soil Ground material остаётся визуальным тестом, а не production-ready решением.
+- `M_DiggableSoil` остаётся prototype material, а не production-ready решением.
 - Не подтверждена пригодность реализации для репликации или multiplayer.
 
-## План дальнейшей разработки
+## Historical plan дальнейшей разработки — устарел
 
-Приоритет работ:
+> Этот список сохраняется как план, существовавший в конце Dynamic Mesh этапа. Он **не является текущим TODO**: `M_DiggableSoil`, `CutterInsetCm` и `DigReachCm` уже появились, remesh/smoothing были проверены и отклонены, а Dynamic Mesh polishing остановлен. Актуальное решение и следующий короткий checklist находятся только в [`../DiggingArchitecture.md`](../DiggingArchitecture.md).
+
+Исторический приоритет работ:
 
 1. Создать `M_DiggableSoil` из импортированных Soil Ground textures с World Aligned / Triplanar projection.
 2. Проверить texture density, normal и roughness на плоском верху, вертикальной стороне и нескольких Boolean cavities.
-3. На читаемом материале настроить `DigRadius` и `DigCutterScale` через Instance Editable параметры.
+3. На читаемом материале настроить `DigRadius` и `DigCutterScale` через Instance Editable параметры. Это старые имена; сейчас им соответствуют `CutterBaseRadiusCm` и `CutterShapeScale`.
 4. Добавить независимый `DigDepth` или cutter offset внутрь земли вдоль `ImpactNormal`.
 5. Спроектировать менее сферическую, shovel-like форму cutter.
 6. Оценить несколько соседних cuts как единую естественную выемку.
@@ -624,15 +628,15 @@ Mesh, геометрию которого можно создавать и ме�
 
 `add readme`
 
-Документационный milestone с первым подробным `README.md` и `AI_CONTEXT.md`. Это текущий Git `HEAD` на момент обновления документации; full-body FPS, surface-aware cutter, crosshair и Fab/Soil Ground отражают более новое текущее состояние Unreal assets.
+Документационный milestone с первым подробным `README.md` и `AI_CONTEXT.md`. Это был Git `HEAD` на момент того исторического обновления документации; full-body FPS, surface-aware cutter, crosshair и Fab/Soil Ground отражали более новое на тот момент состояние Unreal assets.
 
 ## Основание документации
 
-Состояние сверено с Git history и текущими Unreal assets через read-only Unreal MCP. Подтверждены Blueprint graphs, функции, зависимости, параметры cutter, component hierarchy, rotation settings, socket, widget tree и назначение материала.
+Первоначальное состояние было сверено с Git history и Unreal assets через read-only Unreal MCP. Для актуального checkpoint повторно проверены ключевые Blueprint graphs, параметры cutter и назначение материала; итог находится в [`../DiggingArchitecture.md`](../DiggingArchitecture.md).
 
-Выявленные технические нюансы текущих assets:
+Технические нюансы historical snapshot:
 
-- member names `DigCutterScale `, `DigCutterPhi `, `DigCutterTheta ` и вход `ImpactNormal ` фактически содержат завершающий пробел; в документации используются читаемые имена без пробела;
+- в старой версии member names `DigCutterScale `, `DigCutterPhi `, `DigCutterTheta ` и вход `ImpactNormal ` содержали завершающий пробел; актуальные cutter variables переименованы в `CutterBaseRadiusCm`, `CutterShapeScale`, `CutterPhiSegments`, `CutterThetaSegments` и `CutterInsetCm`;
 - `CameraBoom` физически остаётся компонентом `BP_DigPlayer_FirstPerson`, хотя `FollowCamera` уже прикреплена напрямую к `Mesh`;
 - `Hide Bone By Name(head)` остаётся неподключённым узлом и не выполняется;
 - текущий `TryDigSmooth` всё ещё содержит prototype debug drawing и `HIT`/`MISS` Print String.
