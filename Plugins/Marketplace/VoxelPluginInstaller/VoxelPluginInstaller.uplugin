@@ -1,0 +1,27 @@
+{
+	"FileVersion": 3,
+	"Version": 160,
+	"VersionName": "0ea55d4b2",
+	"FriendlyName": "Voxel Plugin Installer",
+	"Description": "Install Voxel Plugin",
+	"Category": "Editor",
+	"CreatedBy": "Voxel Plugin",
+	"CreatedByURL": "https://voxelplugin.com",
+	"DocsURL": "https://docs.voxelplugin.com",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/dcb8f76613ce49cda4e70fb602513ce4",
+	"SupportURL": "https://discord.voxelplugin.com",
+	"EngineVersion": "5.8.0",
+	"CanContainContent": false,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "VoxelPluginInstaller",
+			"Type": "Editor",
+			"LoadingPhase": "PostDefault",
+			"PlatformAllowList": [
+				"Win64",
+				"Mac"
+			]
+		}
+	]
+}
