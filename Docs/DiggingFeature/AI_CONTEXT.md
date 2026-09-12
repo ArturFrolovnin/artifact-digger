@@ -1,16 +1,18 @@
 # AI Context — ArcheoDig digging feature
 
-Purpose: compact, persistent context for assistants continuing the digging work. Read [`../DiggingArchitecture.md`](../DiggingArchitecture.md) before modifying any digging asset; it is the authoritative checkpoint.
+Purpose: compact, persistent context for assistants continuing the digging work. Read [`../DiggingArchitecture.md`](../DiggingArchitecture.md) for the authoritative current decisions. The completed terrain architecture research is in [`../Research/DiggingTerrainArchitecture.md`](../Research/DiggingTerrainArchitecture.md).
 
 ## Snapshot
 
-- Checkpoint date: `2026-09-11`.
-- Verified pre-documentation HEAD: `46371c4` (`add voxel`).
+- Architecture research completed: `2026-09-12`.
+- Previous asset checkpoint: `2026-09-11`, HEAD `46371c4` (`add voxel`).
 - Project: ArcheoDig / artifact-digger, Unreal Engine `5.8`.
-- Current decision: freeze the working Dynamic Mesh implementation as a reference and evaluate bounded voxel Dig Sites.
-- Next test map: `/Game/DiggingPrototype/Voxel/L_VoxelDigTest`.
+- Current direction: one bounded volumetric/density Dig Site architecture for all five biomes, varied through Soil Types, material data and behavior modules.
+- Dynamic Mesh is a frozen interaction/visual reference, not the production terrain direction.
+- Next stage: **VoxelFree Basic Dig** in `/Game/DiggingPrototype/Voxel/L_VoxelDigTest`.
 - Installed experiment dependency: Voxel Plugin Free Legacy in `Plugins/VoxelFree`.
-- Status: the Voxel plugin loads, but the test map has no Voxel World or `/Voxel/` asset dependency yet.
+- VoxelFree is a prototype backend only until benchmarks pass; do not treat it as the production dependency.
+- At the 2026-09-11 asset checkpoint the plugin loaded, but the test map did not yet contain verified Voxel digging logic.
 
 ## Do not confuse these assets
 
@@ -100,38 +102,41 @@ Do not restore either chain without a new, explicit experiment and performance b
 ## Current architecture decision
 
 ```text
-Conventional Unreal world
-└── bounded Dig Site
-    ├── chunks + density
-    ├── soil/material layers
-    ├── artifacts
-    ├── persisted local edits
-    └── local render/collision rebuild
+Gameplay
+→ Dig/Terrain abstraction
+→ concrete terrain backend
 ```
 
-Preferred edit flow:
+**Do not connect player/gameplay code directly to VoxelFree-specific APIs when an abstraction can contain the dependency.** Build a project-owned request/result or terrain interface boundary first. A concrete backend may be VoxelFree now and custom density later without rewriting gameplay.
+
+Terrain model:
 
 ```text
-camera trace → local density brush → dirty intersecting chunks
-→ local/async rebuild → collision refresh → fragment policy
+Conventional Unreal world
+└── bounded Dig Site
+    ├── density + chunks
+    ├── Soil Types / material data
+    ├── behavior modules
+    ├── Artifact Registry + separate Artifact Actors
+    └── local render/collision/persistence
 ```
 
 Plan A: Voxel Plugin Free Legacy experiment.
 
-Plan B: custom chunked density grid, approximately `15–25 cm` per cell, only inside small Dig Sites.
+Production fallback: custom bounded chunked density field, initially meshed with Marching Cubes.
 
-## Immediate next tasks
+Research recommendations / prototype targets, not final production constants:
 
-1. Add a small Voxel World to `/Game/DiggingPrototype/Voxel/L_VoxelDigTest`.
-2. Reuse camera trace, impact point/normal and range from the first-person Blueprint.
-3. Implement one runtime sphere/ellipsoid edit using the installed Legacy API.
-4. Test one cut, neighboring cuts, 10 edits and 100 edits.
-5. Measure hitch and verify collision.
-6. Test a tunnel/wall-side cut and floating fragments.
-7. Check bounded save/load.
-8. Decide VoxelFree versus the custom density-grid Plan B.
+- benchmark Dig Site: `5 × 5 × 3 m` at `10 cm` resolution;
+- compare `15 cm` as a performance alternative;
+- do not use `20–25 cm` as the primary quality target without a separate test;
+- first custom-backend chunk candidate: `16³` cells.
 
-Do not start large-world voxelization, inventory, shovel upgrades, soil layering or final persistence before this backend decision unless explicitly requested.
+Use one bulk terrain architecture for all five biomes. Implement sand/frozen/rock differences through behavior modules. After cohesive soil, test sand relaxation first. Store artifacts as separate Unreal Actors / Registry, not in the voxel material field.
+
+## Immediate next stage: VoxelFree Basic Dig
+
+Work in `/Game/DiggingPrototype/Voxel/L_VoxelDigTest` through the project-owned Dig/Terrain abstraction. Establish a small bounded world, perform a runtime dig, verify edit shape/collision and then run the `5 × 5 × 3 m @ 10 cm` production-oriented benchmark. Follow the experiment sequence and PASS/FAIL criteria in the full [research report](../Research/DiggingTerrainArchitecture.md); do not duplicate that roadmap here.
 
 ## VoxelFree risks and Git hygiene
 
@@ -149,5 +154,6 @@ Do not start large-world voxelization, inventory, shovel upgrades, soil layering
 - Preserve the Dynamic Mesh prototype and early voxel references unless explicitly asked to remove them.
 - Keep failed-experiment results in documentation even though their nodes were removed.
 - Distinguish verified asset state from prototype observations and research hypotheses.
-- Do not claim the current Voxel test is implemented: only the plugin installation and empty test level are verified.
+- Do not infer the live Voxel prototype state from this research document; inspect current Unreal assets first. The last verified asset checkpoint on 2026-09-11 contained only the plugin and test level.
+- Never bypass `Gameplay → Dig/Terrain abstraction → concrete terrain backend` by coupling player/gameplay code directly to VoxelFree when the dependency can be isolated.
 - After any Unreal edit, compile/save the touched asset and report exact paths and remaining warnings.

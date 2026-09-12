@@ -6,6 +6,8 @@
 
 Проект: Unreal Engine **5.8**
 
+Architecture research update: **2026-09-12**
+
 Это основной актуальный документ по архитектуре копания. В нём факты, проверенные по репозиторию и Unreal assets, отделены от наблюдений прототипирования и проектных гипотез, которые ещё нужно проверить.
 
 ## Краткий статус
@@ -18,7 +20,9 @@
 
 Dynamic Mesh версия подтверждает работу interaction loop, full-body first person, проекции материала и обновления collision во время игры. Однако повторные Boolean Subtract постепенно ухудшают topology. Global remesh и local smoothing были проверены и отклонены для realtime.
 
-Текущее решение: **заморозить Dynamic Mesh ветку как рабочий checkpoint и проверить ограниченные voxel volumes для Dig Sites**. Если Voxel Plugin Free Legacy не пройдёт требования по качеству, производительности или поддерживаемости, Plan B — собственная небольшая chunked density grid с ячейкой примерно `15–25 cm`, только внутри Dig Sites.
+Текущее решение: **заморозить Dynamic Mesh ветку как рабочий checkpoint и развивать bounded volumetric/density Dig Sites через собственную abstraction boundary**. Следующий prototype использует Voxel Plugin Free Legacy, но VoxelFree пока не выбран production backend. Production fallback — собственный bounded chunked density field.
+
+Полное обоснование, сравнение backends, модель пяти биомов, расчёты resolution/chunks и roadmap экспериментов находятся в [исследовании terrain architecture](Research/DiggingTerrainArchitecture.md). Здесь сохранены только принятые после него рабочие решения.
 
 Последовательность последних содержательных commits подтверждает этот переход:
 
@@ -206,6 +210,8 @@ Apply Mesh Boolean
 
 Сравнения ниже — **рабочие выводы текущего исследования и визуального анализа**. Это ориентиры и гипотезы, а не source-level подтверждение закрытой реализации игр.
 
+Расширенная версия сравнений и технических выводов: [Digging Terrain Architecture Research](Research/DiggingTerrainArchitecture.md).
+
 | Reference | Полезный вывод для ArcheoDig | Что не копировать вслепую |
 |---|---|---|
 | A Game About Digging A Hole | Округлые edits, слияние соседних копков, объёмный terrain, обработка floating fragments; главный reference по ощущению | Один выбор плагина не гарантирует такой же feel |
@@ -225,7 +231,7 @@ Apply Mesh Boolean
 └── Dig Site — ограниченный изменяемый объём
     ├── chunked density data
     ├── soil/material layers
-    ├── buried artifacts
+    ├── Artifact Registry + отдельные Artifact Actors
     ├── persisted local edits
     └── локально перестраиваемые render mesh + collision
 ```
@@ -285,7 +291,7 @@ VoxelDataAssetEditorToolkit.cpp:123
 - [ ] Сравнить feel с A Game About Digging A Hole.
 - [ ] Проверить save/load ограниченного Dig Site.
 - [ ] Решить, является ли VoxelFree production-направлением или только prototype dependency.
-- [ ] При отказе собрать prototype custom chunked density-grid Plan B с `15–25 cm` ячейкой в одном Dig Site.
+- [ ] При отказе собрать custom bounded density-field prototype: сначала benchmark `5 × 5 × 3 m` при `10 cm`, затем сравнить с `15 cm`.
 - [ ] Только после архитектурного решения привести Content/Docs/Plugins в окончательный порядок.
 
 Exit criteria: форма edit, корректность collision, стабильность на 10/100 edits, максимальный hitch, тоннели, политика floating fragments, bounded persistence и поддерживаемость на целевой версии Unreal.
@@ -302,24 +308,36 @@ Exit criteria: форма edit, корректность collision, стабил
 
 Не удалять `VoxelPluginInstaller` до завершения эксперимента и решения по dependency policy.
 
-## Decision record
+## Decision record после architecture research
 
-Принято:
+Принятые рабочие решения:
 
-- сохранить Dynamic Mesh prototype в простой рабочей конфигурации Boolean + island removal;
-- не возвращать отклонённые global remesh и local smoothing chains;
-- сохранить full-body camera/trace/UI interaction layer;
-- ограничить изменяемую землю отдельными Dig Sites;
-- следующим проверить Voxel Plugin Free Legacy в `L_VoxelDigTest`;
-- держать custom chunked density field как Plan B;
-- отложить окончательную упаковку плагина и repository cleanup до результата архитектурного эксперимента.
+- основное направление — bounded volumetric/density Dig Sites внутри обычного Unreal world;
+- для всех пяти биомов предпочтительна одна базовая terrain architecture;
+- различия грунта задаются data-driven Soil Types, material data и специализированными behavior modules, а не отдельными terrain backends;
+- bulk terrain остаётся единым; sand, frozen и rock behavior добавляются отдельными modules;
+- первым biome-specific behavior после обычного cohesive soil проверяется sand relaxation;
+- следующий prototype — **VoxelFree Basic Dig** в `/Game/DiggingPrototype/Voxel/L_VoxelDigTest`;
+- Voxel Plugin Free Legacy пока является только prototype backend, а не production dependency;
+- gameplay не должен напрямую зависеть от VoxelFree API;
+- обязательная граница слоёв: `Gameplay → Dig/Terrain abstraction → concrete terrain backend`;
+- production fallback — собственный bounded chunked density field;
+- первый кандидат mesher для custom prototype — Marching Cubes;
+- artifacts хранятся отдельными Unreal Actors / Registry, а не внутри voxel material field;
+- окончательную упаковку VoxelFree и repository cleanup отложить до решения по backend.
+
+Research recommendations / prototype targets, **не утверждённые production constants**:
+
+- первый production-oriented benchmark: Dig Site `5 × 5 × 3 m` при resolution `10 cm`;
+- `15 cm` проверить как performance alternative;
+- `20–25 cm` не считать основным quality target без отдельного визуального и gameplay-теста;
+- первый кандидат chunk size для custom backend — `16³` cells.
 
 Не решено:
 
 - production terrain backend;
-- voxel resolution и chunk size;
+- окончательные voxel resolution и chunk size;
 - async meshing/collision strategy;
 - правила floating fragments;
-- представление soil layers и artifacts;
 - save-game format для изменённых Dig Sites;
 - финальная VoxelFree dependency policy.

@@ -2,6 +2,8 @@
 
 > **Checkpoint 2026-09-11:** этот файл сохраняет подробную историю ранних ISM и Dynamic Mesh прототипов. Текущее архитектурное решение, проверенные defaults assets, отклонённые remesh/smoothing эксперименты и план проверки VoxelFree находятся в [`../DiggingArchitecture.md`](../DiggingArchitecture.md). При расхождениях актуальным считается architecture checkpoint.
 
+Полный terrain architecture research от 2026-09-12 вынесен в [`../Research/DiggingTerrainArchitecture.md`](../Research/DiggingTerrainArchitecture.md); актуальные принятые решения остаются в `DiggingArchitecture.md`.
+
 Текущее направление: сохранить `BP_DiggableGround_Smooth` как рабочий reference, не усложнять его realtime Boolean-cleanup chain и проверить ограниченный voxel `Dig Site` в `/Game/DiggingPrototype/Voxel/L_VoxelDigTest`.
 
 Основная часть документа ниже — **historical snapshot этапа DiggingFeature / Dynamic Mesh**, сложившегося около документационного milestone `6fa2aea0a1ff09dedb6e2cb6e60ad02d90087b88` (`add readme`) и последующего first-person/cutter этапа. Формулировки «текущий» внутри historical sections относятся к тому этапу, а не к актуальному production-направлению проекта. Тестовый контур этого этапа находится в `/Game/DiggingPrototype/DiggingFeature`.

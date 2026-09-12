@@ -7,5 +7,6 @@
 Документация:
 
 - [Текущая архитектура копания и checkpoint](Docs/DiggingArchitecture.md)
+- [Исследование terrain architecture, биомов, voxel/density backends и roadmap прототипов](Docs/Research/DiggingTerrainArchitecture.md)
 - [Подробная история digging-прототипа](Docs/DiggingFeature/README.md)
 - [Краткий контекст для AI-ассистентов](Docs/DiggingFeature/AI_CONTEXT.md)
