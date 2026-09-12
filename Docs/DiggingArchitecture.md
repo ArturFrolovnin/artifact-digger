@@ -1,8 +1,8 @@
 # ArcheoDig — checkpoint архитектуры копания
 
-Дата checkpoint: **2026-09-11**
+Дата checkpoint: **2026-09-12**
 
-Проверенный HEAD до правок документации: `46371c4` (`add voxel`)
+Проверенный HEAD до checkpoint этой сессии: `4f999557bb0db4e1cac10f7948865fbe3b60801c` (`add research and test level voxel`)
 
 Проект: Unreal Engine **5.8**
 
@@ -12,15 +12,18 @@ Architecture research update: **2026-09-12**
 
 ## Краткий статус
 
-В проекте сохранены три полезных этапа разработки:
+В проекте сохранены четыре полезных этапа разработки:
 
 1. ранний ручной voxel / Instanced Static Mesh эталон;
 2. рабочий Geometry Script / Dynamic Mesh Boolean прототип;
-3. установленный Voxel Plugin Free Legacy и пустой тестовый уровень для следующего эксперимента.
+3. первый Voxel Plugin Free Legacy baseline в `L_VoxelDigTest`;
+4. отдельный `Voxel_2` prototype с работающими `TrimSphere` и surface-edit brushes.
 
 Dynamic Mesh версия подтверждает работу interaction loop, full-body first person, проекции материала и обновления collision во время игры. Однако повторные Boolean Subtract постепенно ухудшают topology. Global remesh и local smoothing были проверены и отклонены для realtime.
 
-Текущее решение: **заморозить Dynamic Mesh ветку как рабочий checkpoint и развивать bounded volumetric/density Dig Sites через собственную abstraction boundary**. Следующий prototype использует Voxel Plugin Free Legacy, но VoxelFree пока не выбран production backend. Production fallback — собственный bounded chunked density field.
+Текущее решение: **Dynamic Mesh ветка заморожена как рабочий checkpoint; bounded volumetric/density Dig Sites развиваются через собственную abstraction boundary**. VoxelFree prototype подтвердил runtime terrain edits. `TryVoxelSurfaceDig2` сейчас является предпочтительным из проверенных brush-кандидатов, но VoxelFree по-прежнему не выбран production backend. Production fallback — собственный bounded chunked density field.
+
+Полный checkpoint текущих assets, точных параметров и наблюдений: [Voxel Surface Prototype — 2026-09-12](DiggingFeature/Checkpoints/2026-09-12_VoxelSurfacePrototype.md).
 
 Полное обоснование, сравнение backends, модель пяти биомов, расчёты resolution/chunks и roadmap экспериментов находятся в [исследовании terrain architecture](Research/DiggingTerrainArchitecture.md). Здесь сохранены только принятые после него рабочие решения.
 
@@ -49,7 +52,13 @@ Content/DiggingPrototype/
 │   ├── L_DiggingFeature.umap
 │   └── newLevel_Digging.umap
 └── Voxel/
-    └── L_VoxelDigTest.umap
+    ├── BP_VoxelDigPlayer.uasset
+    ├── L_VoxelDigTest.umap
+    └── Voxel_2/
+        ├── Blueprints/BP_VoxelDigGameMode2.uasset
+        ├── Blueprints/BP_VoxelDigPlayer2.uasset
+        ├── Materials/M_VoxelGround_Prototype.uasset
+        └── L_VoxelDig2.umap
 
 Plugins/
 ├── Marketplace/VoxelPluginInstaller/
@@ -252,13 +261,18 @@ camera trace
 
 ## Эксперимент Voxel Plugin Free Legacy
 
-### Проверенное состояние
+### Проверенное состояние на 2026-09-12
 
 - `Plugins/VoxelFree` присутствует; Unreal показывает `VoxelFree` включённым и mounted по пути `/Voxel/`.
 - Плагин идентифицируется как **Voxel Plugin Free Legacy** и содержит runtime/editor modules и example content.
 - `Plugins/Marketplace/VoxelPluginInstaller` тоже присутствует и включён. Сохранить его до завершения эксперимента.
-- `/Game/DiggingPrototype/Voxel/L_VoxelDigTest` существует.
-- Проверенный уровень пока не зависит от content `/Voxel/`. Voxel World и digging logic **ещё не добавлены**.
+- `/Game/DiggingPrototype/Voxel/L_VoxelDigTest` и `BP_VoxelDigPlayer` сохранены как первый VoxelFree baseline.
+- Текущий изолированный prototype находится в `/Game/DiggingPrototype/Voxel/Voxel_2/L_VoxelDig2`.
+- В `L_VoxelDig2` есть автоматически создаваемый `VoxelWorld` с `Voxel Size = 10 cm`, `World Size In Voxel = 64`, `VoxelFlatGenerator`, `RGB` material config и `Marching Cubes` render type.
+- `BP_VoxelDigPlayer2` содержит работающие TrimSphere и Surface Edit варианты. LMB сейчас вызывает `TryVoxelSurfaceDig2`.
+- Из проверенных вариантов Surface Edit субъективно лучше соединяет соседние edits и меньше похож на последовательность сферических stamps. Это предпочтительный prototype candidate, а не production-решение.
+- Полные graph parameters, разделение verified state/observations и unresolved issues записаны в [checkpoint 2026-09-12](DiggingFeature/Checkpoints/2026-09-12_VoxelSurfacePrototype.md).
+- `M_VoxelGround_Prototype` назначен Voxel World, но сохранённый material graph пуст: expression nodes отсутствуют, `Base Color` не подключён. Height-based grass/dirt blend ещё не реализован и не подтверждён.
 - Project logs подтверждают compile/load модулей Voxel под UE 5.8.
 
 Legacy и актуальное поколения Voxel Plugin архитектурно различаются. Официальная legacy-документация описывает `AVoxelWorld` как контейнер voxel data и render mesh; migration guide объясняет другой manager/stamp подход Voxel Plugin 2. Первый эксперимент должен явно использовать установленный Legacy API: [Legacy Voxel World](https://docs.voxelplugin.com/1.2/core-systems/voxelworld/) и [migration notes](https://docs.voxelplugin.com/getting-started/migrating-from-legacy).
@@ -276,7 +290,9 @@ VoxelDataAssetEditorToolkit.cpp:123
 
 Это не доказывает поломку runtime terrain editing, но является конкретным риском стабильности редактора.
 
-### Checklist следующего эксперимента
+### Historical checklist перед первым VoxelFree edit
+
+> Этот список сохранён как план до реализации `Voxel_2`. Он больше не является текущим TODO: первые runtime edits, trace и сравнение brush variants уже выполнены. Актуальный следующий шаг приведён в конце [checkpoint 2026-09-12](DiggingFeature/Checkpoints/2026-09-12_VoxelSurfacePrototype.md).
 
 - [ ] Добавить маленький Voxel World в `L_VoxelDigTest`.
 - [ ] Проверить один runtime spherical/ellipsoidal dig edit.
@@ -317,7 +333,7 @@ Exit criteria: форма edit, корректность collision, стабил
 - различия грунта задаются data-driven Soil Types, material data и специализированными behavior modules, а не отдельными terrain backends;
 - bulk terrain остаётся единым; sand, frozen и rock behavior добавляются отдельными modules;
 - первым biome-specific behavior после обычного cohesive soil проверяется sand relaxation;
-- следующий prototype — **VoxelFree Basic Dig** в `/Game/DiggingPrototype/Voxel/L_VoxelDigTest`;
+- текущий prototype — **Voxel Surface Dig** в `/Game/DiggingPrototype/Voxel/Voxel_2/L_VoxelDig2`; следующий непосредственный шаг — завершить и проверить минимальный ground material, затем провести controlled benchmark Surface Edit;
 - Voxel Plugin Free Legacy пока является только prototype backend, а не production dependency;
 - gameplay не должен напрямую зависеть от VoxelFree API;
 - обязательная граница слоёв: `Gameplay → Dig/Terrain abstraction → concrete terrain backend`;

@@ -5,14 +5,16 @@ Purpose: compact, persistent context for assistants continuing the digging work.
 ## Snapshot
 
 - Architecture research completed: `2026-09-12`.
-- Previous asset checkpoint: `2026-09-11`, HEAD `46371c4` (`add voxel`).
+- Previous repository checkpoint before this session: `4f99955` (`add research and test level voxel`).
 - Project: ArcheoDig / artifact-digger, Unreal Engine `5.8`.
 - Current direction: one bounded volumetric/density Dig Site architecture for all five biomes, varied through Soil Types, material data and behavior modules.
 - Dynamic Mesh is a frozen interaction/visual reference, not the production terrain direction.
-- Next stage: **VoxelFree Basic Dig** in `/Game/DiggingPrototype/Voxel/L_VoxelDigTest`.
+- Current prototype: **Voxel Surface Dig** in `/Game/DiggingPrototype/Voxel/Voxel_2/L_VoxelDig2`.
 - Installed experiment dependency: Voxel Plugin Free Legacy in `Plugins/VoxelFree`.
 - VoxelFree is a prototype backend only until benchmarks pass; do not treat it as the production dependency.
-- At the 2026-09-11 asset checkpoint the plugin loaded, but the test map did not yet contain verified Voxel digging logic.
+- Full verified asset state and observed results: [`Checkpoints/2026-09-12_VoxelSurfacePrototype.md`](Checkpoints/2026-09-12_VoxelSurfacePrototype.md).
+- The original `/Game/DiggingPrototype/Voxel/L_VoxelDigTest` and `BP_VoxelDigPlayer` are preserved as the earlier VoxelFree baseline.
+- In the current `Voxel_2` branch, LMB calls `TryVoxelSurfaceDig2`; `RemoveSphere` and `TrimSphere` remain reference experiments.
 
 ## Do not confuse these assets
 
@@ -134,9 +136,11 @@ Research recommendations / prototype targets, not final production constants:
 
 Use one bulk terrain architecture for all five biomes. Implement sand/frozen/rock differences through behavior modules. After cohesive soil, test sand relaxation first. Store artifacts as separate Unreal Actors / Registry, not in the voxel material field.
 
-## Immediate next stage: VoxelFree Basic Dig
+## Immediate next stage: material baseline, then brush benchmark
 
-Work in `/Game/DiggingPrototype/Voxel/L_VoxelDigTest` through the project-owned Dig/Terrain abstraction. Establish a small bounded world, perform a runtime dig, verify edit shape/collision and then run the `5 × 5 × 3 m @ 10 cm` production-oriented benchmark. Follow the experiment sequence and PASS/FAIL criteria in the full [research report](../Research/DiggingTerrainArchitecture.md); do not duplicate that roadmap here.
+In `/Game/DiggingPrototype/Voxel/Voxel_2/Materials/M_VoxelGround_Prototype`, build and save the intended minimal height-based grass/dirt material and verify the result in `/Game/DiggingPrototype/Voxel/Voxel_2/L_VoxelDig2`. The persisted material currently has no expression nodes and Base Color is disconnected, even though the asset is assigned to `VoxelDigSite2`.
+
+After the material baseline is visually verified, benchmark `TryVoxelSurfaceDig2` through the project-owned Dig/Terrain abstraction: repeated edits, collision, wall/tunnel cases, floating fragments and hitch/frame impact. Follow the experiment sequence and PASS/FAIL criteria in the full [research report](../Research/DiggingTerrainArchitecture.md); do not duplicate that roadmap here.
 
 ## VoxelFree risks and Git hygiene
 
@@ -154,6 +158,6 @@ Work in `/Game/DiggingPrototype/Voxel/L_VoxelDigTest` through the project-owned 
 - Preserve the Dynamic Mesh prototype and early voxel references unless explicitly asked to remove them.
 - Keep failed-experiment results in documentation even though their nodes were removed.
 - Distinguish verified asset state from prototype observations and research hypotheses.
-- Do not infer the live Voxel prototype state from this research document; inspect current Unreal assets first. The last verified asset checkpoint on 2026-09-11 contained only the plugin and test level.
+- Do not infer the live Voxel prototype state from the research document; inspect current Unreal assets and the latest checkpoint first.
 - Never bypass `Gameplay → Dig/Terrain abstraction → concrete terrain backend` by coupling player/gameplay code directly to VoxelFree when the dependency can be isolated.
 - After any Unreal edit, compile/save the touched asset and report exact paths and remaining warnings.
