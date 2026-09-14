@@ -4,6 +4,8 @@
 
 Полный terrain architecture research от 2026-09-12 вынесен в [`../Research/DiggingTerrainArchitecture.md`](../Research/DiggingTerrainArchitecture.md); актуальные принятые решения остаются в `DiggingArchitecture.md`.
 
+**Обновление 2026-09-14:** [Voxel Ground Material + Lighting Prototype](Checkpoints/2026-09-14_VoxelGroundMaterialLighting.md) фиксирует текущие Grass/Dirt material, lighting, расхождения проверенных параметров и ближайший этап Dirt Roughness. Checkpoint от 12 сентября ниже остаётся историей brush-прототипа; описание пустого материала относится к тому дню.
+
 Текущее состояние: Dynamic Mesh сохранён как frozen/reference checkpoint; активный VoxelFree-эксперимент находится в `/Game/DiggingPrototype/Voxel/Voxel_2/L_VoxelDig2`. Из проверенных voxel brushes предпочтительным кандидатом сейчас является `TryVoxelSurfaceDig2`, но это результат прототипа, а не production-решение.
 
 Основная часть документа ниже — **historical snapshot этапа DiggingFeature / Dynamic Mesh**, сложившегося около документационного milestone `6fa2aea0a1ff09dedb6e2cb6e60ad02d90087b88` (`add readme`) и последующего first-person/cutter этапа. Формулировки «текущий» внутри historical sections относятся к тому этапу, а не к актуальному production-направлению проекта. Тестовый контур этого этапа находится в `/Game/DiggingPrototype/DiggingFeature`.

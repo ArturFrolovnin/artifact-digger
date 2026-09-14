@@ -8,6 +8,8 @@
 
 Architecture research update: **2026-09-12**
 
+Material/lighting update: **2026-09-14**, HEAD `81a2912`. [Новый checkpoint](DiggingFeature/Checkpoints/2026-09-14_VoxelGroundMaterialLighting.md) фиксирует world-aligned Grass/Dirt graph и lighting открытого `L_VoxelDig2` (уровень dirty). Архитектурные решения и benchmark targets не изменены. Ближайшая работа — Dirt Roughness, затем normal/grass parameters и material workflow.
+
 Это основной актуальный документ по архитектуре копания. В нём факты, проверенные по репозиторию и Unreal assets, отделены от наблюдений прототипирования и проектных гипотез, которые ещё нужно проверить.
 
 ## Краткий статус
@@ -23,7 +25,7 @@ Dynamic Mesh версия подтверждает работу interaction loop
 
 Текущее решение: **Dynamic Mesh ветка заморожена как рабочий checkpoint; bounded volumetric/density Dig Sites развиваются через собственную abstraction boundary**. VoxelFree prototype подтвердил runtime terrain edits. `TryVoxelSurfaceDig2` сейчас является предпочтительным из проверенных brush-кандидатов, но VoxelFree по-прежнему не выбран production backend. Production fallback — собственный bounded chunked density field.
 
-Полный checkpoint текущих assets, точных параметров и наблюдений: [Voxel Surface Prototype — 2026-09-12](DiggingFeature/Checkpoints/2026-09-12_VoxelSurfacePrototype.md).
+Исторический checkpoint brush assets, точных параметров и наблюдений: [Voxel Surface Prototype — 2026-09-12](DiggingFeature/Checkpoints/2026-09-12_VoxelSurfacePrototype.md). Актуальный material/lighting snapshot — по ссылке на 2026-09-14 выше.
 
 Полное обоснование, сравнение backends, модель пяти биомов, расчёты resolution/chunks и roadmap экспериментов находятся в [исследовании terrain architecture](Research/DiggingTerrainArchitecture.md). Здесь сохранены только принятые после него рабочие решения.
 
@@ -263,6 +265,8 @@ camera trace
 
 ### Проверенное состояние на 2026-09-12
 
+> Historical asset snapshot: `10 cm / 64` и пустой material graph ниже относятся к 12 сентября. На 14 сентября в открытом Editor world стоят `5 cm / 256`, материал содержит Grass/Dirt graph и Normal; освещение настроено. Подробности и ограничения проверки сохранения — в новом checkpoint. Gameplay graph в documentation task 14 сентября повторно не валидировался.
+
 - `Plugins/VoxelFree` присутствует; Unreal показывает `VoxelFree` включённым и mounted по пути `/Voxel/`.
 - Плагин идентифицируется как **Voxel Plugin Free Legacy** и содержит runtime/editor modules и example content.
 - `Plugins/Marketplace/VoxelPluginInstaller` тоже присутствует и включён. Сохранить его до завершения эксперимента.
@@ -333,7 +337,7 @@ Exit criteria: форма edit, корректность collision, стабил
 - различия грунта задаются data-driven Soil Types, material data и специализированными behavior modules, а не отдельными terrain backends;
 - bulk terrain остаётся единым; sand, frozen и rock behavior добавляются отдельными modules;
 - первым biome-specific behavior после обычного cohesive soil проверяется sand relaxation;
-- текущий prototype — **Voxel Surface Dig** в `/Game/DiggingPrototype/Voxel/Voxel_2/L_VoxelDig2`; следующий непосредственный шаг — завершить и проверить минимальный ground material, затем провести controlled benchmark Surface Edit;
+- текущий prototype — **Voxel Surface Dig** в `/Game/DiggingPrototype/Voxel/Voxel_2/L_VoxelDig2`; material/lighting baseline развивается по checkpoint 2026-09-14, ближайший шаг — world-aligned Dirt Roughness; controlled benchmark Surface Edit остаётся в research roadmap;
 - Voxel Plugin Free Legacy пока является только prototype backend, а не production dependency;
 - gameplay не должен напрямую зависеть от VoxelFree API;
 - обязательная граница слоёв: `Gameplay → Dig/Terrain abstraction → concrete terrain backend`;
