@@ -5,17 +5,19 @@ Purpose: compact, persistent context for assistants continuing the digging work.
 ## Snapshot
 
 - Architecture research completed: `2026-09-12`.
-- Repository HEAD for the 2026-09-14 documentation update: `81a2912` (`voxel surface digging prototype checkpoint`).
+- Current verified HEAD: `a1bc1a1` (`I added training scripts in C++.`), 2026-09-22.
 - Project: ArcheoDig / artifact-digger, Unreal Engine `5.8`.
 - Current direction: one bounded volumetric/density Dig Site architecture for all five biomes, varied through Soil Types, material data and behavior modules.
 - Dynamic Mesh is a frozen interaction/visual reference, not the production terrain direction.
 - Current prototype: **Voxel Surface Dig** in `/Game/DiggingPrototype/Voxel/Voxel_2/L_VoxelDig2`.
 - Installed experiment dependency: Voxel Plugin Free Legacy in `Plugins/VoxelFree`.
 - VoxelFree is a prototype backend only until benchmarks pass; do not treat it as the production dependency.
-- Latest material/lighting state: [`Checkpoints/2026-09-14_VoxelGroundMaterialLighting.md`](Checkpoints/2026-09-14_VoxelGroundMaterialLighting.md). Previous brush state: [`Checkpoints/2026-09-12_VoxelSurfacePrototype.md`](Checkpoints/2026-09-12_VoxelSurfacePrototype.md).
+- Latest project checkpoint: [`Checkpoints/2026-09-22_CPPWorkflowAndDiggingMigration.md`](Checkpoints/2026-09-22_CPPWorkflowAndDiggingMigration.md). Earlier material/lighting state: [`Checkpoints/2026-09-14_VoxelGroundMaterialLighting.md`](Checkpoints/2026-09-14_VoxelGroundMaterialLighting.md); brush state: [`Checkpoints/2026-09-12_VoxelSurfacePrototype.md`](Checkpoints/2026-09-12_VoxelSurfacePrototype.md).
 - On 2026-09-14 the material was saved, but the loaded level was dirty. Current Editor world settings: voxel size `5 cm`, world size `256`; these are experimental values, not revised production or benchmark targets.
 - The original `/Game/DiggingPrototype/Voxel/L_VoxelDigTest` and `BP_VoxelDigPlayer` are preserved as the earlier VoxelFree baseline.
 - In the current `Voxel_2` branch, LMB calls `TryVoxelSurfaceDig2`; `RemoveSphere` and `TrimSphere` remain reference experiments.
+- Runtime C++ module `ArcheoDig` now exists. `MyActorComponent` is learning-only; `DiggingComponent.ProcessDigging()` is Blueprint-callable but currently only displays a test message. Real digging logic has not been migrated.
+- Commit `c00dd30` contains the material hotfix. Session-observed result: orientation uses `VertexNormalWS`, Base Color and Normal use the same Grass/Dirt mask, material compiles and wall transition is cleaner. The older 2026-09-14 wiring remains historical.
 
 ## Do not confuse these assets
 
@@ -137,21 +139,29 @@ Research recommendations / prototype targets, not final production constants:
 
 Use one bulk terrain architecture for all five biomes. Implement sand/frozen/rock differences through behavior modules. After cohesive soil, test sand relaxation first. Store artifacts as separate Unreal Actors / Registry, not in the voxel material field.
 
-## Immediate next stage: Dirt Roughness
+## C++ migration and immediate next stage
 
-`M_VoxelGround_Prototype` now contains world-aligned Grass/Dirt Base Color, tint, height/orientation mask and a world-space normal chain. Verified values: `GrassTint #A4B896`, `DirtTint #C2A189`, `SurfaceZ 0`, `GrassDepth 6`, `BlendWidth 2`, exponent `4`, `DirtTextureSize 180`, Tangent Space Normal disabled. These are visual prototype values.
+Strategy: heavy terrain/gameplay logic in C++; Blueprint for orchestration, events/input, VFX/SFX/animation, assets/config and coarse calls. Avoid repeated Blueprint ↔ C++ crossings inside heavy loops. One Blueprint call to a substantial `ProcessDigging()` operation per frame is not the primary performance concern.
 
-Next: inspect Dirt ORM and begin world-aligned Dirt Roughness using the same texture size. Roughness has no expression connected; old `0.9` is only a reported historical value, not verified current fallback. Height is imported but unused. Normal Lerp Alpha currently receives tinted Dirt Base Color, not the shared mask: verify this discrepancy before Normal Strength work; do not silently document the intended wiring as implemented.
+Immediate proof:
 
-Lighting in the loaded level: sun rotation X/Y/Z `0/-45/-45`, intensity `25`, temperature `5200 K`, source angle `2`, soft angle `0`, shadow amount `0.75`; SkyLight intensity `3`, real-time capture on; unbound PPV with EV100 `3/3`, compensation `1.1`, Lumen diffuse boost `1.3`, leaking `0.005`. Level save status and visual result require confirmation. Do not increase ambient light indefinitely: deep shafts should eventually require player lights.
+```text
+/Game/DiggingPrototype/BP_DiggableGround
+Event Tick
+→ Process Digging [C++]
+```
 
-Art direction: semi-stylized PBR / stylized realism, primarily A Game About Digging A Hole; secondary references Hydroneer, Palworld, a little 7 Days to Die. Use free prototype assets, moderate detail and readable digging at gameplay distance. Material/lighting priorities are in the latest checkpoint; the existing [research benchmark roadmap](../Research/DiggingTerrainArchitecture.md) remains unchanged.
+Add/verify the `DiggingComponent` instance and confirm the test node call. Then migrate only the first camera/trace block: Player Camera Manager, location, rotation, forward vector, Line Trace By Channel. Do not move the entire graph at once.
+
+Later migrate range/hit validation, interval and terrain operation; compare Blueprint Tick with C++ scheduling. Prefer timer/event-driven processing once behavior is understood. After the bridge, the main gameplay priority is shared terrain-fragment cleanup. Then compare additional digging methods behind a common C++ abstraction before selecting benchmark candidates.
+
+Material/lighting is now a sufficient gameplay/backend test baseline. Keep `DirtTint #C2A189`, `DirtTextureSize ≈ 180`, world-aligned Grass/Dirt, Dirt Normal and current lighting as working prototype state. Dirt Roughness and further art polish are deferred.
 
 ## Unreal teaching workflow — project standard
 
-The user is learning Unreal Engine. Apply these rules when guiding hands-on Editor work; an autonomous documentation task does not require stopping after every read-only check.
+The user learns Unreal Engine and C++ through this project. Previous experience: C#/Unity; current primary experience: JS/Vue; little prior C++. Apply these rules during hands-on work; autonomous documentation/read-only checks do not require staged confirmation.
 
-1. Work in small iterations: about **3 new nodes and 5–6 concrete actions per reply**. Slightly more actions are acceptable when reusing existing nodes. Do not deliver 20–50 future actions at once.
+1. Work in small iterations: usually **2–4 concrete actions**, with no more than about 3 new Blueprint nodes. Do not deliver a huge graph or hundreds of lines at once.
 2. Use real Unreal node names. Do not invent names such as “Dirt WorldAlignedTexture”. Identify repeated nodes by position, connected texture or neighbours: “верхняя нода WorldAlignedTexture, в которую подключён коричневый Texture Object”.
 3. Describe connections literally: “Найди ноду WorldAlignedTexture, в которую подключён коричневый Texture Object. Возьми выходной пин XYZ Texture. Подключи его во входной пин A ноды Multiply.” Avoid ambiguous shorthand in teaching instructions.
 4. Before an action, explain what the Actor/node/parameter is, what it controls and why it is needed now. For Directional Light, explain sunlight, Pitch/height/shadow length and Yaw/direction before giving values.
@@ -161,6 +171,8 @@ The user is learning Unreal Engine. Apply these rules when guiding hands-on Edit
 8. After each small hands-on stage, stop and ask for a screenshot, result or confirmation; continue after checking it. This prevents version/UI differences from invalidating a long instruction chain.
 9. If actual node pins or Details parameters are unknown, ask for a screenshot of that node/panel; never invent available controls.
 10. Preserve future corrections to this teaching style in project documentation. When the user says the format is ideal, treat it as the continuing project standard.
+11. For a small C++ class, prefer a complete short `.h`/`.cpp` example over disconnected fragments. Explain new C++ constructs as they appear. Russian comments are welcome in learning code for orientation.
+12. The user prefers text code to very large Blueprint graphs. Default heavy logic to C++; use Blueprint for orchestration/content/config.
 
 ## VoxelFree risks and Git hygiene
 
@@ -181,3 +193,5 @@ The user is learning Unreal Engine. Apply these rules when guiding hands-on Edit
 - Do not infer the live Voxel prototype state from the research document; inspect current Unreal assets and the latest checkpoint first.
 - Never bypass `Gameplay → Dig/Terrain abstraction → concrete terrain backend` by coupling player/gameplay code directly to VoxelFree when the dependency can be isolated.
 - After any Unreal edit, compile/save the touched asset and report exact paths and remaining warnings.
+- Do not describe `BP_DiggableGround` as migrated to C++; verify each bridge and transferred block first.
+- Terrain fragment cleanup is the main gameplay priority after the basic C++ bridge. Material polish is deferred.

@@ -1,5 +1,7 @@
 # Voxel Ground Material + Lighting Prototype — checkpoint 2026-09-14
 
+> **Historical snapshot:** material wiring below records the state before hotfix `c00dd30` from 2026-09-22. The later `VertexNormalWS` orientation mask, shared Base Color/Normal mask and C++ workflow are documented in [C++ Workflow and Digging Migration — 2026-09-22](2026-09-22_CPPWorkflowAndDiggingMigration.md). Остальной текст этого checkpoint сохранён без ретроспективного переписывания.
+
 Проект: Artifact Digger / ArcheoDig, Unreal Engine 5.8.
 
 HEAD при проверке: `81a291237a1e96135067f050a1c6258d81e06210` — `voxel surface digging prototype checkpoint`.

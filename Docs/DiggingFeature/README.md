@@ -2,9 +2,13 @@
 
 > **Checkpoint 2026-09-12:** этот файл сохраняет подробную историю ранних ISM и Dynamic Mesh прототипов. Актуальное состояние VoxelFree-прототипа зафиксировано в [`Checkpoints/2026-09-12_VoxelSurfacePrototype.md`](Checkpoints/2026-09-12_VoxelSurfacePrototype.md), а authoritative архитектурные решения — в [`../DiggingArchitecture.md`](../DiggingArchitecture.md). При расхождениях актуальным считается architecture checkpoint.
 
+> **Обновление 2026-09-22:** material hotfix и первый переход проекта на C++ задокументированы в [`Checkpoints/2026-09-22_CPPWorkflowAndDiggingMigration.md`](Checkpoints/2026-09-22_CPPWorkflowAndDiggingMigration.md). `MyActorComponent` остаётся учебным bridge; `DiggingComponent` пока содержит test call, а реальная digging logic ещё не перенесена. Следующий gameplay priority после базовой migration — terrain fragment cleanup.
+
 Полный terrain architecture research от 2026-09-12 вынесен в [`../Research/DiggingTerrainArchitecture.md`](../Research/DiggingTerrainArchitecture.md); актуальные принятые решения остаются в `DiggingArchitecture.md`.
 
 **Обновление 2026-09-14:** [Voxel Ground Material + Lighting Prototype](Checkpoints/2026-09-14_VoxelGroundMaterialLighting.md) фиксирует текущие Grass/Dirt material, lighting, расхождения проверенных параметров и ближайший этап Dirt Roughness. Checkpoint от 12 сентября ниже остаётся историей brush-прототипа; описание пустого материала относится к тому дню.
+
+Material checkpoint 14 сентября остаётся historical snapshot до hotfix `c00dd30`: 22 сентября orientation mask переведена с `PixelNormalWS` на `VertexNormalWS`, а Normal blend по наблюдению сессии получил ту же итоговую Grass/Dirt mask, что Base Color. Подробности и границы подтверждения binary graph находятся в checkpoint 22 сентября.
 
 Текущее состояние: Dynamic Mesh сохранён как frozen/reference checkpoint; активный VoxelFree-эксперимент находится в `/Game/DiggingPrototype/Voxel/Voxel_2/L_VoxelDig2`. Из проверенных voxel brushes предпочтительным кандидатом сейчас является `TryVoxelSurfaceDig2`, но это результат прототипа, а не production-решение.
 
