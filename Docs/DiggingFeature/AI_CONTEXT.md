@@ -5,18 +5,20 @@ Purpose: compact, persistent context for assistants continuing the digging work.
 ## Snapshot
 
 - Architecture research completed: `2026-09-12`.
-- Current verified HEAD: `a1bc1a1` (`I added training scripts in C++.`), 2026-09-22.
+- Current verified HEAD: `a668940` (`add c++ voxel digging tests and floating fragment cleanup`), 2026-09-23.
 - Project: ArcheoDig / artifact-digger, Unreal Engine `5.8`.
 - Current direction: one bounded volumetric/density Dig Site architecture for all five biomes, varied through Soil Types, material data and behavior modules.
 - Dynamic Mesh is a frozen interaction/visual reference, not the production terrain direction.
 - Current prototype: **Voxel Surface Dig** in `/Game/DiggingPrototype/Voxel/Voxel_2/L_VoxelDig2`.
 - Installed experiment dependency: Voxel Plugin Free Legacy in `Plugins/VoxelFree`.
 - VoxelFree is a prototype backend only until benchmarks pass; do not treat it as the production dependency.
-- Latest project checkpoint: [`Checkpoints/2026-09-22_CPPWorkflowAndDiggingMigration.md`](Checkpoints/2026-09-22_CPPWorkflowAndDiggingMigration.md). Earlier material/lighting state: [`Checkpoints/2026-09-14_VoxelGroundMaterialLighting.md`](Checkpoints/2026-09-14_VoxelGroundMaterialLighting.md); brush state: [`Checkpoints/2026-09-12_VoxelSurfacePrototype.md`](Checkpoints/2026-09-12_VoxelSurfacePrototype.md).
+- Latest project checkpoint: [`Checkpoints/2026-09-23_CPPVoxelDiggingAndFragmentCleanup.md`](Checkpoints/2026-09-23_CPPVoxelDiggingAndFragmentCleanup.md). Previous C++ migration snapshot: [`Checkpoints/2026-09-22_CPPWorkflowAndDiggingMigration.md`](Checkpoints/2026-09-22_CPPWorkflowAndDiggingMigration.md).
 - On 2026-09-14 the material was saved, but the loaded level was dirty. Current Editor world settings: voxel size `5 cm`, world size `256`; these are experimental values, not revised production or benchmark targets.
 - The original `/Game/DiggingPrototype/Voxel/L_VoxelDigTest` and `BP_VoxelDigPlayer` are preserved as the earlier VoxelFree baseline.
-- In the current `Voxel_2` branch, LMB calls `TryVoxelSurfaceDig2`; `RemoveSphere` and `TrimSphere` remain reference experiments.
-- Runtime C++ module `ArcheoDig` now exists. `MyActorComponent` is learning-only; `DiggingComponent.ProcessDigging()` is Blueprint-callable but currently only displays a test message. Real digging logic has not been migrated.
+- In the current session the large Blueprint surface graph was replaced by the `Try Surface Dig C++` node and verified in PIE. Exact Blueprint wiring is an observed binary-asset fact; inspect the asset before editing it.
+- Runtime C++ module `ArcheoDig` depends on `Voxel`. `MyActorComponent` remains learning-only. `DiggingComponent.ProcessDigging()` now implements the old ISM digging loop: input, interval, camera trace, reach/hit validation and batch removal of `SoilBlocks` instances.
+- `VoxelDigTestLibrary` paths: `Source/ArcheoDig/Public/voxelTests/VoxelDigTestLibrary.h` and `Private/voxelTests/VoxelDigTestLibrary.cpp`. It exposes six C++ Blueprint nodes; one `UBlueprintFunctionLibrary` can expose many nodes.
+- `TriggerLightActor` under `Public/Private/testLightCube` is a learning experiment demonstrating C++ implementation plus Blueprint child/prefab configuration, not a production subsystem.
 - Commit `c00dd30` contains the material hotfix. Session-observed result: orientation uses `VertexNormalWS`, Base Color and Normal use the same Grass/Dirt mask, material compiles and wall transition is cleaner. The older 2026-09-14 wiring remains historical.
 
 ## Do not confuse these assets
@@ -139,23 +141,35 @@ Research recommendations / prototype targets, not final production constants:
 
 Use one bulk terrain architecture for all five biomes. Implement sand/frozen/rock differences through behavior modules. After cohesive soil, test sand relaxation first. Store artifacts as separate Unreal Actors / Registry, not in the voxel material field.
 
-## C++ migration and immediate next stage
+## Current C++ digging state
 
-Strategy: heavy terrain/gameplay logic in C++; Blueprint for orchestration, events/input, VFX/SFX/animation, assets/config and coarse calls. Avoid repeated Blueprint ↔ C++ crossings inside heavy loops. One Blueprint call to a substantial `ProcessDigging()` operation per frame is not the primary performance concern.
+Strategy: heavy terrain/gameplay logic in C++; Blueprint for orchestration, events/input, VFX/SFX/animation, assets/config and coarse calls. Avoid repeated Blueprint ↔ C++ crossings inside heavy loops.
 
-Immediate proof:
+`DiggingComponent` is no longer a stub. Verified defaults: `DigRadius 65`, `DigInterval 0.25`, `DigReach 350`, `TraceDistance 800`, `bDrawDebug true`. It performs the complete ISM trace/validation/removal loop; its own Tick is off and Blueprint currently owns scheduling.
 
-```text
-/Game/DiggingPrototype/BP_DiggableGround
-Event Tick
-→ Process Digging [C++]
-```
+`VoxelDigTestLibrary` exposes:
 
-Add/verify the `DiggingComponent` instance and confirm the test node call. Then migrate only the first camera/trace block: Player Camera Manager, location, rotation, forward vector, Line Trace By Channel. Do not move the entire graph at once.
+- working/observed: Remove Sphere, Trim Sphere (`-ImpactNormal`) and Surface Dig;
+- implemented but incomplete test: Surface Flatten and Strength Curve;
+- unavailable in Free Legacy: Strength Mask node reports Pro requirement and returns `false`.
 
-Later migrate range/hit validation, interval and terrain operation; compare Blueprint Tick with C++ scheduling. Prefer timer/event-driven processing once behavior is understood. After the bridge, the main gameplay priority is shared terrain-fragment cleanup. Then compare additional digging methods behind a common C++ abstraction before selecting benchmark candidates.
+Common `TraceVoxelWorld()` removes duplicate camera/trace/cast code. `TrySurfaceDig` is the current preferred prototype candidate, not a production winner. Defaults: trace `500`, radius `20`, falloff `0.55`, strength `10`.
 
-Material/lighting is now a sufficient gameplay/backend test baseline. Keep `DirtTint #C2A189`, `DirtTextureSize ≈ 180`, world-aligned Grass/Dirt, Dirt Normal and current lighting as working prototype state. Dirt Roughness and further art polish are deferred.
+## Floating-fragment cleanup and immediate priority
+
+Surface Dig optionally runs working local cleanup with defaults: enabled, radius `100`, max `100` samples. It reads a local block under one `FVoxelWriteScopeLock`, performs 6-neighbor connected-components search, preserves boundary-touching/large components, empties small isolated components, then calls `UpdateBounds`. `VoxelData/VoxelData.inl` is required for the direct `SetValue` template definition; omitting it caused linker `LNK2019`.
+
+Observed: cleanup removes some small detached pieces and looks almost right. Limitations: local bounds, 6-connectivity, conservative boundary rule, threshold, no debris/physics, no thin-bridge removal and no performance benchmark.
+
+Immediate work: refine cleanup parameters/cases, test walls/tunnels/deep edits/collision and compare working methods uniformly. Surface Flatten currently places the plane at `ImpactPoint`; an inward `FlattenDepth` offset is planned, not implemented. Strength Curve still needs an assigned `UCurveFloat` and visual test.
+
+Material/lighting remains sufficient for gameplay/backend tests. Art polish is deferred.
+
+## Safe build workflow
+
+- `.cpp` implementation-only change: keep Editor open, use Live Coding `Ctrl+Alt+F11`, restart PIE if needed.
+- `.h`, `UCLASS`, `UFUNCTION`, `UPROPERTY` or Blueprint-visible signature: close Editor, full build, reopen Editor.
+- A `UFUNCTION` signature change caused a failed Live Coding patch in the 2026-09-23 session; a normal build with Editor closed recovered it. This is a safe project rule, not a claim that Live Coding can never process headers.
 
 ## Unreal teaching workflow — project standard
 
@@ -193,5 +207,6 @@ The user learns Unreal Engine and C++ through this project. Previous experience:
 - Do not infer the live Voxel prototype state from the research document; inspect current Unreal assets and the latest checkpoint first.
 - Never bypass `Gameplay → Dig/Terrain abstraction → concrete terrain backend` by coupling player/gameplay code directly to VoxelFree when the dependency can be isolated.
 - After any Unreal edit, compile/save the touched asset and report exact paths and remaining warnings.
-- Do not describe `BP_DiggableGround` as migrated to C++; verify each bridge and transferred block first.
-- Terrain fragment cleanup is the main gameplay priority after the basic C++ bridge. Material polish is deferred.
+- Do not revert current facts to the 2026-09-22 stub state: ISM migration and first cleanup now exist.
+- Do not describe fragment cleanup as production-complete or Surface Dig as final winner.
+- Keep VoxelFree-specific APIs inside experimental/backend code; preserve `Gameplay → Dig/Terrain abstraction → concrete backend`.

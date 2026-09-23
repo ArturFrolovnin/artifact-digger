@@ -1,8 +1,8 @@
 # ArcheoDig — checkpoint архитектуры копания
 
-Дата checkpoint: **2026-09-22**
+Дата checkpoint: **2026-09-23**
 
-Проверенный HEAD: `a1bc1a120af1e997ab9e9a3bacaae41de4c02c0e` (`I added training scripts in C++.`)
+Проверенный HEAD: `a668940037394508a58dbf309606f65465d17876` (`add c++ voxel digging tests and floating fragment cleanup`)
 
 Проект: Unreal Engine **5.8**
 
@@ -11,6 +11,8 @@ Architecture research update: **2026-09-12**
 Material/lighting update: **2026-09-14**, HEAD `81a2912`. [Checkpoint](DiggingFeature/Checkpoints/2026-09-14_VoxelGroundMaterialLighting.md) фиксирует world-aligned Grass/Dirt graph и lighting открытого `L_VoxelDig2`.
 
 C++ workflow update: **2026-09-22**. [Текущий checkpoint](DiggingFeature/Checkpoints/2026-09-22_CPPWorkflowAndDiggingMigration.md) фиксирует material hotfix `c00dd30`, первый Runtime C++ module `ArcheoDig`, учебный Blueprint → C++ bridge и staged migration digging logic. Material polish отложен после gameplay/backend priorities; architecture benchmark targets не изменены.
+
+C++ voxel update: **2026-09-23**. [Актуальный checkpoint](DiggingFeature/Checkpoints/2026-09-23_CPPVoxelDiggingAndFragmentCleanup.md) фиксирует рабочую ISM migration в `DiggingComponent`, C++ `VoxelDigTestLibrary`, несколько digging methods и первую working floating-fragment cleanup. Cleanup refinement и одинаковое сравнение methods теперь являются immediate priorities.
 
 Это основной актуальный документ по архитектуре копания. В нём факты, проверенные по репозиторию и Unreal assets, отделены от наблюдений прототипирования и проектных гипотез, которые ещё нужно проверить.
 
@@ -25,7 +27,7 @@ C++ workflow update: **2026-09-22**. [Текущий checkpoint](DiggingFeature/
 
 Dynamic Mesh версия подтверждает работу interaction loop, full-body first person, проекции материала и обновления collision во время игры. Однако повторные Boolean Subtract постепенно ухудшают topology. Global remesh и local smoothing были проверены и отклонены для realtime.
 
-Текущее решение: **Dynamic Mesh ветка заморожена как рабочий checkpoint; bounded volumetric/density Dig Sites развиваются через собственную abstraction boundary**. Тяжёлая gameplay/terrain logic постепенно переносится в C++, Blueprint сохраняет orchestration/content роль. VoxelFree prototype подтвердил runtime terrain edits, но production backend ещё не выбран. Production fallback — собственный bounded chunked density field.
+Текущее решение: **Dynamic Mesh ветка заморожена как рабочий checkpoint; bounded volumetric/density Dig Sites развиваются через собственную abstraction boundary**. Тяжёлая gameplay/terrain logic переносится в C++, Blueprint сохраняет orchestration/content роль. `DiggingComponent` уже выполняет ISM digging, а test library выполняет VoxelFree edits и локальный cleanup. Production backend ещё не выбран; fallback — собственный bounded chunked density field.
 
 Исторический checkpoint brush assets, точных параметров и наблюдений: [Voxel Surface Prototype — 2026-09-12](DiggingFeature/Checkpoints/2026-09-12_VoxelSurfacePrototype.md). Актуальный material/lighting snapshot — по ссылке на 2026-09-14 выше.
 
@@ -339,7 +341,7 @@ Exit criteria: форма edit, корректность collision, стабил
 - различия грунта задаются data-driven Soil Types, material data и специализированными behavior modules, а не отдельными terrain backends;
 - bulk terrain остаётся единым; sand, frozen и rock behavior добавляются отдельными modules;
 - первым biome-specific behavior после обычного cohesive soil проверяется sand relaxation;
-- текущий voxel prototype — **Voxel Surface Dig** в `/Game/DiggingPrototype/Voxel/Voxel_2/L_VoxelDig2`; material/lighting считаются достаточным baseline, ближайший engineering step — доказать `BP_DiggableGround → DiggingComponent.ProcessDigging()` и переносить digging logic небольшими блоками;
+- текущий voxel preference — `Try Surface Dig C++` в experimental `VoxelDigTestLibrary`; он работает и вызывает первую local fragment cleanup, но ещё не является финальным production method;
 - Voxel Plugin Free Legacy пока является только prototype backend, а не production dependency;
 - gameplay не должен напрямую зависеть от VoxelFree API;
 - обязательная граница слоёв: `Gameplay → Dig/Terrain abstraction → concrete terrain backend`;
@@ -360,7 +362,7 @@ Research recommendations / prototype targets, **не утверждённые pr
 - production terrain backend;
 - окончательные voxel resolution и chunk size;
 - async meshing/collision strategy;
-- правила floating fragments;
+- production-ready правила floating fragments, debris/physics и обработка connected thin spikes;
 - save-game format для изменённых Dig Sites;
 - финальная VoxelFree dependency policy.
 
@@ -378,32 +380,39 @@ Blueprint отвечает за orchestration, events/input, VFX/SFX/animation, 
 Первый Runtime module и два компонента существуют в source:
 
 - `MyActorComponent` — учебный Blueprint-to-C++ bridge, не production system;
-- `DiggingComponent` — будущая project-owned digging boundary; сейчас `ProcessDigging()` выводит только test message, component Tick отключён.
+- `DiggingComponent` — project-owned ISM digging component; `ProcessDigging()` содержит input/rate limiting, camera trace, validation и batch removal `SoilBlocks` instances; component Tick отключён, scheduling остаётся в Blueprint;
+- `VoxelDigTestLibrary` — experimental `UBlueprintFunctionLibrary` с несколькими VoxelFree digging nodes и общим trace helper.
 
-Реальная digging logic ещё не перенесена. Сначала проверяется минимальный `Blueprint Event Tick → ProcessDigging()`. Затем по отдельности переносятся camera data/trace, range/hit validation, interval и backend operation. После понимания вызова сравнить Blueprint scheduling с C++ scheduling; вероятное итоговое направление — timer/event-driven processing вместо постоянного Tick.
+ISM migration уже работает в C++. Defaults: `DigRadius 65 cm`, `DigInterval 0.25 s`, `DigReach 350 cm`, `TraceDistance 800 cm`, debug включён. Blueprint вызывает одну крупную operation; тяжёлый loop остаётся в C++. Возможная следующая эволюция scheduling — timer/event-driven processing вместо постоянного Blueprint Tick.
 
-## Terrain fragment cleanup — главный gameplay priority
+`ArcheoDig.Build.cs` напрямую зависит от module `Voxel`, поскольку test library использует Voxel Plugin Free Legacy C++ API. Это допустимо внутри экспериментального backend/test layer, но gameplay по-прежнему должен зависеть от project-owned abstraction.
 
-После базового C++ bridge нужен общий cleanup слой для разных digging methods:
+Текущее состояние methods: RemoveSphere и TrimSphere работают; TrimSphere использует `-ImpactNormal`. Surface Dig работает и является preferred prototype candidate. Surface Flatten реализован, но plane через текущий `ImpactPoint` почти не даёт желаемого копания. Strength Curve требует назначенной `UCurveFloat` и ещё не прошёл полноценный визуальный тест. Strength Mask в Free Legacy требует Pro и возвращает `false`; это не блокирует собственный cleanup.
+
+## Terrain fragment cleanup — working prototype
+
+Первая local cleanup уже реализована после `TrySurfaceDig`:
 
 ```text
 terrain edit
-→ Edited Bounds + margin
-→ connected-component search
-→ удалить маленькие disconnected components
-→ optional non-blocking debris actor
-→ short lifetime
+→ local Bounds around ImpactPoint
+→ one FVoxelWriteScopeLock + Data.GetValues
+→ 6-connected component search
+→ сохранить boundary-touching и большие components
+→ удалить маленькие isolated components через FVoxelValue::Empty
+→ release lock → UpdateBounds
 ```
 
-Сначала проверить возможности VoxelFree Legacy, но не делать production architecture зависимой от нестабильной или платной функции. Flood fill не удалит thin spike/bridge, который всё ещё соединён одним voxel; при подтверждении проблемы нужен отдельный локальный neighbour/thickness cleanup или ограниченный erosion/smoothing pass. `Max Step Height` остаётся safety net.
+Defaults: cleanup включён, radius `100 cm`, threshold `100` samples. По наблюдению пользователя первая версия удаляет часть маленьких fragments и выглядит почти правильно.
 
-## Приоритетный roadmap после `a1bc1a1`
+Ограничения: local bounds, 6-connectivity, conservative boundary rule, size threshold, синхронная работа без benchmark. Flood fill не удалит thin spike/bridge, всё ещё соединённый с основной массой. Debris/physics/lifetime не реализованы. Поэтому cleanup работает как proof, но задача не считается полностью решённой.
 
-1. Проверить `DiggingComponent` в `/Game/DiggingPrototype/BP_DiggableGround`: `Event Tick → Process Digging [C++]`.
-2. Перенести в `ProcessDigging` первый маленький блок: Player Camera Manager, location/rotation, forward vector, Line Trace By Channel.
-3. Затем перенести range/hit validation, `DigInterval` behavior и terrain backend operation.
-4. Сравнить Blueprint Tick с C++-owned scheduling и перейти к timer/event-driven обработке, если поведение подтверждено.
-5. Реализовать общий floating-fragment cleanup.
-6. Через общий C++ interface/будущий `EDigMethod` сравнить `RemoveSphere`, `TrimSphere`, Surface Edit, Surface + Flatten/Strength Curve/Strength Mask; box/level-like методы оставить резервом.
-7. Для каждого method проверить shape, соседние/deep edits, стены, тоннель/потолок, fragments/spikes, ходьбу, collision и performance; затем выполнить controlled benchmark, включая experimental `5 cm` и production-oriented `10 cm` target.
-8. После gameplay/backend вернуться к Dirt Roughness/ORM, normal strength, Grass Normal/Roughness и Material Instance workflow.
+## Приоритетный roadmap после `a668940`
+
+1. Refinement cleanup: настроить `CleanupRadius`/`MaxFragmentVoxels`, проверить boundary cases, false removals, missed fragments и hitch.
+2. Отдельно исследовать connected thin spikes/bridges через local thickness/neighbour cleanup; не ожидать этого от flood fill.
+3. Завершить одинаковые tests для methods: RemoveSphere, TrimSphere, Surface Dig, Surface Flatten и Strength Curve. Strength Mask требует Pro и не является обязательным кандидатом.
+4. Для Flatten проверить ещё не реализованный plane offset внутрь поверхности; для Strength Curve создать и проверить `UCurveFloat`.
+5. Свести selection и cleanup к project-owned C++ interface/возможному `EDigMethod`, сохранив VoxelFree-specific calls внутри backend/test layer.
+6. Выполнить controlled benchmark: shape, deep/adjacent edits, walls, tunnel/ceiling, fragments/spikes, walking, collision, performance; сравнить experimental `5 cm` с production-oriented `10 cm` target.
+7. После gameplay/backend validation вернуться к Dirt Roughness/ORM, normal strength, Grass Normal/Roughness и Material Instance workflow.

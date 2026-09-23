@@ -1,5 +1,7 @@
 # C++ Workflow and Digging Migration — checkpoint 2026-09-22
 
+> **Historical snapshot:** продолжение текущего состояния находится в [C++ Voxel Digging and Fragment Cleanup — 2026-09-23](2026-09-23_CPPVoxelDiggingAndFragmentCleanup.md). После этого checkpoint `DiggingComponent` получил реальную ISM digging logic, появилась `VoxelDigTestLibrary`, а первая floating-fragment cleanup была реализована и проверена. Остальной текст ниже сохраняет состояние на 2026-09-22.
+
 Проект: Artifact Digger / ArcheoDig, Unreal Engine 5.8.
 
 Текущий HEAD при создании документа: `a1bc1a120af1e997ab9e9a3bacaae41de4c02c0e` — `I added training scripts in C++.`
@@ -315,4 +317,3 @@ Event Tick
 6. Реализовать и сравнить оставшиеся digging methods через общую C++ abstraction.
 7. Выполнить controlled benchmark: performance, collision, quality, cleanup, experimental `5 cm` против production-oriented `10 cm` target.
 8. Вернуться к material polish: Dirt Roughness/ORM, normal strength, Grass Normal/Roughness, parameters и Material Instance workflow.
-
