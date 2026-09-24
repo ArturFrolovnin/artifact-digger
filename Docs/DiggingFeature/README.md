@@ -1,5 +1,7 @@
 # Digging Feature
 
+> **Обновление 2026-09-24:** experimental Content реорганизован в `/Game/TestLevel/Level_1 ... Level_5`. Текущий Voxel Surface Dig находится в `/Game/TestLevel/Level_5/L_VoxelDig2`; первый VoxelFree baseline — в `Level_4`, Dynamic Mesh/DiggingFeature — в `Level_3`, standalone ISM test — в `Level_2`, Trigger/interface learning — в `Level_1`. Решения по поведению detached fragments зафиксированы в [`Checkpoints/2026-09-24_FragmentCleanupBehavior.md`](Checkpoints/2026-09-24_FragmentCleanupBehavior.md). Пути `/Game/DiggingPrototype/...` ниже в historical sections сохраняются как пути соответствующего исторического этапа.
+
 > **Обновление 2026-09-23:** актуальное C++ состояние находится в [`Checkpoints/2026-09-23_CPPVoxelDiggingAndFragmentCleanup.md`](Checkpoints/2026-09-23_CPPVoxelDiggingAndFragmentCleanup.md). `DiggingComponent` уже содержит ISM digging loop, `VoxelDigTestLibrary` публикует шесть experiment nodes, `Try Surface Dig C++` работает как текущий preferred prototype candidate, а первая локальная 6-connected floating-fragment cleanup реализована и визуально подтверждена. Cleanup ещё требует refinement и benchmark; VoxelFree не выбран production backend.
 
 > **Checkpoint 2026-09-12:** этот файл сохраняет подробную историю ранних ISM и Dynamic Mesh прототипов. Актуальное состояние VoxelFree-прототипа зафиксировано в [`Checkpoints/2026-09-12_VoxelSurfacePrototype.md`](Checkpoints/2026-09-12_VoxelSurfacePrototype.md), а authoritative архитектурные решения — в [`../DiggingArchitecture.md`](../DiggingArchitecture.md). При расхождениях актуальным считается architecture checkpoint.
@@ -12,11 +14,11 @@
 
 Material checkpoint 14 сентября остаётся historical snapshot до hotfix `c00dd30`: 22 сентября orientation mask переведена с `PixelNormalWS` на `VertexNormalWS`, а Normal blend по наблюдению сессии получил ту же итоговую Grass/Dirt mask, что Base Color. Подробности и границы подтверждения binary graph находятся в checkpoint 22 сентября.
 
-Текущее состояние: Dynamic Mesh сохранён как frozen/reference checkpoint; активный VoxelFree-эксперимент находится в `/Game/DiggingPrototype/Voxel/Voxel_2/L_VoxelDig2`. Большой Blueprint Surface Edit перенесён в `Try Surface Dig C++`; это текущий preferred prototype candidate, а не production-решение. После него работает первая локальная floating-fragment cleanup.
+Текущее состояние: Dynamic Mesh сохранён как frozen/reference checkpoint; активный VoxelFree-эксперимент находится в `/Game/TestLevel/Level_5/L_VoxelDig2`. Большой Blueprint Surface Edit перенесён в `Try Surface Dig C++`; это текущий preferred prototype candidate, а не production-решение. После него работает первая локальная floating-fragment cleanup.
 
-Основная часть документа ниже — **historical snapshot этапа DiggingFeature / Dynamic Mesh**, сложившегося около документационного milestone `6fa2aea0a1ff09dedb6e2cb6e60ad02d90087b88` (`add readme`) и последующего first-person/cutter этапа. Формулировки «текущий» внутри historical sections относятся к тому этапу, а не к актуальному production-направлению проекта. Тестовый контур этого этапа находится в `/Game/DiggingPrototype/DiggingFeature`.
+Основная часть документа ниже — **historical snapshot этапа DiggingFeature / Dynamic Mesh**, сложившегося около документационного milestone `6fa2aea0a1ff09dedb6e2cb6e60ad02d90087b88` (`add readme`) и последующего first-person/cutter этапа. Формулировки «текущий» внутри historical sections относятся к тому этапу, а не к актуальному production-направлению проекта. Текущий экземпляр тестового контура этого этапа после реорганизации находится в `/Game/TestLevel/Level_3`; historical paths ниже оставлены как snapshot.
 
-> В проекте есть два разных ассета с именем `BP_DiggableGround`: `/Game/DiggingPrototype/BP_DiggableGround` относится к более раннему отдельному voxel-тесту `L_DiggingTest`, а `/Game/DiggingPrototype/DiggingFeature/Blueprints/BP_DiggableGround` — к описанной здесь ветке `DiggingFeature`. При проверке и изменениях всегда сверяйте полный Content Browser path.
+> В проекте есть два разных ассета с именем `BP_DiggableGround`: `/Game/TestLevel/Level_2/BP_DiggableGround` относится к более раннему standalone ISM-тесту `L_DiggingTest`, а `/Game/TestLevel/Level_3/Blueprints/BP_DiggableGround` — к ветке `DiggingFeature`. При проверке и изменениях всегда сверяйте полный Content Browser path.
 
 ## Цель механики
 

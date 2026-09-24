@@ -4,6 +4,8 @@
 **Целевая версия:** Unreal Engine 5.8
 **Цель:** выбрать практически реализуемую архитектуру изменяемого грунта для пяти биомов, слоёв пород, прогрессии инструментов и археологических находок.
 
+> **Path note 2026-09-24:** исследование ниже сохраняет Content paths, существовавшие на дату исследования. После реорганизации учебные assets находятся в `/Game/TestLevel`: `Level_2` = standalone ISM, `Level_3` = DiggingFeature/Dynamic Mesh, `Level_4` = первый VoxelFree baseline, `Level_5` = текущий Voxel Surface Dig.
+
 ---
 
 # 1. Executive Summary

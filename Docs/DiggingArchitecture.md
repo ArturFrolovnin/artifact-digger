@@ -1,8 +1,8 @@
 # ArcheoDig — checkpoint архитектуры копания
 
-Дата checkpoint: **2026-09-23**
+Дата checkpoint: **2026-09-24**
 
-Проверенный HEAD: `a668940037394508a58dbf309606f65465d17876` (`add c++ voxel digging tests and floating fragment cleanup`)
+Проверенный HEAD: `b5784c9139bc9397caee664070c72f916760929b` (`folder reorganization`)
 
 Проект: Unreal Engine **5.8**
 
@@ -10,9 +10,11 @@ Architecture research update: **2026-09-12**
 
 Material/lighting update: **2026-09-14**, HEAD `81a2912`. [Checkpoint](DiggingFeature/Checkpoints/2026-09-14_VoxelGroundMaterialLighting.md) фиксирует world-aligned Grass/Dirt graph и lighting открытого `L_VoxelDig2`.
 
-C++ workflow update: **2026-09-22**. [Текущий checkpoint](DiggingFeature/Checkpoints/2026-09-22_CPPWorkflowAndDiggingMigration.md) фиксирует material hotfix `c00dd30`, первый Runtime C++ module `ArcheoDig`, учебный Blueprint → C++ bridge и staged migration digging logic. Material polish отложен после gameplay/backend priorities; architecture benchmark targets не изменены.
+C++ workflow update: **2026-09-22**. [Предыдущий checkpoint](DiggingFeature/Checkpoints/2026-09-22_CPPWorkflowAndDiggingMigration.md) фиксирует material hotfix `c00dd30`, первый Runtime C++ module `ArcheoDig`, учебный Blueprint → C++ bridge и staged migration digging logic. Material polish отложен после gameplay/backend priorities; architecture benchmark targets не изменены.
 
-C++ voxel update: **2026-09-23**. [Актуальный checkpoint](DiggingFeature/Checkpoints/2026-09-23_CPPVoxelDiggingAndFragmentCleanup.md) фиксирует рабочую ISM migration в `DiggingComponent`, C++ `VoxelDigTestLibrary`, несколько digging methods и первую working floating-fragment cleanup. Cleanup refinement и одинаковое сравнение methods теперь являются immediate priorities.
+C++ voxel update: **2026-09-23**. [Checkpoint](DiggingFeature/Checkpoints/2026-09-23_CPPVoxelDiggingAndFragmentCleanup.md) фиксирует рабочую ISM migration в `DiggingComponent`, C++ `VoxelDigTestLibrary`, несколько digging methods и первую working floating-fragment cleanup.
+
+Fragment behavior update: **2026-09-24**. [Актуальный checkpoint](DiggingFeature/Checkpoints/2026-09-24_FragmentCleanupBehavior.md) фиксирует тесты small/large detached fragments, решение разделить detection и presentation и ближайший эксперимент с `TINY / MEDIUM / LARGE / UNKNOWN` classification. В тот же день Content reorganized: учебные ветки перенесены в `/Game/TestLevel/Level_1 ... Level_5`.
 
 Это основной актуальный документ по архитектуре копания. В нём факты, проверенные по репозиторию и Unreal assets, отделены от наблюдений прототипирования и проектных гипотез, которые ещё нужно проверить.
 
@@ -23,7 +25,7 @@ C++ voxel update: **2026-09-23**. [Актуальный checkpoint](DiggingFeatu
 1. ранний ручной voxel / Instanced Static Mesh эталон;
 2. рабочий Geometry Script / Dynamic Mesh Boolean прототип;
 3. первый Voxel Plugin Free Legacy baseline в `L_VoxelDigTest`;
-4. отдельный `Voxel_2` prototype с работающими `TrimSphere` и surface-edit brushes.
+4. `Level_5` (бывший `Voxel_2`) prototype с работающими `TrimSphere`, Surface Dig и локальным floating-fragment cleanup.
 
 Dynamic Mesh версия подтверждает работу interaction loop, full-body first person, проекции материала и обновления collision во время игры. Однако повторные Boolean Subtract постепенно ухудшают topology. Global remesh и local smoothing были проверены и отклонены для realtime.
 
@@ -41,37 +43,40 @@ Dynamic Mesh версия подтверждает работу interaction loop
 
 ## Проверенная структура проекта
 
+После реорганизации 2026-09-24 experimental Content сгруппирован по учебным уровням:
+
 ```text
-Content/DiggingPrototype/
-├── BP_DiggableGround.uasset              # ранний отдельный voxel-эталон
-├── L_DiggingTest.umap
-├── DiggingFeature/
+Content/TestLevel/
+├── Level_1/                          # C++ TriggerLightActor / interface experiments
+│   ├── NewMap_Test_Interfeis.umap
+│   ├── BP_TriggerLightActor.uasset
+│   ├── BPI_Triggerable.uasset
+│   └── ground/BP_DigSpot.uasset
+├── Level_2/                          # ранний standalone ISM digging test
+│   ├── BP_DiggableGround.uasset
+│   ├── L_DiggingTest.umap
+│   ├── M_Soil.uasset
+│   └── SM_SoilBlock.uasset
+├── Level_3/                          # DiggingFeature / Dynamic Mesh checkpoint
 │   ├── Blueprints/
-│   │   ├── BP_DigPlayer.uasset
-│   │   ├── BP_DigPlayer_FirstPerson.uasset
-│   │   ├── BP_DiggableGround.uasset      # ISM-эталон внутри feature
-│   │   ├── BP_DiggableGround_Smooth.uasset
-│   │   ├── BP_DigGameMode.uasset
-│   │   ├── BP_DigGameMode2.uasset
-│   │   └── WBP_DigCrosshair.uasset
 │   ├── Materials/M_DiggableSoil.uasset
-│   ├── L_DiggingFeature.umap
-│   └── newLevel_Digging.umap
-└── Voxel/
-    ├── BP_VoxelDigPlayer.uasset
-    ├── L_VoxelDigTest.umap
-    └── Voxel_2/
-        ├── Blueprints/BP_VoxelDigGameMode2.uasset
-        ├── Blueprints/BP_VoxelDigPlayer2.uasset
-        ├── Materials/M_VoxelGround_Prototype.uasset
-        └── L_VoxelDig2.umap
+│   └── L_DiggingFeature.umap
+├── Level_4/                          # первый VoxelFree baseline
+│   ├── BP_VoxelDigGameMode.uasset
+│   ├── BP_VoxelDigPlayer.uasset
+│   └── L_VoxelDigTest.umap
+└── Level_5/                          # текущий Voxel Surface Dig experiment
+    ├── Blueprints/BP_VoxelDigGameMode2.uasset
+    ├── Blueprints/BP_VoxelDigPlayer2.uasset
+    ├── Materials/M_VoxelGround_Prototype.uasset
+    └── L_VoxelDig2.umap
 
 Plugins/
 ├── Marketplace/VoxelPluginInstaller/
 └── VoxelFree/
 ```
 
-В проекте есть два разных asset с именем `BP_DiggableGround`. При проверке и изменениях всегда использовать полный Content Browser path.
+В проекте по-прежнему есть разные assets с именем `BP_DiggableGround`: standalone ISM prototype находится в `/Game/TestLevel/Level_2/BP_DiggableGround`, а DiggingFeature reference — в `/Game/TestLevel/Level_3/Blueprints/BP_DiggableGround`. При проверке и изменениях всегда использовать полный Content Browser path.
 
 ## Dynamic Mesh prototype
 
@@ -127,7 +132,7 @@ Apply Mesh Boolean
 
 ### Материал земли
 
-На сгенерированный Dynamic Mesh напрямую назначен `/Game/DiggingPrototype/DiggingFeature/Materials/M_DiggableSoil`.
+На сгенерированный Dynamic Mesh напрямую назначен `/Game/TestLevel/Level_3/Materials/M_DiggableSoil`.
 
 Материал использует Megascans/Fab soil textures через world-aligned projection, чтобы новые Boolean-поверхности не зависели от стабильных authored UV:
 
@@ -274,8 +279,8 @@ camera trace
 - `Plugins/VoxelFree` присутствует; Unreal показывает `VoxelFree` включённым и mounted по пути `/Voxel/`.
 - Плагин идентифицируется как **Voxel Plugin Free Legacy** и содержит runtime/editor modules и example content.
 - `Plugins/Marketplace/VoxelPluginInstaller` тоже присутствует и включён. Сохранить его до завершения эксперимента.
-- `/Game/DiggingPrototype/Voxel/L_VoxelDigTest` и `BP_VoxelDigPlayer` сохранены как первый VoxelFree baseline.
-- Текущий изолированный prototype находится в `/Game/DiggingPrototype/Voxel/Voxel_2/L_VoxelDig2`.
+- `/Game/TestLevel/Level_4/L_VoxelDigTest` и `BP_VoxelDigPlayer` сохранены как первый VoxelFree baseline.
+- Текущий изолированный prototype находится в `/Game/TestLevel/Level_5/L_VoxelDig2`.
 - В `L_VoxelDig2` есть автоматически создаваемый `VoxelWorld` с `Voxel Size = 10 cm`, `World Size In Voxel = 64`, `VoxelFlatGenerator`, `RGB` material config и `Marching Cubes` render type.
 - `BP_VoxelDigPlayer2` содержит работающие TrimSphere и Surface Edit варианты. LMB сейчас вызывает `TryVoxelSurfaceDig2`.
 - Из проверенных вариантов Surface Edit субъективно лучше соединяет соседние edits и меньше похож на последовательность сферических stamps. Это предпочтительный prototype candidate, а не production-решение.

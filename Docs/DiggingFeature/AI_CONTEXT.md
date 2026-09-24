@@ -5,27 +5,28 @@ Purpose: compact, persistent context for assistants continuing the digging work.
 ## Snapshot
 
 - Architecture research completed: `2026-09-12`.
-- Current verified HEAD: `a668940` (`add c++ voxel digging tests and floating fragment cleanup`), 2026-09-23.
+- Current verified HEAD: `b5784c9` (`folder reorganization`), 2026-09-24.
 - Project: ArcheoDig / artifact-digger, Unreal Engine `5.8`.
 - Current direction: one bounded volumetric/density Dig Site architecture for all five biomes, varied through Soil Types, material data and behavior modules.
 - Dynamic Mesh is a frozen interaction/visual reference, not the production terrain direction.
-- Current prototype: **Voxel Surface Dig** in `/Game/DiggingPrototype/Voxel/Voxel_2/L_VoxelDig2`.
+- Current prototype: **Voxel Surface Dig** in `/Game/TestLevel/Level_5/L_VoxelDig2`.
 - Installed experiment dependency: Voxel Plugin Free Legacy in `Plugins/VoxelFree`.
 - VoxelFree is a prototype backend only until benchmarks pass; do not treat it as the production dependency.
-- Latest project checkpoint: [`Checkpoints/2026-09-23_CPPVoxelDiggingAndFragmentCleanup.md`](Checkpoints/2026-09-23_CPPVoxelDiggingAndFragmentCleanup.md). Previous C++ migration snapshot: [`Checkpoints/2026-09-22_CPPWorkflowAndDiggingMigration.md`](Checkpoints/2026-09-22_CPPWorkflowAndDiggingMigration.md).
+- Latest project checkpoint: [`Checkpoints/2026-09-24_FragmentCleanupBehavior.md`](Checkpoints/2026-09-24_FragmentCleanupBehavior.md). Previous implementation checkpoint: [`Checkpoints/2026-09-23_CPPVoxelDiggingAndFragmentCleanup.md`](Checkpoints/2026-09-23_CPPVoxelDiggingAndFragmentCleanup.md).
 - On 2026-09-14 the material was saved, but the loaded level was dirty. Current Editor world settings: voxel size `5 cm`, world size `256`; these are experimental values, not revised production or benchmark targets.
-- The original `/Game/DiggingPrototype/Voxel/L_VoxelDigTest` and `BP_VoxelDigPlayer` are preserved as the earlier VoxelFree baseline.
-- In the current session the large Blueprint surface graph was replaced by the `Try Surface Dig C++` node and verified in PIE. Exact Blueprint wiring is an observed binary-asset fact; inspect the asset before editing it.
+- The original VoxelFree baseline is preserved in `/Game/TestLevel/Level_4/L_VoxelDigTest` with `BP_VoxelDigPlayer`.
+- The large Blueprint surface graph was replaced by the `Try Surface Dig C++` node and verified in PIE. Small detached fragments are cleaned successfully; large detached slabs can remain because of the current local-bounds/size guards. Exact Blueprint wiring is an observed binary-asset fact; inspect the asset before editing it.
 - Runtime C++ module `ArcheoDig` depends on `Voxel`. `MyActorComponent` remains learning-only. `DiggingComponent.ProcessDigging()` now implements the old ISM digging loop: input, interval, camera trace, reach/hit validation and batch removal of `SoilBlocks` instances.
 - `VoxelDigTestLibrary` paths: `Source/ArcheoDig/Public/voxelTests/VoxelDigTestLibrary.h` and `Private/voxelTests/VoxelDigTestLibrary.cpp`. It exposes six C++ Blueprint nodes; one `UBlueprintFunctionLibrary` can expose many nodes.
 - `TriggerLightActor` under `Public/Private/testLightCube` is a learning experiment demonstrating C++ implementation plus Blueprint child/prefab configuration, not a production subsystem.
 - Commit `c00dd30` contains the material hotfix. Session-observed result: orientation uses `VertexNormalWS`, Base Color and Normal use the same Grass/Dirt mask, material compiles and wall transition is cleaner. The older 2026-09-14 wiring remains historical.
+- Content reorganization 2026-09-24: `Level_1` = Trigger/interface learning, `Level_2` = standalone ISM, `Level_3` = DiggingFeature/Dynamic Mesh, `Level_4` = first VoxelFree baseline, `Level_5` = current Voxel Surface Dig.
 
 ## Do not confuse these assets
 
-- `/Game/DiggingPrototype/BP_DiggableGround` — older standalone voxel/ISM prototype.
-- `/Game/DiggingPrototype/DiggingFeature/Blueprints/BP_DiggableGround` — feature-local ISM reference.
-- `/Game/DiggingPrototype/DiggingFeature/Blueprints/BP_DiggableGround_Smooth` — Geometry Script / Dynamic Mesh checkpoint.
+- `/Game/TestLevel/Level_2/BP_DiggableGround` — older standalone voxel/ISM prototype.
+- `/Game/TestLevel/Level_3/Blueprints/BP_DiggableGround` — feature-local ISM reference.
+- `/Game/TestLevel/Level_3/Blueprints/BP_DiggableGround_Smooth` — Geometry Script / Dynamic Mesh checkpoint.
 
 Always use full asset paths.
 
@@ -47,7 +48,7 @@ Ground construction:
 
 - Dynamic Mesh box: `500 × 500 × 300 cm`, local center `Z = -150`;
 - complex-as-simple collision enabled;
-- render material: `/Game/DiggingPrototype/DiggingFeature/Materials/M_DiggableSoil`.
+- render material: `/Game/TestLevel/Level_3/Materials/M_DiggableSoil`.
 
 Verified cutter defaults:
 
