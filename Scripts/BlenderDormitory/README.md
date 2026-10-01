@@ -8,8 +8,8 @@ All ACs, large downpipes, antenna and flat-roof equipment removed, no archived m
 Complete measured envelope: 27.22 x 21.34923 x 14.24750 m.
 No interior, merge, blend save, or UE export performed.
 
-Requested Docs/GameDesign/Buildings/StyleGuide.md and Dormitory.md were absent.
-Visual source: user's existing university screenshot and Level6_University_Detail.md.
+Game-design source of truth is now available in Docs/GameDesign/Buildings/StyleGuide.md, Dormitory.md and BlenderWorkflow.md.
+The current restyle was originally derived from the user's university reference / screenshot and Level6_University_Detail.md; future iterations should also read the Buildings docs.
 
 restyle_campus.py modifies the original assembly in place once; campus_finish.py
 adds the small gable windows. These are operation scripts, not archived scene versions.

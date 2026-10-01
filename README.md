@@ -1,6 +1,6 @@
 # ArcheoDig
 
-Прототип археологических раскопок и изменяемого грунта на Unreal Engine 5.8.
+Прототип археологических раскопок и изменяемого грунта на Unreal Engine 5.8. Для создания редактируемых макетов зданий также добавлен Blender 5.2 LTS; Blender подключён к Codex/Astra через официальный Blender MCP и используется перед импортом blockout-зданий в UE5.
 
 Текущий статус: C++ migration существенно продвинулась. `DiggingComponent` содержит рабочую ISM digging logic, `VoxelDigTestLibrary` предоставляет несколько VoxelFree test methods, а `Try Surface Dig C++` вызывает первую рабочую floating-fragment cleanup. Экспериментальные assets реорганизованы в `/Game/TestLevel/Level_1 ... Level_5`; активный Voxel Surface Dig prototype находится в `/Game/TestLevel/Level_5/L_VoxelDig2`. Следующий этап — fragment classification/cleanup refinement и сравнение digging methods в одинаковых условиях. VoxelFree остаётся experimental backend.
 
