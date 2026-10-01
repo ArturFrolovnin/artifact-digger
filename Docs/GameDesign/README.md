@@ -23,6 +23,14 @@ GameDesign/
 ├── World/
 │   ├── Town.md
 │   └── DigSites.md
+├── Buildings/
+│   ├── README.md
+│   ├── Dimensions.md
+│   ├── StyleGuide.md
+│   ├── University.md
+│   ├── Dormitory.md
+│   └── References/
+│       └── README.md
 ├── Characters/
 │   ├── README.md
 │   └── RudyDexon.md
@@ -38,7 +46,8 @@ GameDesign/
 
 ## Куда писать дальше
 
-- город / здания / layout → `World/Town.md`
+- общая планировка города / районы / связи → `World/Town.md`
+- размеры, этажность и внешний стиль конкретных зданий → `Buildings/`
 - раскопочные уровни → `World/DigSites.md`
 - важный NPC → отдельный файл в `Characters/`
 - общие отношения → `Systems/Relationships.md`
