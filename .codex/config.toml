@@ -9,3 +9,11 @@ approval_mode = "approve"
 
 [mcp_servers.unreal-mcp.tools.list_toolsets]
 approval_mode = "approve"
+
+[mcp_servers.blender]
+command = "uv"
+args = ["--directory", "D:\\program\\blender\\blender_mcp\\mcp", "run", "blender-mcp"]
+
+[mcp_servers.blender.env]
+BLENDER_MCP_HOST = "localhost"
+BLENDER_MCP_PORT = "9875"
