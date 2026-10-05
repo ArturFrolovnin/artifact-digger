@@ -4,6 +4,7 @@ Keep each building in its own named folder. Do not put building materials or mes
 
 - `RudyPawnshop/`: Uncle Rudy's pawnshop; `SM_RudyPawnshop`, `Materials/`, editable Blender and FBX under `Source/`.
 - `Dormitory/`: campus dormitory; `SM_Dormitory_Blockout`, `Materials/`, editable Blender and FBX under `Source/`.
+- `Museum/`: current editable museum and FBX under `Source/`, dedicated `Materials/` and `Scripts/`; see its README for import/placement status.
 
 Building-specific generation scripts are under each building's `Source/Scripts/`.
 Move Unreal assets through the editor so references remain valid.

@@ -1,0 +1,26 @@
+{
+  "actor": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_353",
+  "location": [
+    2300.0,
+    600.0,
+    24.0
+  ],
+  "yaw": 90,
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "ground_min_z": 24.0,
+  "bounds_min": [
+    949.9999999999991,
+    -953.7980957031257,
+    24.0
+  ],
+  "bounds_max": [
+    3405.275146484376,
+    2153.798095703126,
+    1272.0
+  ],
+  "neighbor_transforms_unchanged": true
+}

@@ -1,0 +1,21 @@
+{
+  "mesh": "/Game/TestLevel/Level_6/Blender/Museum/SM_Museum_Blockout.SM_Museum_Blockout",
+  "materials": [
+    "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Metal_Gold.MUS_Metal_Gold",
+    "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Recess.MUS_Recess",
+    "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Glass.MUS_Glass",
+    "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Stone.MUS_Stone",
+    "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Stone_Trim.MUS_Stone_Trim",
+    "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Metal.MUS_Metal",
+    "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Glass_Warm.MUS_Glass_Warm",
+    "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Lantern_Amber.MUS_Lantern_Amber",
+    "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Banner.MUS_Banner",
+    "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Stone_Base.MUS_Stone_Base",
+    "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Glass_Cupola.MUS_Glass_Cupola",
+    "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Wood.MUS_Wood",
+    "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Roof.MUS_Roof"
+  ],
+  "triangles": 71200,
+  "level_saved": true,
+  "actor": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_353"
+}

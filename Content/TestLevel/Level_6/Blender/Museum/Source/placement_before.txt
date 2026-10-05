@@ -1,0 +1,1452 @@
+[
+  {
+    "name": "DirectionalLight_0",
+    "label": "DirectionalLight",
+    "location": [
+      0.0,
+      0.0,
+      400.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B092215F0) {pitch: -49.517110, yaw: -10.308601, roll: 112.360672}>",
+    "scale": [
+      1.0,
+      1.0000000149011612,
+      1.0000000149011612
+    ],
+    "center": [
+      47.82205561136266,
+      0.0,
+      338.8323692598752
+    ],
+    "extent": [
+      175.82205561136266,
+      128.0,
+      189.16763074012482
+    ]
+  },
+  {
+    "name": "SkyAtmosphere_0",
+    "label": "SkyAtmosphere",
+    "location": [
+      0.0,
+      0.0,
+      -6000.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B2383A130) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      56.0,
+      0.0,
+      -6000.0
+    ],
+    "extent": [
+      184.0,
+      128.0,
+      128.0
+    ]
+  },
+  {
+    "name": "SkyLight_0",
+    "label": "SkyLight",
+    "location": [
+      0.0,
+      0.0,
+      600.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1BF98E70) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      0.0,
+      0.0,
+      427.5
+    ],
+    "extent": [
+      256.0,
+      256.0,
+      428.5
+    ]
+  },
+  {
+    "name": "VolumetricCloud_0",
+    "label": "VolumetricCloud",
+    "location": [
+      0.0,
+      0.0,
+      700.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1BF98E70) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      0.0,
+      0.0,
+      700.0
+    ],
+    "extent": [
+      128.0,
+      128.0,
+      128.0
+    ]
+  },
+  {
+    "name": "PlayerStart_0",
+    "label": "PlayerStart",
+    "location": [
+      3503.065002440255,
+      2351.57373079041,
+      125.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B2383A130) {pitch: 0.000000, yaw: 180.000000, roll: -0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      3447.065002440255,
+      2351.57373079041,
+      125.0
+    ],
+    "extent": [
+      184.0,
+      128.0,
+      128.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_0",
+    "label": "SM_SkySphere",
+    "location": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1BF98E70) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      400.0,
+      400.0,
+      400.0
+    ],
+    "center": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "extent": [
+      1638400.0,
+      1638400.0,
+      1638400.0
+    ]
+  },
+  {
+    "name": "Floor_0",
+    "label": "Floor",
+    "location": [
+      0.0,
+      0.0,
+      -250.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1BFBE950) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      -0.0001220703125,
+      6.103515625e-05,
+      -275.00001525878906
+    ],
+    "extent": [
+      500.00018310546875,
+      500.0,
+      25.000015258789062
+    ]
+  },
+  {
+    "name": "StaticMeshActor_270",
+    "label": "BO_Ground_200x160m",
+    "location": [
+      0.0,
+      0.0,
+      -50.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E3CDDC0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      160.0,
+      200.0,
+      1.0
+    ],
+    "center": [
+      0.0,
+      0.0,
+      -50.0
+    ],
+    "extent": [
+      8000.0,
+      10000.0,
+      50.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_271",
+    "label": "BO_North_5p5m_Sidewalk",
+    "location": [
+      4000.0,
+      200.0,
+      7.000000000000001
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E3CEEF0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      8.5,
+      183.0,
+      0.14
+    ],
+    "center": [
+      4000.0,
+      200.0,
+      7.000000000000001
+    ],
+    "extent": [
+      425.0,
+      9150.0,
+      7.000000000000001
+    ]
+  },
+  {
+    "name": "StaticMeshActor_272",
+    "label": "BO_North_5p5m",
+    "location": [
+      4000.0,
+      200.0,
+      16.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E3CDDC0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      5.5,
+      180.0,
+      0.04
+    ],
+    "center": [
+      4000.0,
+      200.0,
+      16.0
+    ],
+    "extent": [
+      275.0,
+      9000.0,
+      2.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_295",
+    "label": "BO_CafeLane_3m_Sidewalk",
+    "location": [
+      900.0,
+      -1500.0,
+      7.000000000000001
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E3CE9F0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      55.0,
+      5.0,
+      0.14
+    ],
+    "center": [
+      900.0,
+      -1500.0,
+      7.000000000000001
+    ],
+    "extent": [
+      2750.0,
+      250.0,
+      7.000000000000001
+    ]
+  },
+  {
+    "name": "StaticMeshActor_296",
+    "label": "BO_CafeLane_3m",
+    "location": [
+      900.0,
+      -1500.0,
+      16.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E3CE720) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      53.0,
+      3.0,
+      0.04
+    ],
+    "center": [
+      900.0,
+      -1500.0,
+      16.0
+    ],
+    "extent": [
+      2650.0,
+      150.0,
+      2.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_297",
+    "label": "BO_ParkLane_3m_Sidewalk",
+    "location": [
+      900.0,
+      2450.0,
+      7.000000000000001
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E3CDCD0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      55.0,
+      5.0,
+      0.14
+    ],
+    "center": [
+      900.0,
+      2450.0,
+      7.000000000000001
+    ],
+    "extent": [
+      2750.0,
+      250.0,
+      7.000000000000001
+    ]
+  },
+  {
+    "name": "StaticMeshActor_298",
+    "label": "BO_ParkLane_3m",
+    "location": [
+      900.0,
+      2450.0,
+      16.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E3CE720) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      53.0,
+      3.0,
+      0.04
+    ],
+    "center": [
+      900.0,
+      2450.0,
+      16.0
+    ],
+    "extent": [
+      2650.0,
+      150.0,
+      2.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_334",
+    "label": "BO_Plot_Library",
+    "location": [
+      5700.0,
+      -2600.0,
+      19.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E3CDFF0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      20.0,
+      26.0,
+      0.1
+    ],
+    "center": [
+      5700.0,
+      -2600.0,
+      19.0
+    ],
+    "extent": [
+      1000.0,
+      1300.0,
+      5.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_335",
+    "label": "BO_Library",
+    "location": [
+      5700.0,
+      -2600.0,
+      524.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E3CDCD0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      14.0,
+      20.0,
+      10.0
+    ],
+    "center": [
+      5700.0,
+      -2600.0,
+      524.0
+    ],
+    "extent": [
+      700.0,
+      1000.0,
+      500.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_336",
+    "label": "BO_Entry_Library",
+    "location": [
+      4850.0,
+      -2600.0,
+      25.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E3CE900) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      3.0,
+      2.0,
+      0.02
+    ],
+    "center": [
+      4850.0,
+      -2600.0,
+      25.0
+    ],
+    "extent": [
+      150.0,
+      100.0,
+      1.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_337",
+    "label": "BO_Plot_University",
+    "location": [
+      6000.0,
+      1600.0,
+      19.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E3CF580) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      32.0,
+      42.0,
+      0.1
+    ],
+    "center": [
+      6000.0,
+      1600.0,
+      19.0
+    ],
+    "extent": [
+      1600.0,
+      2100.0,
+      5.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_349",
+    "label": "BO_Plot_Cafe",
+    "location": [
+      1600.0,
+      -3000.0,
+      19.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E36E770) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      16.0,
+      20.0,
+      0.1
+    ],
+    "center": [
+      1600.0,
+      -3000.0,
+      19.0
+    ],
+    "extent": [
+      800.0,
+      1000.0,
+      5.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_350",
+    "label": "BO_Cafe",
+    "location": [
+      1600.0,
+      -3000.0,
+      374.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E3CFFD0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      10.0,
+      14.0,
+      7.0
+    ],
+    "center": [
+      1600.0,
+      -3000.0,
+      374.0
+    ],
+    "extent": [
+      500.0,
+      700.0,
+      350.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_351",
+    "label": "BO_Entry_Cafe",
+    "location": [
+      950.0,
+      -3000.0,
+      25.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E36E770) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      3.0,
+      2.0,
+      0.02
+    ],
+    "center": [
+      950.0,
+      -3000.0,
+      25.0
+    ],
+    "extent": [
+      150.0,
+      100.0,
+      1.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_352",
+    "label": "BO_Plot_Museum",
+    "location": [
+      2300.0,
+      600.0,
+      19.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E36DE60) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      24.0,
+      30.0,
+      0.1
+    ],
+    "center": [
+      2300.0,
+      600.0,
+      19.0
+    ],
+    "extent": [
+      1200.0,
+      1500.0,
+      5.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_353",
+    "label": "BO_Museum",
+    "location": [
+      2300.0,
+      600.0,
+      574.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E36E770) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      18.0,
+      24.0,
+      11.0
+    ],
+    "center": [
+      2300.0,
+      600.0,
+      574.0
+    ],
+    "extent": [
+      900.0,
+      1200.0,
+      550.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_354",
+    "label": "BO_Entry_Museum",
+    "location": [
+      1250.0,
+      600.0,
+      25.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E36DE60) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      3.0,
+      2.0,
+      0.02
+    ],
+    "center": [
+      1250.0,
+      600.0,
+      25.0
+    ],
+    "extent": [
+      150.0,
+      100.0,
+      1.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_355",
+    "label": "BO_Plot_Pawnshop",
+    "location": [
+      1600.0,
+      3500.0,
+      19.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E36E040) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      14.0,
+      16.0,
+      0.1
+    ],
+    "center": [
+      1600.0,
+      3500.0,
+      19.0
+    ],
+    "extent": [
+      700.0,
+      800.0,
+      5.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_356",
+    "label": "BO_Pawnshop",
+    "location": [
+      1600.0,
+      3500.0,
+      24.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E36DE60) {pitch: 0.000000, yaw: 90.000000, roll: -0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      1548.499984741211,
+      3610.927490234375,
+      516.5000305175781
+    ],
+    "extent": [
+      503.0000457763673,
+      633.4274291992188,
+      492.5000305175781
+    ]
+  },
+  {
+    "name": "StaticMeshActor_357",
+    "label": "BO_Entry_Pawnshop",
+    "location": [
+      1050.0,
+      3500.0,
+      25.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476CFC60) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      3.0,
+      2.0,
+      0.02
+    ],
+    "center": [
+      1050.0,
+      3500.0,
+      25.0
+    ],
+    "extent": [
+      150.0,
+      100.0,
+      1.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_366",
+    "label": "BO_Park_28x24m",
+    "location": [
+      -200.0,
+      600.0,
+      19.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E36DE60) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      24.0,
+      28.0,
+      0.1
+    ],
+    "center": [
+      -200.0,
+      600.0,
+      19.0
+    ],
+    "extent": [
+      1200.0,
+      1400.0,
+      5.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_367",
+    "label": "BO_ParkWalkEW",
+    "location": [
+      -200.0,
+      600.0,
+      25.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476CFC60) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      3.0,
+      28.0,
+      0.02
+    ],
+    "center": [
+      -200.0,
+      600.0,
+      25.0
+    ],
+    "extent": [
+      150.0,
+      1400.0,
+      1.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_368",
+    "label": "BO_ParkWalkNS",
+    "location": [
+      -200.0,
+      600.0,
+      25.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476CE3B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      24.0,
+      3.0,
+      0.02
+    ],
+    "center": [
+      -200.0,
+      600.0,
+      25.0
+    ],
+    "extent": [
+      1200.0,
+      150.0,
+      1.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_369",
+    "label": "BO_Fountain_Base",
+    "location": [
+      -200.0,
+      600.0,
+      51.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476CFF30) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      4.0,
+      4.0,
+      0.5
+    ],
+    "center": [
+      -200.0,
+      600.0,
+      51.0
+    ],
+    "extent": [
+      200.0,
+      200.0,
+      25.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_370",
+    "label": "BO_Fountain_Water",
+    "location": [
+      -200.0,
+      600.0,
+      79.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476CD640) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      3.3,
+      3.3,
+      0.06
+    ],
+    "center": [
+      -200.0,
+      600.0,
+      79.0
+    ],
+    "extent": [
+      165.0,
+      165.0,
+      3.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_371",
+    "label": "BO_Fountain_Centre",
+    "location": [
+      -200.0,
+      600.0,
+      216.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476CD140) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      0.6,
+      0.6,
+      2.68
+    ],
+    "center": [
+      -200.0,
+      600.0,
+      216.0
+    ],
+    "extent": [
+      30.0,
+      30.0,
+      134.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_593",
+    "label": "BO_Tree_98",
+    "location": [
+      800.0,
+      -600.0,
+      214.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476CD140) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      2.0,
+      2.0,
+      4.0
+    ],
+    "center": [
+      800.0,
+      -600.0,
+      214.0
+    ],
+    "extent": [
+      100.0,
+      100.0,
+      200.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_594",
+    "label": "BO_Tree_99",
+    "location": [
+      800.0,
+      1800.0,
+      214.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476CD5A0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      2.0,
+      2.0,
+      4.0
+    ],
+    "center": [
+      800.0,
+      1800.0,
+      214.0
+    ],
+    "extent": [
+      100.0,
+      100.0,
+      200.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_595",
+    "label": "BO_Tree_100",
+    "location": [
+      -1200.0,
+      -600.0,
+      214.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1DC0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      2.0,
+      2.0,
+      4.0
+    ],
+    "center": [
+      -1200.0,
+      -600.0,
+      214.0
+    ],
+    "extent": [
+      100.0,
+      100.0,
+      200.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_596",
+    "label": "BO_Tree_101",
+    "location": [
+      -1200.0,
+      1800.0,
+      214.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1B90) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      2.0,
+      2.0,
+      4.0
+    ],
+    "center": [
+      -1200.0,
+      1800.0,
+      214.0
+    ],
+    "extent": [
+      100.0,
+      100.0,
+      200.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_598",
+    "label": "BO_Tree_103",
+    "location": [
+      200.0,
+      -2200.0,
+      214.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1B90) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      2.0,
+      2.0,
+      4.0
+    ],
+    "center": [
+      200.0,
+      -2200.0,
+      214.0
+    ],
+    "extent": [
+      100.0,
+      100.0,
+      200.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_600",
+    "label": "BO_Tree_105",
+    "location": [
+      -800.0,
+      -2200.0,
+      214.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1B90) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      2.0,
+      2.0,
+      4.0
+    ],
+    "center": [
+      -800.0,
+      -2200.0,
+      214.0
+    ],
+    "extent": [
+      100.0,
+      100.0,
+      200.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_601",
+    "label": "BO_Tree_106",
+    "location": [
+      200.0,
+      3500.0,
+      214.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1DC0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      2.0,
+      2.0,
+      4.0
+    ],
+    "center": [
+      200.0,
+      3500.0,
+      214.0
+    ],
+    "extent": [
+      100.0,
+      100.0,
+      200.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_603",
+    "label": "BO_Tree_108",
+    "location": [
+      -1100.0,
+      3500.0,
+      214.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1DC0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      2.0,
+      2.0,
+      4.0
+    ],
+    "center": [
+      -1100.0,
+      3500.0,
+      214.0
+    ],
+    "extent": [
+      100.0,
+      100.0,
+      200.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_621",
+    "label": "UNI_Mortar",
+    "location": [
+      6000.0,
+      1600.0,
+      24.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1DC0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      6000.0,
+      1600.0,
+      474.0
+    ],
+    "extent": [
+      1300.0,
+      1800.0,
+      450.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_622",
+    "label": "UNI_StoneDark",
+    "location": [
+      6000.0,
+      1600.0,
+      24.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1B90) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      6000.0,
+      1600.0,
+      99.0
+    ],
+    "extent": [
+      1306.0,
+      1806.0,
+      75.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_623",
+    "label": "UNI_Stone",
+    "location": [
+      6000.0,
+      1600.0,
+      24.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1DC0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      6000.0,
+      1600.0,
+      709.5
+    ],
+    "extent": [
+      1352.0,
+      1852.0,
+      685.5
+    ]
+  },
+  {
+    "name": "StaticMeshActor_624",
+    "label": "UNI_BrickLight",
+    "location": [
+      6000.0,
+      1600.0,
+      24.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1B90) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      6000.0,
+      1600.0,
+      759.0
+    ],
+    "extent": [
+      1301.75,
+      1801.75,
+      573.75
+    ]
+  },
+  {
+    "name": "StaticMeshActor_625",
+    "label": "UNI_Brick",
+    "location": [
+      6000.0,
+      1600.0,
+      24.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1DC0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      6000.0,
+      1600.0,
+      782.125
+    ],
+    "extent": [
+      1335.0,
+      1835.0,
+      596.875
+    ]
+  },
+  {
+    "name": "StaticMeshActor_626",
+    "label": "UNI_Roof",
+    "location": [
+      6000.0,
+      1600.0,
+      24.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1B90) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      6000.0,
+      1600.0,
+      1105.75
+    ],
+    "extent": [
+      1335.0,
+      1835.0,
+      161.75
+    ]
+  },
+  {
+    "name": "StaticMeshActor_627",
+    "label": "UNI_RoofLight",
+    "location": [
+      6000.0,
+      1600.0,
+      24.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1DC0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      6000.0,
+      1600.0,
+      1107.5
+    ],
+    "extent": [
+      1335.0,
+      1835.0,
+      160.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_628",
+    "label": "UNI_Metal",
+    "location": [
+      6000.0,
+      1600.0,
+      24.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1B90) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      6000.0,
+      1600.0,
+      652.5
+    ],
+    "extent": [
+      1335.0,
+      1838.0,
+      623.5
+    ]
+  },
+  {
+    "name": "StaticMeshActor_629",
+    "label": "UNI_Shadow",
+    "location": [
+      6000.0,
+      1600.0,
+      24.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1DC0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      6000.0,
+      1600.0,
+      727.75
+    ],
+    "extent": [
+      1313.0,
+      1813.0,
+      670.75
+    ]
+  },
+  {
+    "name": "StaticMeshActor_630",
+    "label": "UNI_Glass",
+    "location": [
+      6000.0,
+      1600.0,
+      24.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1B90) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      5984.5,
+      1600.0,
+      597.25
+    ],
+    "extent": [
+      1336.5,
+      1821.0,
+      529.25
+    ]
+  },
+  {
+    "name": "StaticMeshActor_631",
+    "label": "UNI_Wood",
+    "location": [
+      6000.0,
+      1600.0,
+      24.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1DC0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      5987.625,
+      1600.0,
+      597.25
+    ],
+    "extent": [
+      1344.375,
+      1832.0,
+      529.25
+    ]
+  },
+  {
+    "name": "StaticMeshActor_632",
+    "label": "UNI_Door",
+    "location": [
+      6000.0,
+      1600.0,
+      24.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1B90) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      5674.0,
+      1600.0,
+      284.0
+    ],
+    "extent": [
+      9.0,
+      112.5,
+      140.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_633",
+    "label": "UNI_Paving",
+    "location": [
+      6000.0,
+      1600.0,
+      24.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1DC0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      5050.0,
+      1600.0,
+      27.5
+    ],
+    "extent": [
+      350.0,
+      500.0,
+      3.5
+    ]
+  },
+  {
+    "name": "StaticMeshActor_634",
+    "label": "UNI_Leaf",
+    "location": [
+      6000.0,
+      1600.0,
+      24.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1B90) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      5132.5,
+      1600.0,
+      154.0
+    ],
+    "extent": [
+      322.5,
+      715.0,
+      100.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_635",
+    "label": "UNI_Trunk",
+    "location": [
+      6000.0,
+      1600.0,
+      24.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1DC0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      5150.0,
+      1600.0,
+      104.0
+    ],
+    "extent": [
+      260.0,
+      635.0,
+      40.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_636",
+    "label": "UNI_LeafLight",
+    "location": [
+      6000.0,
+      1600.0,
+      24.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B476B1B90) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      5150.0,
+      1600.0,
+      169.0
+    ],
+    "extent": [
+      293.0,
+      668.0,
+      40.0
+    ]
+  },
+  {
+    "name": "StaticMeshActor_637",
+    "label": "UNI_Glow",
+    "location": [
+      6000.0,
+      1600.0,
+      24.0
+    ],
+    "rotation": "<Struct 'Rotator' (0x0000025B1E416900) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "center": [
+      5020.0,
+      1600.0,
+      346.0
+    ],
+    "extent": [
+      14.0,
+      434.0,
+      17.5
+    ]
+  }
+]

@@ -1,0 +1,69 @@
+{
+  "asset": "/Game/TestLevel/Level_6/Blender/Museum/SM_Museum_Blockout.SM_Museum_Blockout",
+  "bounds_min": [
+    -1553.798095703125,
+    -1105.275146484375,
+    0.0
+  ],
+  "bounds_max": [
+    1553.798095703125,
+    1350.0,
+    1248.0
+  ],
+  "triangles": 71200,
+  "materials": [
+    [
+      "Museum_Banner_Ochre",
+      "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Metal_Gold.MUS_Metal_Gold"
+    ],
+    [
+      "Museum_Recess_Shadow",
+      "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Recess.MUS_Recess"
+    ],
+    [
+      "Museum_Smoky_Teal_Glass",
+      "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Glass.MUS_Glass"
+    ],
+    [
+      "Museum_Warm_Limestone_001",
+      "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Stone.MUS_Stone"
+    ],
+    [
+      "Museum_Ivory_Cutstone",
+      "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Stone_Trim.MUS_Stone_Trim"
+    ],
+    [
+      "Museum_Aged_Bronze",
+      "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Metal.MUS_Metal"
+    ],
+    [
+      "Museum_Warm_Window_Reflection",
+      "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Glass_Warm.MUS_Glass_Warm"
+    ],
+    [
+      "Museum_Entry_Lantern_Amber",
+      "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Lantern_Amber.MUS_Lantern_Amber"
+    ],
+    [
+      "Museum_Museum_Deep_Blue",
+      "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Banner.MUS_Banner"
+    ],
+    [
+      "Museum_Base_Sandstone",
+      "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Stone_Base.MUS_Stone_Base"
+    ],
+    [
+      "Museum_Lantern_Blue_Glass",
+      "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Glass_Cupola.MUS_Glass_Cupola"
+    ],
+    [
+      "Museum_Walnut_Entry",
+      "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Wood.MUS_Wood"
+    ],
+    [
+      "Museum_Charcoal_Slate",
+      "/Game/TestLevel/Level_6/Blender/Museum/Materials/MUS_Roof.MUS_Roof"
+    ]
+  ],
+  "import_scale": 1.0
+}
