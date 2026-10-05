@@ -27,6 +27,7 @@ GameDesign/
 │   ├── README.md
 │   ├── Dimensions.md
 │   ├── StyleGuide.md
+│   ├── BlenderWorkflow.md
 │   ├── University.md
 │   ├── Dormitory.md
 │   └── References/
@@ -48,6 +49,7 @@ GameDesign/
 
 - общая планировка города / районы / связи → `World/Town.md`
 - размеры, этажность и внешний стиль конкретных зданий → `Buildings/`
+- Blender → UE5 workflow для макетов зданий → `Buildings/BlenderWorkflow.md`
 - раскопочные уровни → `World/DigSites.md`
 - важный NPC → отдельный файл в `Characters/`
 - общие отношения → `Systems/Relationships.md`
