@@ -1,0 +1,2880 @@
+{
+  "world": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map",
+  "actors": [
+    {
+      "label": "BO_West_6p5m_Sidewalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_273",
+      "location": [
+        -950.0,
+        -5200.0,
+        7.000000000000001
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1BFBE950) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        114.0,
+        9.5,
+        0.14
+      ],
+      "center": [
+        -950.0,
+        -5200.0,
+        7.000000000000001
+      ],
+      "extent": [
+        5700.0,
+        475.0,
+        7.000000000000001
+      ]
+    },
+    {
+      "label": "BO_West_6p5m",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_274",
+      "location": [
+        -950.0,
+        -5200.0,
+        16.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E36E040) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        111.0,
+        6.5,
+        0.04
+      ],
+      "center": [
+        -950.0,
+        -5200.0,
+        16.0
+      ],
+      "extent": [
+        5550.0,
+        325.0,
+        2.0
+      ]
+    },
+    {
+      "label": "BO_ResidentialWest_4p5m_Sidewalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_285",
+      "location": [
+        -6500.0,
+        -5200.0,
+        7.000000000000001
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1BFBE950) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        11.0,
+        7.5,
+        0.14
+      ],
+      "center": [
+        -6500.0,
+        -5200.0,
+        7.000000000000001
+      ],
+      "extent": [
+        550.0,
+        375.0,
+        7.000000000000001
+      ]
+    },
+    {
+      "label": "BO_ResidentialWest_4p5m",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_286",
+      "location": [
+        -6500.0,
+        -5200.0,
+        16.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E36E220) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        8.0,
+        4.5,
+        0.04
+      ],
+      "center": [
+        -6500.0,
+        -5200.0,
+        16.0
+      ],
+      "extent": [
+        400.0,
+        225.0,
+        2.0
+      ]
+    },
+    {
+      "label": "BO_HomeAccess_81.5_3m_Sidewalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_289",
+      "location": [
+        -4700.0,
+        -1850.0,
+        7.000000000000001
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E36E770) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        46.0,
+        5.0,
+        0.14
+      ],
+      "center": [
+        -4700.0,
+        -1850.0,
+        7.000000000000001
+      ],
+      "extent": [
+        2300.0,
+        250.0,
+        7.000000000000001
+      ]
+    },
+    {
+      "label": "BO_HomeAccess_81.5_3m",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_290",
+      "location": [
+        -4700.0,
+        -1850.0,
+        16.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E36C060) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        44.0,
+        3.0,
+        0.04
+      ],
+      "center": [
+        -4700.0,
+        -1850.0,
+        16.0
+      ],
+      "extent": [
+        2200.0,
+        150.0,
+        2.0
+      ]
+    },
+    {
+      "label": "BO_CafeLane_3m_Sidewalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_295",
+      "location": [
+        900.0,
+        -1500.0,
+        7.000000000000001
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E36E770) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        55.0,
+        5.0,
+        0.14
+      ],
+      "center": [
+        900.0,
+        -1500.0,
+        7.000000000000001
+      ],
+      "extent": [
+        2750.0,
+        250.0,
+        7.000000000000001
+      ]
+    },
+    {
+      "label": "BO_CafeLane_3m",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_296",
+      "location": [
+        900.0,
+        -1500.0,
+        16.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E36E360) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        53.0,
+        3.0,
+        0.04
+      ],
+      "center": [
+        900.0,
+        -1500.0,
+        16.0
+      ],
+      "extent": [
+        2650.0,
+        150.0,
+        2.0
+      ]
+    },
+    {
+      "label": "BO_Corner_SW0_Verge",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_299",
+      "location": [
+        -7292.3141121612925,
+        -4478.036128806451,
+        7.000000000000001
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C5F00) {pitch: 0.000000, yaw: -174.375000, roll: 0.000000}>",
+      "scale": [
+        7.5,
+        1.6482742452729657,
+        0.14
+      ],
+      "center": [
+        -7292.3141121612925,
+        -4478.036128806451,
+        7.000000000000001
+      ],
+      "extent": [
+        381.2722289020994,
+        118.77329533672128,
+        7.000000000000001
+      ]
+    },
+    {
+      "label": "BO_Corner_SW0",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_300",
+      "location": [
+        -7292.3141121612925,
+        -4478.036128806451,
+        16.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E36E360) {pitch: 0.000000, yaw: -174.375000, roll: 0.000000}>",
+      "scale": [
+        4.5,
+        1.6482742452729657,
+        0.04
+      ],
+      "center": [
+        -7292.3141121612925,
+        -4478.036128806451,
+        16.0
+      ],
+      "extent": [
+        231.99451990127,
+        104.07072428728861,
+        2.0
+      ]
+    },
+    {
+      "label": "BO_Corner_SW1_Verge",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_301",
+      "location": [
+        -7261.865925165807,
+        -4631.109501752487,
+        7.000000000000001
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C5F00) {pitch: 0.000000, yaw: -163.125000, roll: 0.000000}>",
+      "scale": [
+        7.5,
+        1.6482742452729764,
+        0.14
+      ],
+      "center": [
+        -7261.865925165807,
+        -4631.109501752487,
+        7.000000000000001
+      ],
+      "extent": [
+        382.7760637653728,
+        187.72175945294111,
+        7.000000000000001
+      ]
+    },
+    {
+      "label": "BO_Corner_SW1",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_302",
+      "location": [
+        -7261.865925165807,
+        -4631.109501752487,
+        16.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E36C060) {pitch: 0.000000, yaw: -163.125000, roll: 0.000000}>",
+      "scale": [
+        4.5,
+        1.6482742452729764,
+        0.04
+      ],
+      "center": [
+        -7261.865925165807,
+        -4631.109501752487,
+        16.0
+      ],
+      "extent": [
+        239.2350134055423,
+        144.17905786476967,
+        2.0
+      ]
+    },
+    {
+      "label": "BO_Corner_SW2_Verge",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_303",
+      "location": [
+        -7202.139657925534,
+        -4775.301466153877,
+        7.000000000000001
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C5F00) {pitch: 0.000000, yaw: -151.875000, roll: 0.000000}>",
+      "scale": [
+        7.5,
+        1.648274245272969,
+        0.14
+      ],
+      "center": [
+        -7202.139657925534,
+        -4775.301466153877,
+        7.000000000000001
+      ],
+      "extent": [
+        369.5700291614339,
+        249.45618162894698,
+        7.000000000000001
+      ]
+    },
+    {
+      "label": "BO_Corner_SW2",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_304",
+      "location": [
+        -7202.139657925534,
+        -4775.301466153877,
+        16.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E36E360) {pitch: 0.000000, yaw: -151.875000, roll: 0.000000}>",
+      "scale": [
+        4.5,
+        1.648274245272969,
+        0.04
+      ],
+      "center": [
+        -7202.139657925534,
+        -4775.301466153877,
+        16.0
+      ],
+      "extent": [
+        237.28183950918083,
+        178.74667110504743,
+        2.0
+      ]
+    },
+    {
+      "label": "BO_Corner_SW3_Verge",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_305",
+      "location": [
+        -7115.430557395638,
+        -4905.070805682461,
+        7.000000000000001
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C5F00) {pitch: 0.000000, yaw: -140.625000, roll: 0.000000}>",
+      "scale": [
+        7.5,
+        1.6482742452729777,
+        0.14
+      ],
+      "center": [
+        -7115.430557395638,
+        -4905.070805682461,
+        7.000000000000001
+      ],
+      "extent": [
+        342.16162559407985,
+        301.6041426415968,
+        7.000000000000001
+      ]
+    },
+    {
+      "label": "BO_Corner_SW3",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_306",
+      "location": [
+        -7115.430557395638,
+        -4905.070805682461,
+        16.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E36C060) {pitch: 0.000000, yaw: -140.625000, roll: 0.000000}>",
+      "scale": [
+        4.5,
+        1.6482742452729777,
+        0.04
+      ],
+      "center": [
+        -7115.430557395638,
+        -4905.070805682461,
+        16.0
+      ],
+      "extent": [
+        226.2100575896693,
+        206.44515001704985,
+        2.0
+      ]
+    },
+    {
+      "label": "BO_Corner_SW4_Verge",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_307",
+      "location": [
+        -7005.070805682459,
+        -5015.430557395637,
+        7.000000000000001
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C5F00) {pitch: 0.000000, yaw: -129.375000, roll: 0.000000}>",
+      "scale": [
+        7.5,
+        1.6482742452729633,
+        0.14
+      ],
+      "center": [
+        -7005.070805682459,
+        -5015.430557395637,
+        7.000000000000001
+      ],
+      "extent": [
+        301.604142641595,
+        342.16162559407985,
+        7.000000000000001
+      ]
+    },
+    {
+      "label": "BO_Corner_SW4",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_308",
+      "location": [
+        -7005.070805682459,
+        -5015.430557395637,
+        16.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E36E360) {pitch: 0.000000, yaw: -129.375000, roll: 0.000000}>",
+      "scale": [
+        4.5,
+        1.6482742452729633,
+        0.04
+      ],
+      "center": [
+        -7005.070805682459,
+        -5015.430557395637,
+        16.0
+      ],
+      "extent": [
+        206.44515001704895,
+        226.2100575896693,
+        2.0
+      ]
+    },
+    {
+      "label": "BO_Corner_SW5_Verge",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_309",
+      "location": [
+        -6875.301466153877,
+        -5102.139657925532,
+        7.000000000000001
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C5F00) {pitch: 0.000000, yaw: -118.125000, roll: 0.000000}>",
+      "scale": [
+        7.5,
+        1.648274245272954,
+        0.14
+      ],
+      "center": [
+        -6875.301466153877,
+        -5102.139657925532,
+        7.000000000000001
+      ],
+      "extent": [
+        249.4561816289497,
+        369.5700291614321,
+        7.000000000000001
+      ]
+    },
+    {
+      "label": "BO_Corner_SW5",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_310",
+      "location": [
+        -6875.301466153877,
+        -5102.139657925532,
+        16.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E36C060) {pitch: 0.000000, yaw: -118.125000, roll: 0.000000}>",
+      "scale": [
+        4.5,
+        1.648274245272954,
+        0.04
+      ],
+      "center": [
+        -6875.301466153877,
+        -5102.139657925532,
+        16.0
+      ],
+      "extent": [
+        178.74667110504834,
+        237.28183950917992,
+        2.0
+      ]
+    },
+    {
+      "label": "BO_Corner_SW6_Verge",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_311",
+      "location": [
+        -6731.109501752488,
+        -5161.865925165807,
+        7.000000000000001
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C5F00) {pitch: 0.000000, yaw: -106.875000, roll: 0.000000}>",
+      "scale": [
+        7.5,
+        1.648274245272984,
+        0.14
+      ],
+      "center": [
+        -6731.109501752488,
+        -5161.865925165807,
+        7.000000000000001
+      ],
+      "extent": [
+        187.72175945293657,
+        382.7760637653737,
+        7.000000000000001
+      ]
+    },
+    {
+      "label": "BO_Corner_SW6",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_312",
+      "location": [
+        -6731.109501752488,
+        -5161.865925165807,
+        16.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E36E360) {pitch: 0.000000, yaw: -106.875000, roll: 0.000000}>",
+      "scale": [
+        4.5,
+        1.648274245272984,
+        0.04
+      ],
+      "center": [
+        -6731.109501752488,
+        -5161.865925165807,
+        16.0
+      ],
+      "extent": [
+        144.17905786476786,
+        239.2350134055423,
+        2.0
+      ]
+    },
+    {
+      "label": "BO_Corner_SW7_Verge",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_313",
+      "location": [
+        -6578.036128806451,
+        -5192.3141121612925,
+        7.000000000000001
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C5F00) {pitch: 0.000000, yaw: -95.625000, roll: 0.000000}>",
+      "scale": [
+        7.5,
+        1.6482742452729673,
+        0.14
+      ],
+      "center": [
+        -6578.036128806451,
+        -5192.3141121612925,
+        7.000000000000001
+      ],
+      "extent": [
+        118.77329533672582,
+        381.2722289021003,
+        7.000000000000001
+      ]
+    },
+    {
+      "label": "BO_Corner_SW7",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_314",
+      "location": [
+        -6578.036128806451,
+        -5192.3141121612925,
+        16.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E36C060) {pitch: 0.000000, yaw: -95.625000, roll: 0.000000}>",
+      "scale": [
+        4.5,
+        1.6482742452729673,
+        0.04
+      ],
+      "center": [
+        -6578.036128806451,
+        -5192.3141121612925,
+        16.0
+      ],
+      "extent": [
+        104.07072428729134,
+        231.9945199012709,
+        2.0
+      ]
+    },
+    {
+      "label": "BO_Plot_Hospital",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_343",
+      "location": [
+        1400.0,
+        -7400.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7EE0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        20.0,
+        26.0,
+        0.1
+      ],
+      "center": [
+        1400.0,
+        -7400.0,
+        19.0
+      ],
+      "extent": [
+        1000.0,
+        1300.0,
+        5.0
+      ]
+    },
+    {
+      "label": "BO_Hospital",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_344",
+      "location": [
+        1287.2499694824219,
+        -7201.834777832031,
+        24.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E36C060) {pitch: 0.000000, yaw: -90.000000, roll: 0.000000}>",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "center": [
+        1400.0,
+        -7400.0,
+        484.25
+      ],
+      "extent": [
+        921.2499694824223,
+        1251.8347778320312,
+        460.25
+      ]
+    },
+    {
+      "label": "BO_Entry_Hospital",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_345",
+      "location": [
+        550.0,
+        -7400.0,
+        25.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7EE0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        3.0,
+        2.0,
+        0.02
+      ],
+      "center": [
+        550.0,
+        -7400.0,
+        25.0
+      ],
+      "extent": [
+        150.0,
+        100.0,
+        1.0
+      ]
+    },
+    {
+      "label": "BO_Plot_CarDealer",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_346",
+      "location": [
+        -3100.0,
+        -7400.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E36C060) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        24.0,
+        30.0,
+        0.1
+      ],
+      "center": [
+        -3100.0,
+        -7400.0,
+        19.0
+      ],
+      "extent": [
+        1200.0,
+        1500.0,
+        5.0
+      ]
+    },
+    {
+      "label": "BO_CarDealer",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_347",
+      "location": [
+        -3100.0,
+        -7400.0,
+        374.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7E40) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        18.0,
+        24.0,
+        7.0
+      ],
+      "center": [
+        -3100.0,
+        -7400.0,
+        374.0
+      ],
+      "extent": [
+        900.0,
+        1200.0,
+        350.0
+      ]
+    },
+    {
+      "label": "BO_Entry_CarDealer",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_348",
+      "location": [
+        -4150.0,
+        -7400.0,
+        25.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7DF0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        3.0,
+        2.0,
+        0.02
+      ],
+      "center": [
+        -4150.0,
+        -7400.0,
+        25.0
+      ],
+      "extent": [
+        150.0,
+        100.0,
+        1.0
+      ]
+    },
+    {
+      "label": "BO_Plot_Cafe",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_349",
+      "location": [
+        1600.0,
+        -3000.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7EE0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        16.0,
+        20.0,
+        0.1
+      ],
+      "center": [
+        1600.0,
+        -3000.0,
+        19.0
+      ],
+      "extent": [
+        800.0,
+        1000.0,
+        5.0
+      ]
+    },
+    {
+      "label": "BO_Cafe",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_350",
+      "location": [
+        1600.0,
+        -3000.0,
+        374.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7D50) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        10.0,
+        14.0,
+        7.0
+      ],
+      "center": [
+        1600.0,
+        -3000.0,
+        374.0
+      ],
+      "extent": [
+        500.0,
+        700.0,
+        350.0
+      ]
+    },
+    {
+      "label": "BO_Entry_Cafe",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_351",
+      "location": [
+        950.0,
+        -3000.0,
+        25.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7E40) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        3.0,
+        2.0,
+        0.02
+      ],
+      "center": [
+        950.0,
+        -3000.0,
+        25.0
+      ],
+      "extent": [
+        150.0,
+        100.0,
+        1.0
+      ]
+    },
+    {
+      "label": "BO_Hospital_CrossH",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_364",
+      "location": [
+        1400.0,
+        -7400.0,
+        1026.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7D50) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        1.0,
+        4.0,
+        0.02
+      ],
+      "center": [
+        1400.0,
+        -7400.0,
+        1026.0
+      ],
+      "extent": [
+        50.0,
+        200.0,
+        1.0
+      ]
+    },
+    {
+      "label": "BO_Hospital_CrossV",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_365",
+      "location": [
+        1400.0,
+        -7400.0,
+        1028.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7E40) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        4.0,
+        1.0,
+        0.02
+      ],
+      "center": [
+        1400.0,
+        -7400.0,
+        1028.0
+      ],
+      "extent": [
+        200.0,
+        50.0,
+        1.0
+      ]
+    },
+    {
+      "label": "BO_Plot_Neighbor_1",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_372",
+      "location": [
+        -3400.0,
+        -3100.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7C60) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        16.0,
+        14.0,
+        0.1
+      ],
+      "center": [
+        -3400.0,
+        -3100.0,
+        19.0
+      ],
+      "extent": [
+        800.0,
+        700.0,
+        5.0
+      ]
+    },
+    {
+      "label": "BO_Path_Neighbor_1",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_373",
+      "location": [
+        -4050.0,
+        -3100.0,
+        25.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7D00) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        3.0,
+        1.5,
+        0.02
+      ],
+      "center": [
+        -4050.0,
+        -3100.0,
+        25.0
+      ],
+      "extent": [
+        150.0,
+        75.0,
+        1.0
+      ]
+    },
+    {
+      "label": "BO_Neighbor_1",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_374",
+      "location": [
+        -3400.0,
+        -3100.0,
+        324.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7CB0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        10.0,
+        8.0,
+        6.0
+      ],
+      "center": [
+        -3400.0,
+        -3100.0,
+        324.0
+      ],
+      "extent": [
+        500.0,
+        400.0,
+        300.0
+      ]
+    },
+    {
+      "label": "BO_FenceSide_Neighbor_1-1",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_375",
+      "location": [
+        -3400.0,
+        -3795.0000000000005,
+        79.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7D00) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        16.0,
+        0.1,
+        1.1
+      ],
+      "center": [
+        -3400.0,
+        -3795.0000000000005,
+        79.0
+      ],
+      "extent": [
+        800.0,
+        5.0,
+        55.0
+      ]
+    },
+    {
+      "label": "BO_FenceSide_Neighbor_11",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_376",
+      "location": [
+        -3400.0,
+        -2404.9999999999995,
+        79.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7CB0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        16.0,
+        0.1,
+        1.1
+      ],
+      "center": [
+        -3400.0,
+        -2404.9999999999995,
+        79.0
+      ],
+      "extent": [
+        800.0,
+        5.0,
+        55.0
+      ]
+    },
+    {
+      "label": "BO_FenceRear_Neighbor_1",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_377",
+      "location": [
+        -2604.9999999999995,
+        -3100.0,
+        79.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7D00) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        0.1,
+        14.0,
+        1.1
+      ],
+      "center": [
+        -2604.9999999999995,
+        -3100.0,
+        79.0
+      ],
+      "extent": [
+        5.0,
+        700.0,
+        55.0
+      ]
+    },
+    {
+      "label": "BO_FenceFront_Neighbor_1-1",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_378",
+      "location": [
+        -4195.0,
+        -3500.0,
+        79.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7CB0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        0.1,
+        6.0,
+        1.1
+      ],
+      "center": [
+        -4195.0,
+        -3500.0,
+        79.0
+      ],
+      "extent": [
+        5.0,
+        300.0,
+        55.0
+      ]
+    },
+    {
+      "label": "BO_FenceFront_Neighbor_11",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_379",
+      "location": [
+        -4195.0,
+        -2700.0,
+        79.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7D00) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        0.1,
+        6.0,
+        1.1
+      ],
+      "center": [
+        -4195.0,
+        -2700.0,
+        79.0
+      ],
+      "extent": [
+        5.0,
+        300.0,
+        55.0
+      ]
+    },
+    {
+      "label": "BO_FenceSide_Neighbor_2-1",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_383",
+      "location": [
+        -3400.0,
+        -1295.0000000000002,
+        79.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C79E0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        16.0,
+        0.1,
+        1.1
+      ],
+      "center": [
+        -3400.0,
+        -1295.0000000000002,
+        79.0
+      ],
+      "extent": [
+        800.0,
+        5.0,
+        55.0
+      ]
+    },
+    {
+      "label": "BO_FenceFront_Neighbor_2-1",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_386",
+      "location": [
+        -4195.0,
+        -1000.0,
+        79.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7AD0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        0.1,
+        6.0,
+        1.1
+      ],
+      "center": [
+        -4195.0,
+        -1000.0,
+        79.0
+      ],
+      "extent": [
+        5.0,
+        300.0,
+        55.0
+      ]
+    },
+    {
+      "label": "BO_Plot_Neighbor_5",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_404",
+      "location": [
+        -6000.0,
+        -3100.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7AD0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        16.0,
+        14.0,
+        0.1
+      ],
+      "center": [
+        -6000.0,
+        -3100.0,
+        19.0
+      ],
+      "extent": [
+        800.0,
+        700.0,
+        5.0
+      ]
+    },
+    {
+      "label": "BO_Path_Neighbor_5",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_405",
+      "location": [
+        -6650.0,
+        -3100.0,
+        25.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C79E0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        3.0,
+        1.5,
+        0.02
+      ],
+      "center": [
+        -6650.0,
+        -3100.0,
+        25.0
+      ],
+      "extent": [
+        150.0,
+        75.0,
+        1.0
+      ]
+    },
+    {
+      "label": "BO_Neighbor_5",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_406",
+      "location": [
+        -6000.0,
+        -3100.0,
+        324.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7990) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        10.0,
+        8.0,
+        6.0
+      ],
+      "center": [
+        -6000.0,
+        -3100.0,
+        324.0
+      ],
+      "extent": [
+        500.0,
+        400.0,
+        300.0
+      ]
+    },
+    {
+      "label": "BO_FenceSide_Neighbor_5-1",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_407",
+      "location": [
+        -6000.0,
+        -3795.0000000000005,
+        79.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C79E0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        16.0,
+        0.1,
+        1.1
+      ],
+      "center": [
+        -6000.0,
+        -3795.0000000000005,
+        79.0
+      ],
+      "extent": [
+        800.0,
+        5.0,
+        55.0
+      ]
+    },
+    {
+      "label": "BO_FenceSide_Neighbor_51",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_408",
+      "location": [
+        -6000.0,
+        -2404.9999999999995,
+        79.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7990) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        16.0,
+        0.1,
+        1.1
+      ],
+      "center": [
+        -6000.0,
+        -2404.9999999999995,
+        79.0
+      ],
+      "extent": [
+        800.0,
+        5.0,
+        55.0
+      ]
+    },
+    {
+      "label": "BO_FenceRear_Neighbor_5",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_409",
+      "location": [
+        -5205.000000000001,
+        -3100.0,
+        79.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C79E0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        0.1,
+        14.0,
+        1.1
+      ],
+      "center": [
+        -5205.000000000001,
+        -3100.0,
+        79.0
+      ],
+      "extent": [
+        5.0,
+        700.0,
+        55.0
+      ]
+    },
+    {
+      "label": "BO_FenceFront_Neighbor_5-1",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_410",
+      "location": [
+        -6794.999999999999,
+        -3500.0,
+        79.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7990) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        0.1,
+        6.0,
+        1.1
+      ],
+      "center": [
+        -6794.999999999999,
+        -3500.0,
+        79.0
+      ],
+      "extent": [
+        5.0,
+        300.0,
+        55.0
+      ]
+    },
+    {
+      "label": "BO_FenceFront_Neighbor_51",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_411",
+      "location": [
+        -6794.999999999999,
+        -2700.0,
+        79.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C79E0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        0.1,
+        6.0,
+        1.1
+      ],
+      "center": [
+        -6794.999999999999,
+        -2700.0,
+        79.0
+      ],
+      "extent": [
+        5.0,
+        300.0,
+        55.0
+      ]
+    },
+    {
+      "label": "BO_FenceSide_Neighbor_6-1",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_415",
+      "location": [
+        -6000.0,
+        -1295.0000000000002,
+        79.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7800) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        16.0,
+        0.1,
+        1.1
+      ],
+      "center": [
+        -6000.0,
+        -1295.0000000000002,
+        79.0
+      ],
+      "extent": [
+        800.0,
+        5.0,
+        55.0
+      ]
+    },
+    {
+      "label": "BO_FenceFront_Neighbor_6-1",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_418",
+      "location": [
+        -6794.999999999999,
+        -1000.0,
+        79.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7760) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        0.1,
+        6.0,
+        1.1
+      ],
+      "center": [
+        -6794.999999999999,
+        -1000.0,
+        79.0
+      ],
+      "extent": [
+        5.0,
+        300.0,
+        55.0
+      ]
+    },
+    {
+      "label": "BO_Parking_2p5x5m",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_450",
+      "location": [
+        -4800.0,
+        -8000.0,
+        15.000000000000002
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7710) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        5.0,
+        2.5,
+        0.02
+      ],
+      "center": [
+        -4800.0,
+        -8000.0,
+        15.0
+      ],
+      "extent": [
+        250.0,
+        125.0,
+        0.9999999999999991
+      ]
+    },
+    {
+      "label": "BO_Parking_2p5x5m",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_451",
+      "location": [
+        -4800.0,
+        -7700.0,
+        15.000000000000002
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C77B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        5.0,
+        2.5,
+        0.02
+      ],
+      "center": [
+        -4800.0,
+        -7700.0,
+        15.0
+      ],
+      "extent": [
+        250.0,
+        125.0,
+        0.9999999999999991
+      ]
+    },
+    {
+      "label": "BO_Parking_2p5x5m",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_452",
+      "location": [
+        -4800.0,
+        -7400.0,
+        15.000000000000002
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7710) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        5.0,
+        2.5,
+        0.02
+      ],
+      "center": [
+        -4800.0,
+        -7400.0,
+        15.0
+      ],
+      "extent": [
+        250.0,
+        125.0,
+        0.9999999999999991
+      ]
+    },
+    {
+      "label": "BO_Parking_2p5x5m",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_453",
+      "location": [
+        -4800.0,
+        -7100.0,
+        15.000000000000002
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C77B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        5.0,
+        2.5,
+        0.02
+      ],
+      "center": [
+        -4800.0,
+        -7100.0,
+        15.0
+      ],
+      "extent": [
+        250.0,
+        125.0,
+        0.9999999999999991
+      ]
+    },
+    {
+      "label": "BO_Parking_2p5x5m",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_454",
+      "location": [
+        -4800.0,
+        -6800.0,
+        15.000000000000002
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7710) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        5.0,
+        2.5,
+        0.02
+      ],
+      "center": [
+        -4800.0,
+        -6800.0,
+        15.0
+      ],
+      "extent": [
+        250.0,
+        125.0,
+        0.9999999999999991
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_460",
+      "location": [
+        -1600.0,
+        -5450.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7580) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.5,
+        0.5,
+        0.01
+      ],
+      "center": [
+        -1600.0,
+        -5450.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_461",
+      "location": [
+        -1600.0,
+        -5340.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C77B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.5,
+        0.5,
+        0.01
+      ],
+      "center": [
+        -1600.0,
+        -5340.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_462",
+      "location": [
+        -1600.0,
+        -5230.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7710) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.5,
+        0.5,
+        0.01
+      ],
+      "center": [
+        -1600.0,
+        -5230.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_463",
+      "location": [
+        -1600.0,
+        -5120.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7620) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.5,
+        0.5,
+        0.01
+      ],
+      "center": [
+        -1600.0,
+        -5120.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_464",
+      "location": [
+        -1600.0,
+        -5010.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7580) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.5,
+        0.5,
+        0.01
+      ],
+      "center": [
+        -1600.0,
+        -5010.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_465",
+      "location": [
+        -2600.0,
+        -5450.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C77B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.5,
+        0.5,
+        0.01
+      ],
+      "center": [
+        -2600.0,
+        -5450.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_466",
+      "location": [
+        -2600.0,
+        -5340.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7710) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.5,
+        0.5,
+        0.01
+      ],
+      "center": [
+        -2600.0,
+        -5340.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_467",
+      "location": [
+        -2600.0,
+        -5230.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7620) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.5,
+        0.5,
+        0.01
+      ],
+      "center": [
+        -2600.0,
+        -5230.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_468",
+      "location": [
+        -2600.0,
+        -5120.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7580) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.5,
+        0.5,
+        0.01
+      ],
+      "center": [
+        -2600.0,
+        -5120.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_469",
+      "location": [
+        -2600.0,
+        -5010.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C77B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.5,
+        0.5,
+        0.01
+      ],
+      "center": [
+        -2600.0,
+        -5010.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_470",
+      "location": [
+        -5100.0,
+        -5450.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7710) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.5,
+        0.5,
+        0.01
+      ],
+      "center": [
+        -5100.0,
+        -5450.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_471",
+      "location": [
+        -5100.0,
+        -5340.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7620) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.5,
+        0.5,
+        0.01
+      ],
+      "center": [
+        -5100.0,
+        -5340.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_472",
+      "location": [
+        -5100.0,
+        -5230.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7580) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.5,
+        0.5,
+        0.01
+      ],
+      "center": [
+        -5100.0,
+        -5230.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_473",
+      "location": [
+        -5100.0,
+        -5120.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C77B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.5,
+        0.5,
+        0.01
+      ],
+      "center": [
+        -5100.0,
+        -5120.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_474",
+      "location": [
+        -5100.0,
+        -5010.0,
+        19.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7710) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.5,
+        0.5,
+        0.01
+      ],
+      "center": [
+        -5100.0,
+        -5010.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ]
+    },
+    {
+      "label": "BO_Tree_1",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_496",
+      "location": [
+        -7800.0,
+        -9500.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7580) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -7800.0,
+        -9500.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_3",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_498",
+      "location": [
+        -7800.0,
+        -8800.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7710) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -7800.0,
+        -8800.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_5",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_500",
+      "location": [
+        -7800.0,
+        -8100.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7580) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -7800.0,
+        -8100.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_7",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_502",
+      "location": [
+        -7800.0,
+        -7400.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7710) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -7800.0,
+        -7400.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_9",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_504",
+      "location": [
+        -7800.0,
+        -6700.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7580) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -7800.0,
+        -6700.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_11",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_506",
+      "location": [
+        -7800.0,
+        -6000.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7710) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -7800.0,
+        -6000.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_13",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_508",
+      "location": [
+        -7800.0,
+        -5300.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7580) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -7800.0,
+        -5300.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_15",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_510",
+      "location": [
+        -7800.0,
+        -4600.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7710) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -7800.0,
+        -4600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_17",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_512",
+      "location": [
+        -7800.0,
+        -3900.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7580) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -7800.0,
+        -3900.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_19",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_514",
+      "location": [
+        -7800.0,
+        -3200.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7710) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -7800.0,
+        -3200.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_21",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_516",
+      "location": [
+        -7800.0,
+        -2500.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7580) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -7800.0,
+        -2500.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_23",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_518",
+      "location": [
+        -7800.0,
+        -1800.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7710) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -7800.0,
+        -1800.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_25",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_520",
+      "location": [
+        -7800.0,
+        -1100.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7580) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -7800.0,
+        -1100.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_68",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_563",
+      "location": [
+        2700.0,
+        -9600.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7620) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        2700.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_70",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_565",
+      "location": [
+        2000.0,
+        -9600.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C77B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        2000.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_72",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_567",
+      "location": [
+        1300.0,
+        -9600.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7620) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        1300.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_74",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_569",
+      "location": [
+        600.0,
+        -9600.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C77B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        600.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_76",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_571",
+      "location": [
+        -100.0,
+        -9600.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7620) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -100.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_78",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_573",
+      "location": [
+        -800.0,
+        -9600.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C77B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -800.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_80",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_575",
+      "location": [
+        -1500.0,
+        -9600.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7620) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -1500.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_82",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_577",
+      "location": [
+        -2200.0,
+        -9600.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C77B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -2200.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_84",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_579",
+      "location": [
+        -2900.0,
+        -9600.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7620) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -2900.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_86",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_581",
+      "location": [
+        -3600.0,
+        -9600.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C77B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -3600.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_88",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_583",
+      "location": [
+        -4300.0,
+        -9600.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7620) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -4300.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_90",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_585",
+      "location": [
+        -5000.0,
+        -9600.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C77B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -5000.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_92",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_587",
+      "location": [
+        -5700.0,
+        -9600.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7620) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -5700.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_94",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_589",
+      "location": [
+        -6400.0,
+        -9600.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C77B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -6400.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_96",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_591",
+      "location": [
+        -7100.0,
+        -9600.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7620) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -7100.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_102",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_597",
+      "location": [
+        200.0,
+        -3800.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C77B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        200.0,
+        -3800.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_103",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_598",
+      "location": [
+        200.0,
+        -2200.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7710) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        200.0,
+        -2200.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_104",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_599",
+      "location": [
+        -800.0,
+        -3800.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7620) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -800.0,
+        -3800.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_Tree_105",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_600",
+      "location": [
+        -800.0,
+        -2200.0,
+        214.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7580) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "center": [
+        -800.0,
+        -2200.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ]
+    },
+    {
+      "label": "BO_LampPost",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_605",
+      "location": [
+        3200.0,
+        -5730.0,
+        189.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C77B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        0.18,
+        0.18,
+        3.5
+      ],
+      "center": [
+        3200.0,
+        -5730.0,
+        189.0
+      ],
+      "extent": [
+        9.0,
+        9.0,
+        175.0
+      ]
+    },
+    {
+      "label": "BO_LampHead",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_606",
+      "location": [
+        3200.0,
+        -5730.0,
+        376.5
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7710) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        0.5,
+        0.5,
+        0.25
+      ],
+      "center": [
+        3200.0,
+        -5730.0,
+        376.5
+      ],
+      "extent": [
+        25.0,
+        25.0,
+        12.5
+      ]
+    },
+    {
+      "label": "BO_LampPost",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_609",
+      "location": [
+        -800.0,
+        -5730.0,
+        189.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C77B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        0.18,
+        0.18,
+        3.5
+      ],
+      "center": [
+        -800.0,
+        -5730.0,
+        189.0
+      ],
+      "extent": [
+        9.0,
+        9.0,
+        175.0
+      ]
+    },
+    {
+      "label": "BO_LampHead",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_610",
+      "location": [
+        -800.0,
+        -5730.0,
+        376.5
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7710) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        0.5,
+        0.5,
+        0.25
+      ],
+      "center": [
+        -800.0,
+        -5730.0,
+        376.5
+      ],
+      "extent": [
+        25.0,
+        25.0,
+        12.5
+      ]
+    },
+    {
+      "label": "BO_LampPost",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_613",
+      "location": [
+        -2800.0,
+        -5730.0,
+        189.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C77B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        0.18,
+        0.18,
+        3.5
+      ],
+      "center": [
+        -2800.0,
+        -5730.0,
+        189.0
+      ],
+      "extent": [
+        9.0,
+        9.0,
+        175.0
+      ]
+    },
+    {
+      "label": "BO_LampHead",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_614",
+      "location": [
+        -2800.0,
+        -5730.0,
+        376.5
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7710) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        0.5,
+        0.5,
+        0.25
+      ],
+      "center": [
+        -2800.0,
+        -5730.0,
+        376.5
+      ],
+      "extent": [
+        25.0,
+        25.0,
+        12.5
+      ]
+    },
+    {
+      "label": "BO_LampPost",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_617",
+      "location": [
+        -5300.0,
+        -5730.0,
+        189.0
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C77B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        0.18,
+        0.18,
+        3.5
+      ],
+      "center": [
+        -5300.0,
+        -5730.0,
+        189.0
+      ],
+      "extent": [
+        9.0,
+        9.0,
+        175.0
+      ]
+    },
+    {
+      "label": "BO_LampHead",
+      "path": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_618",
+      "location": [
+        -5300.0,
+        -5730.0,
+        376.5
+      ],
+      "rotation": "<Struct 'Rotator' (0x0000025B1E3C7710) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "scale": [
+        0.5,
+        0.5,
+        0.25
+      ],
+      "center": [
+        -5300.0,
+        -5730.0,
+        376.5
+      ],
+      "extent": [
+        25.0,
+        25.0,
+        12.5
+      ]
+    }
+  ]
+}

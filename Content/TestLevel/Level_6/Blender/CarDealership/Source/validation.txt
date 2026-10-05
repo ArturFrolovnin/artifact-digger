@@ -1,0 +1,36 @@
+{
+  "body_footprint_m": [
+    18,
+    24
+  ],
+  "bounds_m": [
+    [
+      -9.145000457763672,
+      9.204999923706055
+    ],
+    [
+      -13.105000495910645,
+      12.90000057220459
+    ],
+    [
+      0.0,
+      7.299999713897705
+    ]
+  ],
+  "root_location": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "root_scale": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "assembly_object_count": 179,
+  "non_unit_scale": [],
+  "unparented": [],
+  "presentation_in_assembly": [],
+  "garage_door_count": 2,
+  "dimensions_locked": false
+}

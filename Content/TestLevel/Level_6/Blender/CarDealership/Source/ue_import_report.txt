@@ -1,0 +1,66 @@
+{
+  "asset": "/Game/TestLevel/Level_6/Blender/CarDealership/SM_CarDealership_Blockout.SM_CarDealership_Blockout",
+  "bounds_min": [
+    -914.5000610351562,
+    -1290.0,
+    0.0
+  ],
+  "bounds_max": [
+    920.5,
+    1310.5001220703125,
+    730.0
+  ],
+  "dimensions_cm": [
+    1835.0000610351562,
+    2600.5001220703125,
+    730.0
+  ],
+  "triangles": 90396,
+  "materials": [
+    [
+      "CD | vermilion accent",
+      "/Game/TestLevel/Level_6/Blender/CarDealership/Materials/CAR_Sign.CAR_Sign"
+    ],
+    [
+      "CD | graphite powdercoat",
+      "/Game/TestLevel/Level_6/Blender/CarDealership/Materials/CAR_Metal.CAR_Metal"
+    ],
+    [
+      "CD | pale concrete",
+      "/Game/TestLevel/Level_6/Blender/CarDealership/Materials/CAR_Service_Concrete.CAR_Service_Concrete"
+    ],
+    [
+      "CD | warm lamp",
+      "/Game/TestLevel/Level_6/Blender/CarDealership/Materials/CAR_Lamp.CAR_Lamp"
+    ],
+    [
+      "CD | car glazing",
+      "/Game/TestLevel/Level_6/Blender/CarDealership/Materials/CAR_Glass_Dark.CAR_Glass_Dark"
+    ],
+    [
+      "CD | rubber",
+      "/Game/TestLevel/Level_6/Blender/CarDealership/Materials/CAR_Rubber.CAR_Rubber"
+    ],
+    [
+      "CD | blue car placeholder",
+      "/Game/TestLevel/Level_6/Blender/CarDealership/Materials/CAR_Display_Blue.CAR_Display_Blue"
+    ],
+    [
+      "CD | warm ivory panels",
+      "/Game/TestLevel/Level_6/Blender/CarDealership/Materials/CAR_Wall.CAR_Wall"
+    ],
+    [
+      "CD | sectional door metal",
+      "/Game/TestLevel/Level_6/Blender/CarDealership/Materials/CAR_Door.CAR_Door"
+    ],
+    [
+      "CD | showroom clear glass",
+      "/Game/TestLevel/Level_6/Blender/CarDealership/Materials/CAR_Glass.CAR_Glass"
+    ],
+    [
+      "CD | roof membrane",
+      "/Game/TestLevel/Level_6/Blender/CarDealership/Materials/CAR_Roof.CAR_Roof"
+    ]
+  ],
+  "import_scale": 1.0
+}

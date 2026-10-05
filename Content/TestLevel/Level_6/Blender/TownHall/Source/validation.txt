@@ -1,0 +1,42 @@
+{
+  "body_m": [
+    16,
+    12
+  ],
+  "ridge_m": 9.5,
+  "floors": 2,
+  "root_location": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "root_scale": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "objects": 867,
+  "mesh_objects": 865,
+  "bounds_min": [
+    -8.640000343322754,
+    -8.800000190734863,
+    0.0
+  ],
+  "bounds_max": [
+    8.640000343322754,
+    6.899999618530273,
+    9.614999771118164
+  ],
+  "groups": [
+    "Walls",
+    "Roof",
+    "Windows",
+    "Entrance",
+    "Columns_Trim",
+    "Signage",
+    "Flag",
+    "Props"
+  ],
+  "external_geometry_reused": false,
+  "exported_to_UE": false
+}

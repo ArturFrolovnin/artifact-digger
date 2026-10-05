@@ -1,0 +1,81 @@
+{
+  "actor": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_332",
+  "old_state": {
+    "transform": [
+      5600.0,
+      -7100.0,
+      524.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      12.0,
+      16.0,
+      10.0
+    ],
+    "label": "BO_Administration",
+    "mesh": "/Engine/BasicShapes/Cube.Cube",
+    "materials": [
+      "/Game/TestLevel/Level_6/Blockout/Materials/M_BO_Civic.M_BO_Civic"
+    ]
+  },
+  "old_center": [
+    5600.0,
+    -7100.0,
+    524.0
+  ],
+  "location": [
+    5695.000030517578,
+    -7100.0,
+    24.0
+  ],
+  "yaw": 90,
+  "scale": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "local_dimensions_cm": [
+    1728.0001220703125,
+    1570.0000610351562,
+    961.5
+  ],
+  "world_dimensions_cm": [
+    1570.0000610351562,
+    1728.0001220703125,
+    961.5
+  ],
+  "bounds_min": [
+    4814.999969482422,
+    -7964.000061035156,
+    24.0
+  ],
+  "bounds_max": [
+    6385.000030517578,
+    -6235.999938964844,
+    985.5
+  ],
+  "plot_bounds_min": [
+    4700.0,
+    -8200.0,
+    14.0
+  ],
+  "plot_bounds_max": [
+    6500.0,
+    -6000.0,
+    24.0
+  ],
+  "ground_z": 24.0,
+  "neighbors_unchanged": true,
+  "aabb_overlaps": [
+    {
+      "label": "BO_Entry_Administration",
+      "depth_cm": [
+        185.00003051757812,
+        200.0,
+        2.0
+      ]
+    }
+  ],
+  "front_world": "-X"
+}
