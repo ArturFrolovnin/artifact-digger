@@ -1,0 +1,506 @@
+{
+  "nearby": [
+    {
+      "label": "SM_SkySphere",
+      "center": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "extent": [
+        1638400.0,
+        1638400.0,
+        1638400.0
+      ],
+      "xy_gap_cm": [
+        0,
+        0
+      ]
+    },
+    {
+      "label": "BO_Ground_200x160m",
+      "center": [
+        0.0,
+        0.0,
+        -50.0
+      ],
+      "extent": [
+        8000.0,
+        10000.0,
+        50.0
+      ],
+      "xy_gap_cm": [
+        0,
+        0
+      ]
+    },
+    {
+      "label": "BO_North_5p5m_Sidewalk",
+      "center": [
+        4000.0,
+        200.0,
+        7.000000000000001
+      ],
+      "extent": [
+        425.0,
+        9150.0,
+        7.000000000000001
+      ],
+      "xy_gap_cm": [
+        1253.7500305175777,
+        0
+      ]
+    },
+    {
+      "label": "BO_North_5p5m",
+      "center": [
+        4000.0,
+        200.0,
+        16.0
+      ],
+      "extent": [
+        275.0,
+        9000.0,
+        2.0
+      ],
+      "xy_gap_cm": [
+        1403.7500305175777,
+        0
+      ]
+    },
+    {
+      "label": "BO_West_6p5m_Sidewalk",
+      "center": [
+        -950.0,
+        -5200.0,
+        7.000000000000001
+      ],
+      "extent": [
+        5700.0,
+        475.0,
+        7.000000000000001
+      ],
+      "xy_gap_cm": [
+        0,
+        473.16522216796875
+      ]
+    },
+    {
+      "label": "BO_West_6p5m",
+      "center": [
+        -950.0,
+        -5200.0,
+        16.0
+      ],
+      "extent": [
+        5550.0,
+        325.0,
+        2.0
+      ],
+      "xy_gap_cm": [
+        0,
+        623.1652221679688
+      ]
+    },
+    {
+      "label": "BO_Plot_Hospital",
+      "center": [
+        1400.0,
+        -7400.0,
+        19.0
+      ],
+      "extent": [
+        1000.0,
+        1300.0,
+        5.0
+      ],
+      "xy_gap_cm": [
+        0,
+        0
+      ]
+    },
+    {
+      "label": "BO_Entry_Hospital",
+      "center": [
+        550.0,
+        -7400.0,
+        25.0
+      ],
+      "extent": [
+        150.0,
+        100.0,
+        1.0
+      ],
+      "xy_gap_cm": [
+        0,
+        0
+      ]
+    },
+    {
+      "label": "BO_Hospital_CrossH",
+      "center": [
+        1400.0,
+        -7400.0,
+        1026.0
+      ],
+      "extent": [
+        50.0,
+        200.0,
+        1.0
+      ],
+      "xy_gap_cm": [
+        0,
+        0
+      ]
+    },
+    {
+      "label": "BO_Hospital_CrossV",
+      "center": [
+        1400.0,
+        -7400.0,
+        1028.0
+      ],
+      "extent": [
+        200.0,
+        50.0,
+        1.0
+      ],
+      "xy_gap_cm": [
+        0,
+        0
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "center": [
+        3400.0,
+        -5450.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ],
+      "xy_gap_cm": [
+        953.7500305175777,
+        673.1652221679688
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "center": [
+        3400.0,
+        -5340.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ],
+      "xy_gap_cm": [
+        953.7500305175777,
+        783.1652221679688
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "center": [
+        3400.0,
+        -5230.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ],
+      "xy_gap_cm": [
+        953.7500305175777,
+        893.1652221679688
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "center": [
+        3400.0,
+        -5120.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ],
+      "xy_gap_cm": [
+        953.7500305175777,
+        1003.1652221679688
+      ]
+    },
+    {
+      "label": "BO_Crosswalk",
+      "center": [
+        3400.0,
+        -5010.0,
+        19.0
+      ],
+      "extent": [
+        125.0,
+        25.0,
+        0.5
+      ],
+      "xy_gap_cm": [
+        953.7500305175777,
+        1113.1652221679688
+      ]
+    },
+    {
+      "label": "BO_Tree_66",
+      "center": [
+        3400.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ],
+      "xy_gap_cm": [
+        978.7500305175777,
+        848.1652221679688
+      ]
+    },
+    {
+      "label": "BO_Tree_68",
+      "center": [
+        2700.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ],
+      "xy_gap_cm": [
+        278.75003051757767,
+        848.1652221679688
+      ]
+    },
+    {
+      "label": "BO_Tree_70",
+      "center": [
+        2000.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ],
+      "xy_gap_cm": [
+        0,
+        848.1652221679688
+      ]
+    },
+    {
+      "label": "BO_Tree_72",
+      "center": [
+        1300.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ],
+      "xy_gap_cm": [
+        0,
+        848.1652221679688
+      ]
+    },
+    {
+      "label": "BO_Tree_74",
+      "center": [
+        600.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ],
+      "xy_gap_cm": [
+        0,
+        848.1652221679688
+      ]
+    },
+    {
+      "label": "BO_Tree_76",
+      "center": [
+        -100.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ],
+      "xy_gap_cm": [
+        478.75003051757767,
+        848.1652221679688
+      ]
+    },
+    {
+      "label": "BO_Tree_78",
+      "center": [
+        -800.0,
+        -9600.0,
+        214.0
+      ],
+      "extent": [
+        100.0,
+        100.0,
+        200.0
+      ],
+      "xy_gap_cm": [
+        1178.7500305175777,
+        848.1652221679688
+      ]
+    },
+    {
+      "label": "BO_LampPost",
+      "center": [
+        3200.0,
+        -5730.0,
+        189.0
+      ],
+      "extent": [
+        9.0,
+        9.0,
+        175.0
+      ],
+      "xy_gap_cm": [
+        869.7500305175777,
+        409.16522216796875
+      ]
+    },
+    {
+      "label": "BO_LampHead",
+      "center": [
+        3200.0,
+        -5730.0,
+        376.5
+      ],
+      "extent": [
+        25.0,
+        25.0,
+        12.5
+      ],
+      "xy_gap_cm": [
+        853.7500305175777,
+        393.16522216796875
+      ]
+    },
+    {
+      "label": "BO_LampPost",
+      "center": [
+        -800.0,
+        -5730.0,
+        189.0
+      ],
+      "extent": [
+        9.0,
+        9.0,
+        175.0
+      ],
+      "xy_gap_cm": [
+        1269.7500305175777,
+        409.16522216796875
+      ]
+    },
+    {
+      "label": "BO_LampHead",
+      "center": [
+        -800.0,
+        -5730.0,
+        376.5
+      ],
+      "extent": [
+        25.0,
+        25.0,
+        12.5
+      ],
+      "xy_gap_cm": [
+        1253.7500305175777,
+        393.16522216796875
+      ]
+    }
+  ],
+  "aabb_overlap_candidates": [
+    {
+      "label": "SM_SkySphere",
+      "center": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "extent": [
+        1638400.0,
+        1638400.0,
+        1638400.0
+      ],
+      "xy_gap_cm": [
+        0,
+        0
+      ]
+    },
+    {
+      "label": "BO_Entry_Hospital",
+      "center": [
+        550.0,
+        -7400.0,
+        25.0
+      ],
+      "extent": [
+        150.0,
+        100.0,
+        1.0
+      ],
+      "xy_gap_cm": [
+        0,
+        0
+      ]
+    }
+  ],
+  "mesh": "/Game/TestLevel/Level_6/Blender/Hospital/SM_Hospital_Blockout.SM_Hospital_Blockout",
+  "material_paths": [
+    "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Trim.HOSP_Trim",
+    "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Trim_Plinth.HOSP_Trim_Plinth",
+    "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Glass.HOSP_Glass",
+    "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Glass_Warm.HOSP_Glass_Warm",
+    "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Wall_Recess.HOSP_Wall_Recess",
+    "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Metal.HOSP_Metal",
+    "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Trim_Frames.HOSP_Trim_Frames",
+    "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Roof_Tile_0.HOSP_Roof_Tile_0",
+    "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Roof_Tile_1.HOSP_Roof_Tile_1",
+    "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Roof_Tile_2.HOSP_Roof_Tile_2",
+    "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Roof_Tile_3.HOSP_Roof_Tile_3",
+    "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Roof_Tile_4.HOSP_Roof_Tile_4",
+    "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Wall.HOSP_Wall",
+    "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Sign.HOSP_Sign",
+    "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Wood.HOSP_Wood",
+    "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Wall_Stone.HOSP_Wall_Stone",
+    "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Roof.HOSP_Roof",
+    "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Greenery.HOSP_Greenery"
+  ],
+  "scale": "<Struct 'Vector' (0x0000025B1E3C5BE0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+  "rotation": "<Struct 'Rotator' (0x0000025B1E3C5BE0) {pitch: 0.000000, yaw: -90.000000, roll: 0.000000}>",
+  "import_settings": "<Object '/Game/TestLevel/Level_6/Blender/Hospital/SM_Hospital_Blockout.SM_Hospital_Blockout:FbxStaticMeshImportData_0' (0x0000025ED8BFDE80) Class 'FbxStaticMeshImportData'>"
+}

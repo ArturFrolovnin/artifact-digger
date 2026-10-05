@@ -1,0 +1,23 @@
+{
+  "source": "D:\\UEProject\\ArcheoDig\\Content\\TestLevel\\Level_6\\Blender\\Hospital\\Source\\Hospital_Blockout.blend",
+  "objects": 847,
+  "body_m": [
+    20,
+    14
+  ],
+  "roof_ridge_m": 8.55,
+  "entry_peak_m": 9.1,
+  "storeys": 2,
+  "root_location": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "root_scale": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "review": "awaiting user",
+  "exported_to_UE": false
+}

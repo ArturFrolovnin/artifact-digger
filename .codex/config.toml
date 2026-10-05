@@ -20,3 +20,6 @@ BLENDER_MCP_PORT = "9875"
 
 [mcp_servers.blender.tools.execute_blender_code]
 approval_mode = "approve"
+
+[mcp_servers.blender.tools.execute_blender_code_for_cli]
+approval_mode = "approve"

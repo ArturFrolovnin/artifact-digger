@@ -1,0 +1,94 @@
+{
+  "asset": "/Game/TestLevel/Level_6/Blender/Hospital/SM_Hospital_Blockout.SM_Hospital_Blockout",
+  "bounds_min": [
+    -1053.6695556640625,
+    -808.4999389648438,
+    0.0
+  ],
+  "bounds_max": [
+    1450.0,
+    1034.0,
+    920.5
+  ],
+  "dimensions_cm": [
+    2503.6695556640625,
+    1842.4999389648438,
+    920.5
+  ],
+  "triangles": 113374,
+  "materials": [
+    [
+      "HOS_Limestone_Trim",
+      "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Trim.HOSP_Trim"
+    ],
+    [
+      "HOS_Plinth",
+      "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Trim_Plinth.HOSP_Trim_Plinth"
+    ],
+    [
+      "HOS_Blue_Glass",
+      "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Glass.HOSP_Glass"
+    ],
+    [
+      "HOS_Warm_Interior",
+      "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Glass_Warm.HOSP_Glass_Warm"
+    ],
+    [
+      "HOS_Recess_Shadow",
+      "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Wall_Recess.HOSP_Wall_Recess"
+    ],
+    [
+      "HOS_Handrail_Steel",
+      "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Metal.HOSP_Metal"
+    ],
+    [
+      "HOS_Painted_Sage_Frames",
+      "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Trim_Frames.HOSP_Trim_Frames"
+    ],
+    [
+      "HOS_Tile_0",
+      "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Roof_Tile_0.HOSP_Roof_Tile_0"
+    ],
+    [
+      "HOS_Tile_1",
+      "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Roof_Tile_1.HOSP_Roof_Tile_1"
+    ],
+    [
+      "HOS_Tile_2",
+      "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Roof_Tile_2.HOSP_Roof_Tile_2"
+    ],
+    [
+      "HOS_Tile_3",
+      "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Roof_Tile_3.HOSP_Roof_Tile_3"
+    ],
+    [
+      "HOS_Tile_4",
+      "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Roof_Tile_4.HOSP_Roof_Tile_4"
+    ],
+    [
+      "HOS_Warm_Ivory_Plaster",
+      "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Wall.HOSP_Wall"
+    ],
+    [
+      "HOS_Medical_Red",
+      "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Sign.HOSP_Sign"
+    ],
+    [
+      "HOS_Bench_Wood",
+      "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Wood.HOSP_Wood"
+    ],
+    [
+      "HOS_Peach_Stone_Inserts",
+      "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Wall_Stone.HOSP_Wall_Stone"
+    ],
+    [
+      "HOS_Terracotta_Base",
+      "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Roof.HOSP_Roof"
+    ],
+    [
+      "HOS_Greenery",
+      "/Game/TestLevel/Level_6/Blender/Hospital/Materials/HOSP_Greenery.HOSP_Greenery"
+    ]
+  ],
+  "import_scale": 1.0
+}

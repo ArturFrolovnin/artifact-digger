@@ -1,0 +1,41 @@
+{
+  "actor": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_344",
+  "location": [
+    1287.2499694824219,
+    -7201.834777832031,
+    24.0
+  ],
+  "yaw": -90,
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "old_block_center": [
+    1400.0,
+    -7400.0,
+    524.0
+  ],
+  "world_dimensions_cm": [
+    1842.4999389648447,
+    2503.6695556640625,
+    920.5
+  ],
+  "ground_min_z": 24.0,
+  "bounds_min": [
+    478.75003051757767,
+    -8651.834777832031,
+    24.0
+  ],
+  "bounds_max": [
+    2321.2499694824223,
+    -6148.165222167969,
+    944.5
+  ],
+  "fully_inside_plot": true,
+  "neighbor_transforms_unchanged": true,
+  "retired_hospital_markers": [
+    "BO_Hospital_CrossH",
+    "BO_Hospital_CrossV"
+  ]
+}
