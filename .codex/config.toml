@@ -17,3 +17,6 @@ args = ["--directory", "D:\\program\\blender\\blender_mcp\\mcp", "run", "blender
 [mcp_servers.blender.env]
 BLENDER_MCP_HOST = "localhost"
 BLENDER_MCP_PORT = "9875"
+
+[mcp_servers.blender.tools.execute_blender_code]
+approval_mode = "approve"

@@ -1,0 +1,6 @@
+{
+  "mesh": "/Game/TestLevel/Level_6/Blender/RudyPawnshop/SM_RudyPawnshop.SM_RudyPawnshop",
+  "materials": 28,
+  "triangles": 16875,
+  "source": "D:\\UEProject\\ArcheoDig\\Content\\TestLevel\\Level_6\\Blender\\RudyPawnshop\\Source\\SM_RudyPawnshop.fbx"
+}
