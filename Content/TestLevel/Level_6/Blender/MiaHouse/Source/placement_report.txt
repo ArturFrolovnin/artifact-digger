@@ -1,0 +1,283 @@
+{
+  "approval": "User approved moving Neighbor_4 next to player and removing northern separating road segment",
+  "placed": {
+    "Blockout": {
+      "refPath": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_398"
+    },
+    "Plot": {
+      "refPath": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_396"
+    },
+    "Fence_SharedBoundary": {
+      "refPath": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_1"
+    },
+    "Garden": {
+      "refPath": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_2"
+    },
+    "Pathways": {
+      "refPath": "/Game/TestLevel/Level_6/level_6_create_map.level_6_create_map:PersistentLevel.StaticMeshActor_3"
+    }
+  },
+  "removed_old_mia_objects": [
+    "BO_Path_Neighbor_4",
+    "BO_FenceSide_Neighbor_4-1",
+    "BO_FenceSide_Neighbor_41",
+    "BO_FenceRear_Neighbor_4",
+    "BO_FenceFront_Neighbor_4-1",
+    "BO_FenceFront_Neighbor_41"
+  ],
+  "roads": [
+    {
+      "label": "BO_HomeAccess_133.5_3m_Sidewalk",
+      "transform": {
+        "location": {
+          "x": -5800,
+          "y": 3350,
+          "z": 7.000000000000001
+        },
+        "rotation": {
+          "pitch": 0,
+          "yaw": 0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 24,
+          "y": 5,
+          "z": 0.14
+        }
+      }
+    },
+    {
+      "label": "BO_HomeAccess_133.5_3m",
+      "transform": {
+        "location": {
+          "x": -5750,
+          "y": 3350,
+          "z": 16
+        },
+        "rotation": {
+          "pitch": 0,
+          "yaw": 0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 23,
+          "y": 3,
+          "z": 0.04
+        }
+      }
+    }
+  ],
+  "transform": {
+    "location": {
+      "x": -3400,
+      "y": 3500,
+      "z": 24
+    },
+    "rotation": {
+      "pitch": 0,
+      "yaw": 90,
+      "roll": 0
+    },
+    "scale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  "validation": {
+    "Blockout": {
+      "transform": {
+        "location": {
+          "x": -3400,
+          "y": 3500,
+          "z": 24
+        },
+        "rotation": {
+          "pitch": 0,
+          "yaw": 89.99999999999999,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        }
+      },
+      "bounds": {
+        "min": {
+          "x": -4172,
+          "y": 3032.577423095703,
+          "z": 24
+        },
+        "max": {
+          "x": -2698.4999389648438,
+          "y": 4137.5,
+          "z": 655.4999389648438
+        },
+        "isValid": true
+      }
+    },
+    "Plot": {
+      "transform": {
+        "location": {
+          "x": -3400,
+          "y": 3500,
+          "z": 19
+        },
+        "rotation": {
+          "pitch": 0,
+          "yaw": 0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 16,
+          "y": 14,
+          "z": 0.1
+        }
+      },
+      "bounds": {
+        "min": {
+          "x": -4200,
+          "y": 2800,
+          "z": 14
+        },
+        "max": {
+          "x": -2600,
+          "y": 4200,
+          "z": 24
+        },
+        "isValid": true
+      }
+    },
+    "Fence_SharedBoundary": {
+      "transform": {
+        "location": {
+          "x": -3400,
+          "y": 3500,
+          "z": 24
+        },
+        "rotation": {
+          "pitch": 0,
+          "yaw": 89.99999999999999,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        }
+      },
+      "bounds": {
+        "min": {
+          "x": -4194.5,
+          "y": 2811.1610717773438,
+          "z": 29.000000953674316
+        },
+        "max": {
+          "x": -2616.1610717773438,
+          "y": 4188.838928222656,
+          "z": 148.5
+        },
+        "isValid": true
+      }
+    },
+    "Garden": {
+      "transform": {
+        "location": {
+          "x": -3400,
+          "y": 3500,
+          "z": 24
+        },
+        "rotation": {
+          "pitch": 0,
+          "yaw": 89.99999999999999,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        }
+      },
+      "bounds": {
+        "min": {
+          "x": -4200.000061035156,
+          "y": 2799.9999389648438,
+          "z": 24
+        },
+        "max": {
+          "x": -2599.9999389648438,
+          "y": 4200.000061035156,
+          "z": 239.11532592773438
+        },
+        "isValid": true
+      }
+    },
+    "Pathways": {
+      "transform": {
+        "location": {
+          "x": -3400,
+          "y": 3500,
+          "z": 24
+        },
+        "rotation": {
+          "pitch": 0,
+          "yaw": 89.99999999999999,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        }
+      },
+      "bounds": {
+        "min": {
+          "x": -4196.75,
+          "y": 2838.6537475585938,
+          "z": 25.00000011920929
+        },
+        "max": {
+          "x": -2615,
+          "y": 3585.000068664551,
+          "z": 34.09999942779541
+        },
+        "isValid": true
+      }
+    },
+    "roads": {
+      "BO_HomeAccess_133.5_3m_Sidewalk": {
+        "min": {
+          "x": -7000,
+          "y": 3100,
+          "z": 0
+        },
+        "max": {
+          "x": -4600,
+          "y": 3600,
+          "z": 14.000000000000002
+        },
+        "isValid": true
+      },
+      "BO_HomeAccess_133.5_3m": {
+        "min": {
+          "x": -6900,
+          "y": 3200,
+          "z": 14
+        },
+        "max": {
+          "x": -4600,
+          "y": 3500,
+          "z": 18
+        },
+        "isValid": true
+      }
+    },
+    "player_unchanged": true
+  },
+  "sharedFence": "Player fence preserved; Mia LeftBoundary_* omitted only from placement variant",
+  "gate": "Original closed pose retained; no interactive gate behavior added",
+  "level": "/Game/TestLevel/Level_6/level_6_create_map",
+  "saved": true,
+  "visualReview": "No screenshots created; numeric validation performed, user viewport review pending"
+}

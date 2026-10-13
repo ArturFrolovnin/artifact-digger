@@ -1,0 +1,236 @@
+{
+  "meshes": {
+    "Blockout": {
+      "bounds": {
+        "min": {
+          "x": -467.4225769042969,
+          "y": -701.5000610351562,
+          "z": 0
+        },
+        "max": {
+          "x": 637.5,
+          "y": 772,
+          "z": 631.4999389648438
+        },
+        "isValid": true
+      },
+      "triangles": 208856,
+      "slots": [
+        "Mia_Cushion",
+        "Mia_SageLight",
+        "Mia_Interior",
+        "Mia_Wood",
+        "Mia_Tile",
+        "Mia_TileLight",
+        "Mia_TileDark",
+        "Mia_Sage",
+        "Mia_IvoryLight",
+        "Mia_StoneLight",
+        "Mia_Iron",
+        "Mia_WoodLight",
+        "Mia_BrickLight",
+        "Mia_Brick",
+        "Mia_Mortar",
+        "Mia_IvoryShade",
+        "Mia_Ivory",
+        "Mia_WarmGlass",
+        "Mia_Brass",
+        "Mia_Soil",
+        "Mia_Pot",
+        "Mia_Leaf",
+        "Mia_LeafLight",
+        "Mia_LeafDark",
+        "Mia_Pink",
+        "Mia_Purple",
+        "Mia_CreamFlower",
+        "Mia_Lamp",
+        "Mia_Screen",
+        "Mia_Glass",
+        "Mia_OfficeGlass",
+        "Mia_Stone"
+      ]
+    },
+    "Fence": {
+      "bounds": {
+        "min": {
+          "x": -688.8389282226562,
+          "y": -783.8389282226562,
+          "z": 5.000000953674316
+        },
+        "max": {
+          "x": 688.8389282226562,
+          "y": 794.5,
+          "z": 124.5
+        },
+        "isValid": true
+      },
+      "triangles": 38722,
+      "slots": [
+        "Mia_IvoryLight",
+        "Mia_Ivory",
+        "Mia_Sage",
+        "Mia_Iron"
+      ]
+    },
+    "Garden": {
+      "bounds": {
+        "min": {
+          "x": -700.0000610351562,
+          "y": -800.0000610351562,
+          "z": 0
+        },
+        "max": {
+          "x": 700.0000610351562,
+          "y": 800.0000610351562,
+          "z": 215.11532592773438
+        },
+        "isValid": true
+      },
+      "triangles": 27940,
+      "slots": [
+        "Mia_Iron",
+        "Mia_Wood",
+        "Mia_Pot",
+        "Mia_Leaf",
+        "Mia_LeafLight",
+        "Mia_LeafDark",
+        "Mia_Pink",
+        "Mia_Purple",
+        "Mia_CreamFlower",
+        "Mia_Soil",
+        "Mia_Sage",
+        "Mia_Glass",
+        "Mia_Grass",
+        "Mia_WoodLight",
+        "Mia_Interior"
+      ]
+    },
+    "Pathways": {
+      "bounds": {
+        "min": {
+          "x": -661.3462524414062,
+          "y": -785,
+          "z": 1.0000001192092896
+        },
+        "max": {
+          "x": 85.00006866455078,
+          "y": 796.75,
+          "z": 10.09999942779541
+        },
+        "isValid": true
+      },
+      "triangles": 1683,
+      "slots": [
+        "Mia_StoneLight"
+      ]
+    }
+  },
+  "materials": {
+    "Mia_Wood": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Wood.MIA_Wood"
+    },
+    "Mia_IvoryShade": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_IvoryShade.MIA_IvoryShade"
+    },
+    "Mia_Ivory": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Walls.MIA_Walls"
+    },
+    "Mia_IvoryLight": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Fence.MIA_Fence"
+    },
+    "Mia_Mortar": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Mortar.MIA_Mortar"
+    },
+    "Mia_StoneLight": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_StoneLight.MIA_StoneLight"
+    },
+    "Mia_Stone": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Stone.MIA_Stone"
+    },
+    "Mia_Tile": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Roof.MIA_Roof"
+    },
+    "Mia_TileLight": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_TileLight.MIA_TileLight"
+    },
+    "Mia_TileDark": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_TileDark.MIA_TileDark"
+    },
+    "Mia_BrickLight": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_BrickLight.MIA_BrickLight"
+    },
+    "Mia_Brick": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Brick.MIA_Brick"
+    },
+    "Mia_Interior": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Interior.MIA_Interior"
+    },
+    "Mia_WarmGlass": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_WarmGlass.MIA_WarmGlass"
+    },
+    "Mia_Sage": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_PaintedWood.MIA_PaintedWood"
+    },
+    "Mia_SageLight": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_SageLight.MIA_SageLight"
+    },
+    "Mia_WoodLight": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_WoodLight.MIA_WoodLight"
+    },
+    "Mia_OfficeGlass": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_OfficeGlass.MIA_OfficeGlass"
+    },
+    "Mia_Glass": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Glass.MIA_Glass"
+    },
+    "Mia_Brass": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Brass.MIA_Brass"
+    },
+    "Mia_Cushion": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Cushion.MIA_Cushion"
+    },
+    "Mia_Pot": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Pot.MIA_Pot"
+    },
+    "Mia_Soil": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Soil.MIA_Soil"
+    },
+    "Mia_Leaf": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Leaf.MIA_Leaf"
+    },
+    "Mia_LeafLight": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_LeafLight.MIA_LeafLight"
+    },
+    "Mia_LeafDark": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_LeafDark.MIA_LeafDark"
+    },
+    "Mia_Pink": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Flowers.MIA_Flowers"
+    },
+    "Mia_Purple": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Purple.MIA_Purple"
+    },
+    "Mia_CreamFlower": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_CreamFlower.MIA_CreamFlower"
+    },
+    "Mia_Iron": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Iron.MIA_Iron"
+    },
+    "Mia_Lamp": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Lamp.MIA_Lamp"
+    },
+    "Mia_Screen": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Screen.MIA_Screen"
+    },
+    "Mia_Grass": {
+      "refPath": "/Game/TestLevel/Level_6/Blender/MiaHouse/Materials/MIA_Garden.MIA_Garden"
+    }
+  },
+  "import_uniform_scale": 1,
+  "normal_import_method": "FBXNIM_ImportNormals",
+  "saved_assets": 38,
+  "verified_slots": 52,
+  "level_changed": false,
+  "placement": "Awaiting user approval: roads separate player from adjacent plots",
+  "viewport_review": "Not performed; no placement and no screenshots requested"
+}
