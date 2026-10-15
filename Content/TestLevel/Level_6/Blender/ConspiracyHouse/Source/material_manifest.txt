@@ -1,0 +1,610 @@
+{
+  "Siding_Sage_1": {
+    "color": [
+      0.2540000081062317,
+      0.3140000104904175,
+      0.2619999945163727,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Siding_Sage_0": {
+    "color": [
+      0.23999999463558197,
+      0.30000001192092896,
+      0.25,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Siding_Sage_3": {
+    "color": [
+      0.28200000524520874,
+      0.34200000762939453,
+      0.28600001335144043,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Siding_Sage_4": {
+    "color": [
+      0.29600000381469727,
+      0.35600000619888306,
+      0.2980000078678131,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Siding_Sage_2": {
+    "color": [
+      0.2680000066757202,
+      0.328000009059906,
+      0.27399998903274536,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Weathered_Cream": {
+    "color": [
+      0.5699999928474426,
+      0.5299999713897705,
+      0.4000000059604645,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Foundation_Stone": {
+    "color": [
+      0.25999999046325684,
+      0.27000001072883606,
+      0.25,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Slate_0": {
+    "color": [
+      0.06499999761581421,
+      0.07699999958276749,
+      0.0820000022649765,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Slate_2": {
+    "color": [
+      0.08900000154972076,
+      0.10100000351667404,
+      0.10599999874830246,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Slate_3": {
+    "color": [
+      0.10100000351667404,
+      0.11299999803304672,
+      0.11800000071525574,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Slate_4": {
+    "color": [
+      0.11299999803304672,
+      0.125,
+      0.12999999523162842,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Slate_1": {
+    "color": [
+      0.07699999958276749,
+      0.08900000154972076,
+      0.09399999678134918,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Aged_Oak": {
+    "color": [
+      0.27000001072883606,
+      0.20000000298023224,
+      0.12999999523162842,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Dusty_Window_Glass": {
+    "color": [
+      0.11999999731779099,
+      0.1899999976158142,
+      0.1899999976158142,
+      1.0
+    ],
+    "roughness": 0.23999999463558197,
+    "metallic": 0.2800000011920929,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Oxidized_Iron": {
+    "color": [
+      0.07500000298023224,
+      0.0949999988079071,
+      0.10000000149011612,
+      1.0
+    ],
+    "roughness": 0.6499999761581421,
+    "metallic": 0.6499999761581421,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Cardboard": {
+    "color": [
+      0.38999998569488525,
+      0.30000001192092896,
+      0.18000000715255737,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Barrel_Faded_Teal": {
+    "color": [
+      0.0949999988079071,
+      0.2199999988079071,
+      0.20000000298023224,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Brick_1": {
+    "color": [
+      0.35499998927116394,
+      0.14800000190734863,
+      0.08500000089406967,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Brick_3": {
+    "color": [
+      0.42500001192092896,
+      0.18400000035762787,
+      0.10499999672174454,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Brick_0": {
+    "color": [
+      0.3199999928474426,
+      0.12999999523162842,
+      0.07500000298023224,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Brick_2": {
+    "color": [
+      0.38999998569488525,
+      0.16599999368190765,
+      0.0949999988079071,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Grass_1": {
+    "color": [
+      0.13899999856948853,
+      0.20800000429153442,
+      0.0729999989271164,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Garden_Earth": {
+    "color": [
+      0.15000000596046448,
+      0.125,
+      0.07500000298023224,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Foliage_0": {
+    "color": [
+      0.09000000357627869,
+      0.17000000178813934,
+      0.04500000178813934,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Foliage_1": {
+    "color": [
+      0.11500000208616257,
+      0.19499999284744263,
+      0.05400000140070915,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Foliage_2": {
+    "color": [
+      0.14000000059604645,
+      0.2199999988079071,
+      0.06300000101327896,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Foliage_3": {
+    "color": [
+      0.16500000655651093,
+      0.24500000476837158,
+      0.07199999690055847,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Foliage_4": {
+    "color": [
+      0.1899999976158142,
+      0.27000001072883606,
+      0.08100000023841858,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Grass_0": {
+    "color": [
+      0.11999999731779099,
+      0.1899999976158142,
+      0.06499999761581421,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Grass_2": {
+    "color": [
+      0.15800000727176666,
+      0.22599999606609344,
+      0.08100000023841858,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Grass_3": {
+    "color": [
+      0.1770000010728836,
+      0.24400000274181366,
+      0.08900000154972076,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Lamp_Amber": {
+    "color": [
+      0.6499999761581421,
+      0.3700000047683716,
+      0.11999999731779099,
+      1.0
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  }
+}

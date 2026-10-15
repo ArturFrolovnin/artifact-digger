@@ -1,0 +1,252 @@
+{
+  "meshes": {
+    "Blockout": {
+      "asset": "/Game/TestLevel/Level_6/Blender/ConspiracyHouse/SM_ConspiracyHouse_Blockout.SM_ConspiracyHouse_Blockout",
+      "bounds_cm": {
+        "min": {
+          "x": -454.0000305175781,
+          "y": -553,
+          "z": 0
+        },
+        "max": {
+          "x": 664.3455810546875,
+          "y": 755.5000610351562,
+          "z": 672.25
+        },
+        "isValid": true
+      },
+      "max_bound_error_cm": 3.4332275390625e-05,
+      "dimensions_m": [
+        11.183455467224121,
+        13.08500051498413,
+        6.722499847412109
+      ],
+      "triangles": 156128,
+      "materials": [
+        "Dusty_Window_Glass",
+        "Aged_Oak",
+        "Weathered_Cream",
+        "Siding_Sage_4",
+        "Siding_Sage_3",
+        "Siding_Sage_2",
+        "Siding_Sage_1",
+        "Siding_Sage_0",
+        "Oxidized_Iron",
+        "Brick_1",
+        "Brick_3",
+        "Brick_0",
+        "Brick_2",
+        "Foundation_Stone",
+        "Cardboard",
+        "Slate_0",
+        "Slate_3",
+        "Slate_1",
+        "Slate_4",
+        "Slate_2",
+        "Barrel_Faded_Teal"
+      ],
+      "import": {
+        "importUniformScale": 1,
+        "normalImportMethod": "FBXNIM_ImportNormals",
+        "bCombineMeshes": true
+      },
+      "collision": {
+        "collisionTraceFlag": "CTF_UseComplexAsSimple"
+      }
+    },
+    "Equipment": {
+      "asset": "/Game/TestLevel/Level_6/Blender/ConspiracyHouse/SM_ConspiracyHouse_Equipment.SM_ConspiracyHouse_Equipment",
+      "bounds_cm": {
+        "min": {
+          "x": -600.99560546875,
+          "y": -394.5000305175781,
+          "z": 6.999999046325684
+        },
+        "max": {
+          "x": 425.4999694824219,
+          "y": 613.7150268554688,
+          "z": 802.0000610351562
+        },
+        "isValid": true
+      },
+      "max_bound_error_cm": 4.57763671875e-05,
+      "dimensions_m": [
+        10.2649564743042,
+        10.082149744033813,
+        7.950000464916229
+      ],
+      "triangles": 2820,
+      "materials": [
+        "Oxidized_Iron",
+        "Weathered_Cream",
+        "Aged_Oak",
+        "Dusty_Window_Glass"
+      ],
+      "import": {
+        "importUniformScale": 1,
+        "normalImportMethod": "FBXNIM_ImportNormals",
+        "bCombineMeshes": true
+      },
+      "collision": {
+        "collisionTraceFlag": "CTF_UseComplexAsSimple"
+      }
+    },
+    "Fence": {
+      "asset": "/Game/TestLevel/Level_6/Blender/ConspiracyHouse/SM_ConspiracyHouse_Fence.SM_ConspiracyHouse_Fence",
+      "bounds_cm": {
+        "min": {
+          "x": -694.5000610351562,
+          "y": -794.5000610351562,
+          "z": 6
+        },
+        "max": {
+          "x": 694.5000610351562,
+          "y": 797.5,
+          "z": 142
+        },
+        "isValid": true
+      },
+      "max_bound_error_cm": 4.38690185546875e-05,
+      "dimensions_m": [
+        13.890000343322754,
+        15.920000076293945,
+        1.3600000739097595
+      ],
+      "triangles": 32400,
+      "materials": [
+        "Aged_Oak",
+        "Siding_Sage_0",
+        "Weathered_Cream",
+        "Oxidized_Iron"
+      ],
+      "import": {
+        "importUniformScale": 1,
+        "normalImportMethod": "FBXNIM_ImportNormals",
+        "bCombineMeshes": true
+      },
+      "collision": {
+        "collisionTraceFlag": "CTF_UseComplexAsSimple"
+      }
+    },
+    "Garden": {
+      "asset": "/Game/TestLevel/Level_6/Blender/ConspiracyHouse/SM_ConspiracyHouse_Garden.SM_ConspiracyHouse_Garden",
+      "bounds_cm": {
+        "min": {
+          "x": -700.0000610351562,
+          "y": -800.0000610351562,
+          "z": 0
+        },
+        "max": {
+          "x": 700.0000610351562,
+          "y": 800.0000610351562,
+          "z": 112.80635833740234
+        },
+        "isValid": true
+      },
+      "max_bound_error_cm": 6.103515625e-05,
+      "dimensions_m": [
+        14.0,
+        16.0,
+        1.1280635595321655
+      ],
+      "triangles": 6235,
+      "materials": [
+        "Grass_0",
+        "Grass_1",
+        "Grass_2",
+        "Grass_3",
+        "Foliage_0",
+        "Foliage_1",
+        "Foliage_2",
+        "Foliage_3",
+        "Foliage_4",
+        "Aged_Oak",
+        "Garden_Earth"
+      ],
+      "import": {
+        "importUniformScale": 1,
+        "normalImportMethod": "FBXNIM_ImportNormals",
+        "bCombineMeshes": true
+      },
+      "collision": {
+        "collisionTraceFlag": "CTF_UseComplexAsSimple"
+      }
+    },
+    "Props": {
+      "asset": "/Game/TestLevel/Level_6/Blender/ConspiracyHouse/SM_ConspiracyHouse_Props.SM_ConspiracyHouse_Props",
+      "bounds_cm": {
+        "min": {
+          "x": -287.49993896484375,
+          "y": 504.9999694824219,
+          "z": 6.999999046325684
+        },
+        "max": {
+          "x": 231.0000457763672,
+          "y": 792.5000610351562,
+          "z": 264
+        },
+        "isValid": true
+      },
+      "max_bound_error_cm": 6.103515625e-05,
+      "dimensions_m": [
+        5.184999942779541,
+        2.875000476837158,
+        2.569999873638153
+      ],
+      "triangles": 2268,
+      "materials": [
+        "Aged_Oak",
+        "Oxidized_Iron",
+        "Weathered_Cream",
+        "Siding_Sage_0",
+        "Lamp_Amber"
+      ],
+      "import": {
+        "importUniformScale": 1,
+        "normalImportMethod": "FBXNIM_ImportNormals",
+        "bCombineMeshes": true
+      },
+      "collision": {
+        "collisionTraceFlag": "CTF_UseComplexAsSimple"
+      }
+    },
+    "Pathways": {
+      "asset": "/Game/TestLevel/Level_6/Blender/ConspiracyHouse/SM_ConspiracyHouse_Pathways.SM_ConspiracyHouse_Pathways",
+      "bounds_cm": {
+        "min": {
+          "x": -77.49993133544922,
+          "y": 325.4100036621094,
+          "z": 6
+        },
+        "max": {
+          "x": 536.7780151367188,
+          "y": 796.5,
+          "z": 14
+        },
+        "isValid": true
+      },
+      "max_bound_error_cm": 8.96453857421875e-05,
+      "dimensions_m": [
+        6.142779231071472,
+        4.710899114608765,
+        0.07999999821186066
+      ],
+      "triangles": 1404,
+      "materials": [
+        "Foundation_Stone"
+      ],
+      "import": {
+        "importUniformScale": 1,
+        "normalImportMethod": "FBXNIM_ImportNormals",
+        "bCombineMeshes": true
+      },
+      "collision": {
+        "collisionTraceFlag": "CTF_UseComplexAsSimple"
+      }
+    }
+  },
+  "material_instances_verified": 32,
+  "assets_saved": 39,
+  "screenshots_created": false,
+  "scope": "import verification; see placement_report.txt for level status"
+}
