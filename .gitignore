@@ -19,3 +19,16 @@ Saved
 # Python bytecode caches
 __pycache__/
 *.py[cod]
+
+# Generated IDE and upgrade files
+*.slnx
+/UpgradeLog*.htm
+/Backup/
+
+# Model review images and generated diagnostics
+/SourceAssets/Blender/**/Previews/
+/SourceAssets/Blender/**/Source/*report*.txt
+/SourceAssets/Blender/**/Source/*validation*.txt
+/SourceAssets/Blender/**/Source/placement_before.txt
+/SourceAssets/Blender/**/Source/build_log.txt
+/SourceAssets/Blender/**/Source/source_final_check.txt

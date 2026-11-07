@@ -1,0 +1,629 @@
+{
+  "Mia_Wood": {
+    "color": [
+      0.3100000023841858,
+      0.2199999988079071,
+      0.12999999523162842,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_IvoryShade": {
+    "color": [
+      0.5799999833106995,
+      0.5299999713897705,
+      0.4300000071525574,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_Ivory": {
+    "color": [
+      0.6800000071525574,
+      0.6200000047683716,
+      0.47999998927116394,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_IvoryLight": {
+    "color": [
+      0.7900000214576721,
+      0.7200000286102295,
+      0.5699999928474426,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_Mortar": {
+    "color": [
+      0.2800000011920929,
+      0.28999999165534973,
+      0.25,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_StoneLight": {
+    "color": [
+      0.49000000953674316,
+      0.4699999988079071,
+      0.38999998569488525,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_Stone": {
+    "color": [
+      0.38999998569488525,
+      0.4000000059604645,
+      0.3499999940395355,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_Tile": {
+    "color": [
+      0.4300000071525574,
+      0.1599999964237213,
+      0.07500000298023224,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_TileLight": {
+    "color": [
+      0.550000011920929,
+      0.23000000417232513,
+      0.10999999940395355,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_TileDark": {
+    "color": [
+      0.33000001311302185,
+      0.10499999672174454,
+      0.04500000178813934,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_BrickLight": {
+    "color": [
+      0.6000000238418579,
+      0.3499999940395355,
+      0.20000000298023224,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_Brick": {
+    "color": [
+      0.47999998927116394,
+      0.25,
+      0.14000000059604645,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_Interior": {
+    "color": [
+      0.11500000208616257,
+      0.10000000149011612,
+      0.06800000369548798,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_WarmGlass": {
+    "color": [
+      0.7200000286102295,
+      0.4000000059604645,
+      0.11999999731779099,
+      1.0
+    ],
+    "roughness": 0.2800000011920929,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      0.7200000286102295,
+      0.4000000059604645,
+      0.11999999731779099,
+      1.0
+    ],
+    "emission_strength": 0.2199999988079071
+  },
+  "Mia_Sage": {
+    "color": [
+      0.20000000298023224,
+      0.3199999928474426,
+      0.30000001192092896,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_SageLight": {
+    "color": [
+      0.30000001192092896,
+      0.4099999964237213,
+      0.36000001430511475,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_WoodLight": {
+    "color": [
+      0.4300000071525574,
+      0.3199999928474426,
+      0.20000000298023224,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_OfficeGlass": {
+    "color": [
+      0.3199999928474426,
+      0.41999998688697815,
+      0.38999998569488525,
+      1.0
+    ],
+    "roughness": 0.14000000059604645,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.8500000238418579,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_Glass": {
+    "color": [
+      0.20999999344348907,
+      0.3199999928474426,
+      0.30000001192092896,
+      1.0
+    ],
+    "roughness": 0.1599999964237213,
+    "metallic": 0.25,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_Brass": {
+    "color": [
+      0.5,
+      0.3199999928474426,
+      0.09000000357627869,
+      1.0
+    ],
+    "roughness": 0.30000001192092896,
+    "metallic": 0.699999988079071,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_Cushion": {
+    "color": [
+      0.6200000047683716,
+      0.49000000953674316,
+      0.30000001192092896,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_Pot": {
+    "color": [
+      0.5,
+      0.23999999463558197,
+      0.11999999731779099,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_Soil": {
+    "color": [
+      0.15000000596046448,
+      0.10999999940395355,
+      0.06300000101327896,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_Leaf": {
+    "color": [
+      0.1599999964237213,
+      0.28999999165534973,
+      0.08500000089406967,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_LeafLight": {
+    "color": [
+      0.30000001192092896,
+      0.4000000059604645,
+      0.10499999672174454,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_LeafDark": {
+    "color": [
+      0.09000000357627869,
+      0.1899999976158142,
+      0.05000000074505806,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_Pink": {
+    "color": [
+      0.6800000071525574,
+      0.18000000715255737,
+      0.2800000011920929,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_Purple": {
+    "color": [
+      0.41999998688697815,
+      0.2199999988079071,
+      0.5600000023841858,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_CreamFlower": {
+    "color": [
+      0.9200000166893005,
+      0.7300000190734863,
+      0.33000001311302185,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_Iron": {
+    "color": [
+      0.07500000298023224,
+      0.09000000357627869,
+      0.08500000089406967,
+      1.0
+    ],
+    "roughness": 0.3799999952316284,
+    "metallic": 0.550000011920929,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "Mia_Lamp": {
+    "color": [
+      1.0,
+      0.5699999928474426,
+      0.17000000178813934,
+      1.0
+    ],
+    "roughness": 0.30000001192092896,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      0.5699999928474426,
+      0.17000000178813934,
+      1.0
+    ],
+    "emission_strength": 2.0
+  },
+  "Mia_Screen": {
+    "color": [
+      0.1599999964237213,
+      0.2800000011920929,
+      0.28999999165534973,
+      1.0
+    ],
+    "roughness": 0.30000001192092896,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      0.1599999964237213,
+      0.2800000011920929,
+      0.28999999165534973,
+      1.0
+    ],
+    "emission_strength": 0.20000000298023224
+  },
+  "Mia_Grass": {
+    "color": [
+      0.25,
+      0.30000001192092896,
+      0.10499999672174454,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "alpha": 1.0,
+    "transmission": 0.0,
+    "emission": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  }
+}

@@ -41,19 +41,19 @@ reference
 
 Текущий source asset:
 
-- Content/TestLevel/Level_6/Blender/Source/Dormitory_Blockout.blend
+- SourceAssets/Blender/Buildings/Dormitory/Source/Dormitory_Blockout.blend
 
 Export:
 
-- Content/TestLevel/Level_6/Blender/Source/SM_Dormitory_Blockout.fbx
+- SourceAssets/Blender/Buildings/Dormitory/Source/SM_Dormitory_Blockout.fbx
 
 UE asset:
 
-- /Game/TestLevel/Level_6/Blender/SM_Dormitory_Blockout
+- /Game/Art/Models/Buildings/Dormitory/SM_Dormitory_Blockout
 
 Техническое описание импорта:
 
-- Content/TestLevel/Level_6/Blender/README.md
+- SourceAssets/Blender/Buildings/Dormitory/README.md
 
 ### Размер текущего prototype
 

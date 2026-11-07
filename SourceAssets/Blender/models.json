@@ -1,0 +1,391 @@
+{
+  "models": [
+    {
+      "model_id": "BusStop",
+      "source_blend": "SourceAssets/Blender/Buildings/BusStop/Source/BusStop_Blockout.blend",
+      "fbx": [
+        "SourceAssets/Blender/Buildings/BusStop/Source/SM_BusStop_Blockout.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Buildings/BusStop",
+      "unreal_meshes": [
+        "/Game/Art/Models/Buildings/BusStop/SM_BusStop_Blockout"
+      ]
+    },
+    {
+      "model_id": "CafeBar",
+      "source_blend": "SourceAssets/Blender/Buildings/CafeBar/Source/CafeBar_Blockout.blend",
+      "fbx": [
+        "SourceAssets/Blender/Buildings/CafeBar/Source/SM_CafeBar_Blockout.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Buildings/CafeBar",
+      "unreal_meshes": [
+        "/Game/Art/Models/Buildings/CafeBar/SM_CafeBar_Blockout"
+      ]
+    },
+    {
+      "model_id": "CarDealership",
+      "source_blend": "SourceAssets/Blender/Buildings/CarDealership/Source/CarDealership_Blockout.blend",
+      "fbx": [
+        "SourceAssets/Blender/Buildings/CarDealership/Source/SM_CarDealership_Blockout.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Buildings/CarDealership",
+      "unreal_meshes": [
+        "/Game/Art/Models/Buildings/CarDealership/SM_CarDealership_Blockout"
+      ]
+    },
+    {
+      "model_id": "ConspiracyHouse",
+      "source_blend": "SourceAssets/Blender/Buildings/ConspiracyHouse/Source/ConspiracyHouse_Blockout.blend",
+      "fbx": [
+        "SourceAssets/Blender/Buildings/ConspiracyHouse/Source/SM_ConspiracyHouse_Blockout.fbx",
+        "SourceAssets/Blender/Buildings/ConspiracyHouse/Source/SM_ConspiracyHouse_Equipment.fbx",
+        "SourceAssets/Blender/Buildings/ConspiracyHouse/Source/SM_ConspiracyHouse_Fence.fbx",
+        "SourceAssets/Blender/Buildings/ConspiracyHouse/Source/SM_ConspiracyHouse_Garden.fbx",
+        "SourceAssets/Blender/Buildings/ConspiracyHouse/Source/SM_ConspiracyHouse_Pathways.fbx",
+        "SourceAssets/Blender/Buildings/ConspiracyHouse/Source/SM_ConspiracyHouse_Props.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Buildings/ConspiracyHouse",
+      "unreal_meshes": [
+        "/Game/Art/Models/Buildings/ConspiracyHouse/SM_ConspiracyHouse_Blockout",
+        "/Game/Art/Models/Buildings/ConspiracyHouse/SM_ConspiracyHouse_Equipment",
+        "/Game/Art/Models/Buildings/ConspiracyHouse/SM_ConspiracyHouse_Fence",
+        "/Game/Art/Models/Buildings/ConspiracyHouse/SM_ConspiracyHouse_Garden",
+        "/Game/Art/Models/Buildings/ConspiracyHouse/SM_ConspiracyHouse_Pathways",
+        "/Game/Art/Models/Buildings/ConspiracyHouse/SM_ConspiracyHouse_Props"
+      ]
+    },
+    {
+      "model_id": "CreatorCoupleHouse",
+      "source_blend": "SourceAssets/Blender/Residential/CreatorCoupleHouse/Source/CreatorCoupleHouse_Blockout.blend",
+      "fbx": [
+        "SourceAssets/Blender/Residential/CreatorCoupleHouse/Source/SM_CreatorCoupleHouse_Backdrop.fbx",
+        "SourceAssets/Blender/Residential/CreatorCoupleHouse/Source/SM_CreatorCoupleHouse_Blockout.fbx",
+        "SourceAssets/Blender/Residential/CreatorCoupleHouse/Source/SM_CreatorCoupleHouse_CameraTripod.fbx",
+        "SourceAssets/Blender/Residential/CreatorCoupleHouse/Source/SM_CreatorCoupleHouse_Decorations.fbx",
+        "SourceAssets/Blender/Residential/CreatorCoupleHouse/Source/SM_CreatorCoupleHouse_Fence.fbx",
+        "SourceAssets/Blender/Residential/CreatorCoupleHouse/Source/SM_CreatorCoupleHouse_FilmingTable.fbx",
+        "SourceAssets/Blender/Residential/CreatorCoupleHouse/Source/SM_CreatorCoupleHouse_Garden.fbx",
+        "SourceAssets/Blender/Residential/CreatorCoupleHouse/Source/SM_CreatorCoupleHouse_Gate.fbx",
+        "SourceAssets/Blender/Residential/CreatorCoupleHouse/Source/SM_CreatorCoupleHouse_Pathways.fbx",
+        "SourceAssets/Blender/Residential/CreatorCoupleHouse/Source/SM_CreatorCoupleHouse_Props.fbx",
+        "SourceAssets/Blender/Residential/CreatorCoupleHouse/Source/SM_CreatorCoupleHouse_RecordingProps.fbx",
+        "SourceAssets/Blender/Residential/CreatorCoupleHouse/Source/SM_CreatorCoupleHouse_RingLight.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Residential/CreatorCoupleHouse",
+      "unreal_meshes": [
+        "/Game/Art/Models/Residential/CreatorCoupleHouse/SM_CreatorCoupleHouse_Backdrop",
+        "/Game/Art/Models/Residential/CreatorCoupleHouse/SM_CreatorCoupleHouse_Blockout",
+        "/Game/Art/Models/Residential/CreatorCoupleHouse/SM_CreatorCoupleHouse_CameraTripod",
+        "/Game/Art/Models/Residential/CreatorCoupleHouse/SM_CreatorCoupleHouse_Decorations",
+        "/Game/Art/Models/Residential/CreatorCoupleHouse/SM_CreatorCoupleHouse_Fence",
+        "/Game/Art/Models/Residential/CreatorCoupleHouse/SM_CreatorCoupleHouse_FilmingTable",
+        "/Game/Art/Models/Residential/CreatorCoupleHouse/SM_CreatorCoupleHouse_Garden",
+        "/Game/Art/Models/Residential/CreatorCoupleHouse/SM_CreatorCoupleHouse_Gate",
+        "/Game/Art/Models/Residential/CreatorCoupleHouse/SM_CreatorCoupleHouse_Pathways",
+        "/Game/Art/Models/Residential/CreatorCoupleHouse/SM_CreatorCoupleHouse_Props",
+        "/Game/Art/Models/Residential/CreatorCoupleHouse/SM_CreatorCoupleHouse_RecordingProps",
+        "/Game/Art/Models/Residential/CreatorCoupleHouse/SM_CreatorCoupleHouse_RingLight"
+      ]
+    },
+    {
+      "model_id": "Dormitory",
+      "source_blend": "SourceAssets/Blender/Buildings/Dormitory/Source/Dormitory_Blockout.blend",
+      "fbx": [
+        "SourceAssets/Blender/Buildings/Dormitory/Source/SM_Dormitory_Blockout.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Buildings/Dormitory",
+      "unreal_meshes": [
+        "/Game/Art/Models/Buildings/Dormitory/SM_Dormitory_Blockout"
+      ]
+    },
+    {
+      "model_id": "GeneralStore",
+      "source_blend": "SourceAssets/Blender/Buildings/GeneralStore/Source/GeneralStore_Blockout.blend",
+      "fbx": [
+        "SourceAssets/Blender/Buildings/GeneralStore/Source/SM_GeneralStore_Blockout.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Buildings/GeneralStore",
+      "unreal_meshes": [
+        "/Game/Art/Models/Buildings/GeneralStore/SM_GeneralStore_Blockout"
+      ]
+    },
+    {
+      "model_id": "GrahamShop",
+      "source_blend": "SourceAssets/Blender/Buildings/GrahamShop/Source/GrahamShop_Blockout.blend",
+      "fbx": [
+        "SourceAssets/Blender/Buildings/GrahamShop/Source/SM_GrahamShop_Blockout.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Buildings/GrahamShop",
+      "unreal_meshes": [
+        "/Game/Art/Models/Buildings/GrahamShop/SM_GrahamShop_Blockout"
+      ]
+    },
+    {
+      "model_id": "HippieCoupleHouse",
+      "source_blend": "SourceAssets/Blender/Residential/HippieCoupleHouse/Source/HippieCoupleHouse_Blockout.blend",
+      "fbx": [
+        "SourceAssets/Blender/Residential/HippieCoupleHouse/Source/SM_HippieCoupleHouse_Blockout.fbx",
+        "SourceAssets/Blender/Residential/HippieCoupleHouse/Source/SM_HippieCoupleHouse_Fence.fbx",
+        "SourceAssets/Blender/Residential/HippieCoupleHouse/Source/SM_HippieCoupleHouse_Garden.fbx",
+        "SourceAssets/Blender/Residential/HippieCoupleHouse/Source/SM_HippieCoupleHouse_Pathways.fbx",
+        "SourceAssets/Blender/Residential/HippieCoupleHouse/Source/SM_HippieCoupleHouse_Props.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Residential/HippieCoupleHouse",
+      "unreal_meshes": [
+        "/Game/Art/Models/Residential/HippieCoupleHouse/SM_HippieCoupleHouse_Blockout",
+        "/Game/Art/Models/Residential/HippieCoupleHouse/SM_HippieCoupleHouse_Fence",
+        "/Game/Art/Models/Residential/HippieCoupleHouse/SM_HippieCoupleHouse_Garden",
+        "/Game/Art/Models/Residential/HippieCoupleHouse/SM_HippieCoupleHouse_Pathways",
+        "/Game/Art/Models/Residential/HippieCoupleHouse/SM_HippieCoupleHouse_Props"
+      ]
+    },
+    {
+      "model_id": "Hospital",
+      "source_blend": "SourceAssets/Blender/Buildings/Hospital/Source/Hospital_Blockout.blend",
+      "fbx": [
+        "SourceAssets/Blender/Buildings/Hospital/Source/SM_Hospital_Blockout.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Buildings/Hospital",
+      "unreal_meshes": [
+        "/Game/Art/Models/Buildings/Hospital/SM_Hospital_Blockout"
+      ]
+    },
+    {
+      "model_id": "IntellectualGrandpaHouse",
+      "source_blend": "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/IntellectualGrandpaHouse_Blockout.blend",
+      "fbx": [
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_Blockout.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_ChairLeft.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_ChairRight.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_ChessBoard.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_ChessTable.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_Chess_Black_Bishop.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_Chess_Black_King.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_Chess_Black_Knight.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_Chess_Black_Pawn.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_Chess_Black_Queen.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_Chess_Black_Rook.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_Chess_White_Bishop.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_Chess_White_King.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_Chess_White_Knight.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_Chess_White_Pawn.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_Chess_White_Queen.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_Chess_White_Rook.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_Fence.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_Garden.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_Gate.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_Pathways.fbx",
+        "SourceAssets/Blender/Residential/IntellectualGrandpaHouse/Source/SM_IntellectualGrandpaHouse_Props.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Residential/IntellectualGrandpaHouse",
+      "unreal_meshes": [
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_Blockout",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_ChairLeft",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_ChairRight",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_ChessBoard",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_ChessTable",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_Chess_Black_Bishop",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_Chess_Black_King",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_Chess_Black_Knight",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_Chess_Black_Pawn",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_Chess_Black_Queen",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_Chess_Black_Rook",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_Chess_White_Bishop",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_Chess_White_King",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_Chess_White_Knight",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_Chess_White_Pawn",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_Chess_White_Queen",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_Chess_White_Rook",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_Fence",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_Garden",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_Gate",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_Pathways",
+        "/Game/Art/Models/Residential/IntellectualGrandpaHouse/SM_IntellectualGrandpaHouse_Props"
+      ]
+    },
+    {
+      "model_id": "Library",
+      "source_blend": "SourceAssets/Blender/Buildings/Library/Source/Library_Blockout.blend",
+      "fbx": [
+        "SourceAssets/Blender/Buildings/Library/Source/SM_Library_Blockout.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Buildings/Library",
+      "unreal_meshes": [
+        "/Game/Art/Models/Buildings/Library/SM_Library_Blockout"
+      ]
+    },
+    {
+      "model_id": "MiaHouse",
+      "source_blend": "SourceAssets/Blender/Residential/MiaHouse/Source/MiaHouse_Blockout.blend",
+      "fbx": [
+        "SourceAssets/Blender/Residential/MiaHouse/Source/SM_MiaHouse_Blockout.fbx",
+        "SourceAssets/Blender/Residential/MiaHouse/Source/SM_MiaHouse_Fence.fbx",
+        "SourceAssets/Blender/Residential/MiaHouse/Source/SM_MiaHouse_Fence_SharedBoundary.fbx",
+        "SourceAssets/Blender/Residential/MiaHouse/Source/SM_MiaHouse_Garden.fbx",
+        "SourceAssets/Blender/Residential/MiaHouse/Source/SM_MiaHouse_Pathways.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Residential/MiaHouse",
+      "unreal_meshes": [
+        "/Game/Art/Models/Residential/MiaHouse/SM_MiaHouse_Blockout",
+        "/Game/Art/Models/Residential/MiaHouse/SM_MiaHouse_Fence",
+        "/Game/Art/Models/Residential/MiaHouse/SM_MiaHouse_Fence_SharedBoundary",
+        "/Game/Art/Models/Residential/MiaHouse/SM_MiaHouse_Garden",
+        "/Game/Art/Models/Residential/MiaHouse/SM_MiaHouse_Pathways"
+      ]
+    },
+    {
+      "model_id": "Museum",
+      "source_blend": "SourceAssets/Blender/Buildings/Museum/Source/Archive/Museum_Blockout.blend",
+      "fbx": [
+        "SourceAssets/Blender/Buildings/Museum/Source/SM_Museum_Blockout.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Buildings/Museum",
+      "unreal_meshes": [
+        "/Game/Art/Models/Buildings/Museum/SM_Museum_Blockout"
+      ]
+    },
+    {
+      "model_id": "PlayerHouse",
+      "source_blend": "SourceAssets/Blender/Residential/PlayerHouse/Source/PlayerHouse_Blockout.blend",
+      "fbx": [
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_BackDoor.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_Backyard.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_Blockout.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_Fence.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_Fence_SharedBoundary.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_FrontDoor.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_FrontPorch.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_Garden.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_Gate.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_Lighting.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_OutdoorFurniture.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_Pathways.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_Roof.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_Shelves.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_SmallProps.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_Storage_ClosedSupplyBox.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_Storage_OpenSupplyCrate.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_Storage_UpperStorageCrate.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_Storage_WorkshopJars.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_Tools.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_Windows.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_Workbench.fbx",
+        "SourceAssets/Blender/Residential/PlayerHouse/Source/SM_PlayerHouse_WorkshopStructure.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Residential/PlayerHouse",
+      "unreal_meshes": [
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_BackDoor",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_Backyard",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_Blockout",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_Fence",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_Fence_SharedBoundary",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_FrontDoor",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_FrontPorch",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_Garden",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_Gate",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_Lighting",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_OutdoorFurniture",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_Pathways",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_Roof",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_Shelves",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_SmallProps",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_Storage_ClosedSupplyBox",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_Storage_OpenSupplyCrate",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_Storage_UpperStorageCrate",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_Storage_WorkshopJars",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_Tools",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_Windows",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_Workbench",
+        "/Game/Art/Models/Residential/PlayerHouse/SM_PlayerHouse_WorkshopStructure"
+      ]
+    },
+    {
+      "model_id": "RelaxedNeighborHouse",
+      "source_blend": "SourceAssets/Blender/Residential/RelaxedNeighborHouse/Source/RelaxedNeighborHouse_Blockout.blend",
+      "fbx": [
+        "SourceAssets/Blender/Residential/RelaxedNeighborHouse/Source/SM_RelaxedNeighborHouse_Amplifier.fbx",
+        "SourceAssets/Blender/Residential/RelaxedNeighborHouse/Source/SM_RelaxedNeighborHouse_Blockout.fbx",
+        "SourceAssets/Blender/Residential/RelaxedNeighborHouse/Source/SM_RelaxedNeighborHouse_Fence.fbx",
+        "SourceAssets/Blender/Residential/RelaxedNeighborHouse/Source/SM_RelaxedNeighborHouse_Garden.fbx",
+        "SourceAssets/Blender/Residential/RelaxedNeighborHouse/Source/SM_RelaxedNeighborHouse_Gate.fbx",
+        "SourceAssets/Blender/Residential/RelaxedNeighborHouse/Source/SM_RelaxedNeighborHouse_Grill.fbx",
+        "SourceAssets/Blender/Residential/RelaxedNeighborHouse/Source/SM_RelaxedNeighborHouse_Guitar.fbx",
+        "SourceAssets/Blender/Residential/RelaxedNeighborHouse/Source/SM_RelaxedNeighborHouse_Hammock.fbx",
+        "SourceAssets/Blender/Residential/RelaxedNeighborHouse/Source/SM_RelaxedNeighborHouse_HammockSupports.fbx",
+        "SourceAssets/Blender/Residential/RelaxedNeighborHouse/Source/SM_RelaxedNeighborHouse_MusicFurniture.fbx",
+        "SourceAssets/Blender/Residential/RelaxedNeighborHouse/Source/SM_RelaxedNeighborHouse_Pathways.fbx",
+        "SourceAssets/Blender/Residential/RelaxedNeighborHouse/Source/SM_RelaxedNeighborHouse_Props.fbx",
+        "SourceAssets/Blender/Residential/RelaxedNeighborHouse/Source/SM_RelaxedNeighborHouse_UnfinishedBench.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Residential/RelaxedNeighborHouse",
+      "unreal_meshes": [
+        "/Game/Art/Models/Residential/RelaxedNeighborHouse/SM_RelaxedNeighborHouse_Amplifier",
+        "/Game/Art/Models/Residential/RelaxedNeighborHouse/SM_RelaxedNeighborHouse_Blockout",
+        "/Game/Art/Models/Residential/RelaxedNeighborHouse/SM_RelaxedNeighborHouse_Fence",
+        "/Game/Art/Models/Residential/RelaxedNeighborHouse/SM_RelaxedNeighborHouse_Garden",
+        "/Game/Art/Models/Residential/RelaxedNeighborHouse/SM_RelaxedNeighborHouse_Gate",
+        "/Game/Art/Models/Residential/RelaxedNeighborHouse/SM_RelaxedNeighborHouse_Grill",
+        "/Game/Art/Models/Residential/RelaxedNeighborHouse/SM_RelaxedNeighborHouse_Guitar",
+        "/Game/Art/Models/Residential/RelaxedNeighborHouse/SM_RelaxedNeighborHouse_Hammock",
+        "/Game/Art/Models/Residential/RelaxedNeighborHouse/SM_RelaxedNeighborHouse_HammockSupports",
+        "/Game/Art/Models/Residential/RelaxedNeighborHouse/SM_RelaxedNeighborHouse_MusicFurniture",
+        "/Game/Art/Models/Residential/RelaxedNeighborHouse/SM_RelaxedNeighborHouse_Pathways",
+        "/Game/Art/Models/Residential/RelaxedNeighborHouse/SM_RelaxedNeighborHouse_Props",
+        "/Game/Art/Models/Residential/RelaxedNeighborHouse/SM_RelaxedNeighborHouse_UnfinishedBench"
+      ]
+    },
+    {
+      "model_id": "RudyPawnshop",
+      "source_blend": "SourceAssets/Blender/Buildings/RudyPawnshop/Source/RudyPawnshop.blend",
+      "fbx": [
+        "SourceAssets/Blender/Buildings/RudyPawnshop/Source/SM_RudyPawnshop.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Buildings/RudyPawnshop",
+      "unreal_meshes": [
+        "/Game/Art/Models/Buildings/RudyPawnshop/SM_RudyPawnshop"
+      ]
+    },
+    {
+      "model_id": "SlackerFriendsHouse",
+      "source_blend": "SourceAssets/Blender/Residential/SlackerFriendsHouse/Source/SlackerFriendsHouse_Blockout.blend",
+      "fbx": [
+        "SourceAssets/Blender/Residential/SlackerFriendsHouse/Source/SM_SlackerFriendsHouse_BasketballHoop.fbx",
+        "SourceAssets/Blender/Residential/SlackerFriendsHouse/Source/SM_SlackerFriendsHouse_Bicycle.fbx",
+        "SourceAssets/Blender/Residential/SlackerFriendsHouse/Source/SM_SlackerFriendsHouse_Blockout.fbx",
+        "SourceAssets/Blender/Residential/SlackerFriendsHouse/Source/SM_SlackerFriendsHouse_Dinosaur.fbx",
+        "SourceAssets/Blender/Residential/SlackerFriendsHouse/Source/SM_SlackerFriendsHouse_Fence.fbx",
+        "SourceAssets/Blender/Residential/SlackerFriendsHouse/Source/SM_SlackerFriendsHouse_Garden.fbx",
+        "SourceAssets/Blender/Residential/SlackerFriendsHouse/Source/SM_SlackerFriendsHouse_Ladder.fbx",
+        "SourceAssets/Blender/Residential/SlackerFriendsHouse/Source/SM_SlackerFriendsHouse_Pathways.fbx",
+        "SourceAssets/Blender/Residential/SlackerFriendsHouse/Source/SM_SlackerFriendsHouse_Props.fbx",
+        "SourceAssets/Blender/Residential/SlackerFriendsHouse/Source/SM_SlackerFriendsHouse_RoofChair.fbx",
+        "SourceAssets/Blender/Residential/SlackerFriendsHouse/Source/SM_SlackerFriendsHouse_Tools.fbx",
+        "SourceAssets/Blender/Residential/SlackerFriendsHouse/Source/SM_SlackerFriendsHouse_Workbench.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Residential/SlackerFriendsHouse",
+      "unreal_meshes": [
+        "/Game/Art/Models/Residential/SlackerFriendsHouse/SM_SlackerFriendsHouse_BasketballHoop",
+        "/Game/Art/Models/Residential/SlackerFriendsHouse/SM_SlackerFriendsHouse_Bicycle",
+        "/Game/Art/Models/Residential/SlackerFriendsHouse/SM_SlackerFriendsHouse_Blockout",
+        "/Game/Art/Models/Residential/SlackerFriendsHouse/SM_SlackerFriendsHouse_Dinosaur",
+        "/Game/Art/Models/Residential/SlackerFriendsHouse/SM_SlackerFriendsHouse_Fence",
+        "/Game/Art/Models/Residential/SlackerFriendsHouse/SM_SlackerFriendsHouse_Garden",
+        "/Game/Art/Models/Residential/SlackerFriendsHouse/SM_SlackerFriendsHouse_Ladder",
+        "/Game/Art/Models/Residential/SlackerFriendsHouse/SM_SlackerFriendsHouse_Pathways",
+        "/Game/Art/Models/Residential/SlackerFriendsHouse/SM_SlackerFriendsHouse_Props",
+        "/Game/Art/Models/Residential/SlackerFriendsHouse/SM_SlackerFriendsHouse_RoofChair",
+        "/Game/Art/Models/Residential/SlackerFriendsHouse/SM_SlackerFriendsHouse_Tools",
+        "/Game/Art/Models/Residential/SlackerFriendsHouse/SM_SlackerFriendsHouse_Workbench"
+      ]
+    },
+    {
+      "model_id": "TownHall",
+      "source_blend": "SourceAssets/Blender/Residential/TownHall/Source/TownHall_Blockout.blend",
+      "fbx": [
+        "SourceAssets/Blender/Residential/TownHall/Source/SM_TownHall_Blockout.fbx"
+      ],
+      "unreal_asset_root": "/Game/Art/Models/Residential/TownHall",
+      "unreal_meshes": []
+    }
+  ]
+}
