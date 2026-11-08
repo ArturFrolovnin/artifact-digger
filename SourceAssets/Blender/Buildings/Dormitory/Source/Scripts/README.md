@@ -1,4 +1,17 @@
-# Dormitory — current campus restyle
+# Dormitory — scripts
+
+Current delivery includes the first-floor interior (2026-11-08). Use `export_fbx.py`
+with the existing saved `.blend`: it exports temporary copies, fixed architecture
+to the current main asset and separate parts to their FBXs. `EXPORT_TARGETS` can
+limit export to asset basenames. It never saves or changes the editable source.
+Meshes marked `export_preserve_normals` retain their source winding. This applies
+to the repaired foundation, front ground-floor backing and thickened roof meshes.
+Their validated faces must retain their direction, including downward-facing
+roof undersides.
+`add_first_floor_interior.py` is the completed one-time authoring operation, not
+an export dependency; do not rerun it. See ../../README.md for current assets.
+
+## Historical campus restyle notes
 
 Current Blender collection: BLD_Dormitory. Parent: Dormitory_ROOT at (0,0,0), ground centre.
 Four storeys; existing wall and window objects were retained in place.

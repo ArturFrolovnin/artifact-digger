@@ -1,0 +1,301 @@
+{
+  "assets": [
+    {
+      "object": "DORM_INT_Interior",
+      "asset": "/Game/Art/Models/Buildings/Dormitory/SM_Dormitory_Blockout",
+      "location_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "doors": [
+    {
+      "object": "DORM_INT_Door_101",
+      "asset": "/Game/Art/Models/Buildings/Dormitory/Parts/SM_Dormitory_InteriorDoor",
+      "location_blender_m": [
+        -1.7400000095367432,
+        -1.149999976158142,
+        0.46000000834465027
+      ],
+      "rotation_blender_deg": [
+        0.0,
+        0.0,
+        90.00000250447816
+      ]
+    },
+    {
+      "object": "DORM_INT_Door_103",
+      "asset": "/Game/Art/Models/Buildings/Dormitory/Parts/SM_Dormitory_InteriorDoor",
+      "location_blender_m": [
+        -1.7400000095367432,
+        1.600000023841858,
+        0.46000000834465027
+      ],
+      "rotation_blender_deg": [
+        0.0,
+        0.0,
+        90.00000250447816
+      ]
+    },
+    {
+      "object": "DORM_INT_Door_105",
+      "asset": "/Game/Art/Models/Buildings/Dormitory/Parts/SM_Dormitory_InteriorDoor",
+      "location_blender_m": [
+        -1.7400000095367432,
+        4.349999904632568,
+        0.46000000834465027
+      ],
+      "rotation_blender_deg": [
+        0.0,
+        0.0,
+        90.00000250447816
+      ]
+    },
+    {
+      "object": "DORM_INT_Door_102",
+      "asset": "/Game/Art/Models/Buildings/Dormitory/Parts/SM_Dormitory_InteriorDoor",
+      "location_blender_m": [
+        1.7400000095367432,
+        -1.149999976158142,
+        0.46000000834465027
+      ],
+      "rotation_blender_deg": [
+        0.0,
+        0.0,
+        90.00000250447816
+      ]
+    },
+    {
+      "object": "DORM_INT_Door_104",
+      "asset": "/Game/Art/Models/Buildings/Dormitory/Parts/SM_Dormitory_InteriorDoor",
+      "location_blender_m": [
+        1.7400000095367432,
+        1.600000023841858,
+        0.46000000834465027
+      ],
+      "rotation_blender_deg": [
+        0.0,
+        0.0,
+        90.00000250447816
+      ]
+    },
+    {
+      "object": "DORM_INT_Door_106",
+      "asset": "/Game/Art/Models/Buildings/Dormitory/Parts/SM_Dormitory_InteriorDoor",
+      "location_blender_m": [
+        1.7400000095367432,
+        4.349999904632568,
+        0.46000000834465027
+      ],
+      "rotation_blender_deg": [
+        0.0,
+        0.0,
+        90.00000250447816
+      ]
+    },
+    {
+      "object": "DORM_INT_Door_107",
+      "asset": "/Game/Art/Models/Buildings/Dormitory/Parts/SM_Dormitory_InteriorDoor",
+      "location_blender_m": [
+        -0.5,
+        7.53000020980835,
+        0.46000000834465027
+      ],
+      "rotation_blender_deg": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "DORM_INT_Door_201",
+      "asset": "/Game/Art/Models/Buildings/Dormitory/Parts/SM_Dormitory_InteriorDoor",
+      "location_blender_m": [
+        -0.5,
+        1.690000057220459,
+        2.8940000534057617
+      ],
+      "rotation_blender_deg": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "DORM_INT_Door_Player",
+      "asset": "/Game/Art/Models/Buildings/Dormitory/Parts/SM_Dormitory_InteriorDoor",
+      "location_blender_m": [
+        -6.179999828338623,
+        -2.2750000953674316,
+        2.8940000534057617
+      ],
+      "rotation_blender_deg": [
+        0,
+        0,
+        90
+      ]
+    }
+  ],
+  "floor_levels_m": [
+    0.45,
+    2.884
+  ],
+  "stair_risers": 14,
+  "stair_rise_m": 0.17385714285714285,
+  "stair_tread_m": 0.3,
+  "exterior_objects_preserved": 61,
+  "original_hashes": {
+    "DORM_01_Plinth": "9f391f1888ffa8d287a997823a6daebfcad3449e21adbd4252af62d18f3162f7",
+    "DORM_02_Front_Floor_1": "ef68c4272c45a3b939007a752a82bd6c5e9c111375fad0a25c49c2b71f820866",
+    "DORM_03_Front_Windows_1": "aa0da5c19b3e76adeabba56da2ea223611ad7a5e02af6f56b9e4aad43d8f3032",
+    "DORM_02_Front_Floor_2": "fd8fa500626ac25841898c3779fe7285e76558a22181fa7057d42b8bf422b8b1",
+    "DORM_03_Front_Windows_2": "5ddb7d4e343056e0c975b27bcd4144b8ff9524d5f9844f251117b4e2113d37d9",
+    "DORM_02_Front_Floor_3": "5c714e52dca077de46a8453ee3e47a9ed672e5dd6234918f46e8268242c7e685",
+    "DORM_03_Front_Windows_3": "2a5072354ab0d96724ea3fb2ee2d86223083ac86ee5ffe541f9e360392a083da",
+    "DORM_02_Front_Floor_4": "28af2c1974f7857ddf15411d3614e2c71430d7ee60efee2433923818b0c4677c",
+    "DORM_03_Front_Windows_4": "4686f1c3cc93fc926ac9757c788fdd4a251b038b1ea4bc5c4aa9ce8c19a2029f",
+    "DORM_02_Right_Floor_1": "980945d814149c669d5959286d51d303a866019669584c5b082c44d6f860442d",
+    "DORM_03_Right_Windows_1": "45f55d70fb9db688d10ae9f287b5c147bcbcb6a8d04fce4a3ad2984fd70c90d6",
+    "DORM_02_Right_Floor_2": "d76f98053487587608493e1f33c59972898a99ff16939d12421a364a63596d91",
+    "DORM_03_Right_Windows_2": "b5c9d5df6109f130c49f213d8269c0bc91e7e1ab07d8d3bcc0a23c544b81320d",
+    "DORM_02_Right_Floor_3": "bf510318b1bc07738d6ed2fc591e2c6bf379943149799e1f2fe8415220d64a3c",
+    "DORM_03_Right_Windows_3": "b4c756e891a1577a97cefda110284fc3c6a172a647ca943ad919c68843055d93",
+    "DORM_02_Right_Floor_4": "37e17c9074baf5b657539ecbb59bfa0b7ecc5dddb486b8e6649337b172fcad1e",
+    "DORM_03_Right_Windows_4": "ed1ebca8cf17b07df87f0a79cc35f4129ba34418bee65d4cbdf491d5e921eb1b",
+    "DORM_02_Rear_Floor_1": "b90127936f61c204417d007449b89df6e8bf91101222abb397a0aa0675065754",
+    "DORM_03_Rear_Windows_1": "68eb0c461d2a07e748b3e0e2fa76c1089011295194bc5fca61af29d8df5a2d3b",
+    "DORM_02_Rear_Floor_2": "52e07cbbbeddc1f2a133960f73ec46a6f22391f13342d4a6a73326c9a1cabfc1",
+    "DORM_03_Rear_Windows_2": "07ee1c1df9f485ebcbd8cbd8cc01517bad68c1f518678df700df83351881b3d6",
+    "DORM_02_Rear_Floor_3": "63a999db83b841c768ece91386d9af9424f4ffd985b97890ca544e001a3bcfa9",
+    "DORM_03_Rear_Windows_3": "8cbbdd306116eb3817b52506a5ebac634950133031ec60732e7e7fd923e67cc0",
+    "DORM_02_Rear_Floor_4": "627010854fff43bb034a2f7199432c9d2f74a193cf3289f37a63676c18dc9b0a",
+    "DORM_03_Rear_Windows_4": "0f2a575f510ea165a4e2db5a4050ca636ac19a723b8db1b4a2937794a0209dbd",
+    "DORM_02_Left_Floor_1": "abc55d54f4d5202009a6ab95a7f1cc54aaf2740fde9cae0fc147df35598be361",
+    "DORM_03_Left_Windows_1": "71f0dc06893ec86f13068210b690df81d276912a3be326bd98bd1c94a838cac2",
+    "DORM_02_Left_Floor_2": "66d2294b071f0418781a9849918bc5ac7712ad6c177cb963f26e49dcbb98902f",
+    "DORM_03_Left_Windows_2": "8f44367186a4c1b07f3a4edbb3aefee7a1ec82bfbbdb278e899ed1cb30a94c45",
+    "DORM_02_Left_Floor_3": "fff4c9bbcb15baf60b32399057bcd128d64e1f96f9ea0c287ebaa05e33dcd8f9",
+    "DORM_03_Left_Windows_3": "4c635bfdf463b9403df77bdd6ecc1101c6a5a66b142feba6204fa8ba65ba45ab",
+    "DORM_02_Left_Floor_4": "2afb01f39735878db83299c1e190f97d1ebdf1f57772a589fe3beea6c31df739",
+    "DORM_03_Left_Windows_4": "8e3b16b4b4601336fffa1fe565b4217bc28c516a1fb584fdd9b5fb0f47e23578",
+    "DORM_05_Stair_Glazing": "289ff059ec91a391cc1d697ae649b71f387ccfa146268ac7f3adb02fdf470945",
+    "DORM_12_Entry_Steps": "6f42a0d97c7e7c3eab23274ea00f2b9ae7a052887afe2f72846da4a08b039937",
+    "DORM_12_Entry_Landing": "e92f5acd6a3a124d41a1fbde9849201ff6cb13b11b94d726d983e3f1b2c81a1d",
+    "DORM_14_Entry_Doors": "29d96779f15519ec6ad58721f1503b3c890ce79a8edbf060128b1db2d638daef",
+    "DORM_15_Entry_Lights": "4b60979ec37a1a15d1161ff2c28b09cbd42c6541126ded3a866b462981ed0362",
+    "DORM_16_Entry_Railings": "d4e9178e7fc894db9ccab49921d042beed1c404d4c69b5bbb05474b59c501e3e",
+    "DORM_19_Entrance_Sign": "579db48b4332d79dbe8a526bcf4664d0c12a74a846d909fafee1cb26c69d2b23",
+    "DORM_20_Brick_Front": "aa191e7111a9509cf1374d8d854aac33fc6919a26e29a5a995f2282bdf052301",
+    "DORM_21_Stone_Strings": "2a101457aa227930bc1d0a0ec41f5d3735787b4e31d4b5587e3ce5031e3b82e1",
+    "DORM_22_Corner_Quoins": "9d9312af3309938c48c35e2828c48778392df158dce32034335c33f8dad938a0",
+    "DORM_20_Brick_Right": "2dcf7ccd9a228f84b9e72f4f23bd90213329a9042f650c747f41cc2a4e2fc0ab",
+    "DORM_20_Brick_Rear": "31666dda3cb61b2cd7374da35d0f3efbab4e2113541551f0a9bbe4a155586e27",
+    "DORM_20_Brick_Left": "82945ecc9ecb0411c2ac5b28e13a921802fcbe2ff736fa0255db6956329d4f1e",
+    "DORM_23_Entry_Bay_Stone": "563c8034345420f9842d551d695189eb3b8eb17d5a67c52d19580436dfb4c0a5",
+    "DORM_24_Plinth_Joints": "6439df990395ac0d3ab83866a4f7f30f2d7b420445cea439b4d38972ce7df37a",
+    "DORM_25_Pitched_Roof": "58bc068dbf7da3eaa47fd681a592ee9ae202d216c516f1c8518c4c927c1346f5",
+    "DORM_26_Slate_Courses": "fa102b8dfb9a1fa62df7e822eb1c0dc01e7524ac0f945295491254d59bb052ec",
+    "DORM_27_Gable_Brick": "4f0ee1c8528c96c219e8c1544fbfdcca9cf887ae74387565944934daf28e31f0",
+    "DORM_28_Stone_Bargeboards": "e2189e7f0e682f4d92e3f6a09642a008c8cd6e9cd07573abf8fba3647e0784b8",
+    "DORM_29_Ridge_Cap": "63ed667679f2798937aede681f0598a00dc5b7d9a1ec6f70d6391188a11c7b65",
+    "DORM_30_Brick_Chimneys": "58cb841fb65e3822e35d7408e20a86fb153fea7514820fdccf2f71f036833cea",
+    "DORM_31_Porch_Posts": "cbca24e0fa23e8200c9bcb487127824969a929fd12dc2de4443241c361dbaaa3",
+    "DORM_32_Porch_Roof": "4f77d632f63054758c80895dcf278c8302176743bb1fcea435f4d52bdbab6dfc",
+    "DORM_33_Porch_Trim": "0654f4836773a9fc6822e920b7d81a06259dc13115f6c90b0baf88569df6c463",
+    "DORM_34_Porch_Planters": "24cfcec84e2bb6b0bab62271c07580faf5223475fa22c3c75eea933be05d3303",
+    "DORM_35_Gable_Oculi": "6597794da84cdf990599ebd0bbf219bf408f25761565d903deac68fd881f4932",
+    "DORM_14_Entry_Door_Left": "14c11f1380266794daf1d72ac9b9eb0cf2d48bec317dd8bd26127eeaba2341ba",
+    "DORM_14_Entry_Door_Right": "c72ed76f223eeed1ed1036f80ce53c2b7c7deaf153f8013e7022e3301a714240"
+  },
+  "fixed_interior_joined": true,
+  "player_room_entrance": {
+    "wall_center_blender_m": [
+      -6.18,
+      -1.775,
+      3.9749999999999996
+    ],
+    "thickness_m": 0.16,
+    "clear_door_width_m": 1.02,
+    "clear_height_from_landing_m": 2.1,
+    "room_floor_m": 2.85,
+    "landing_floor_m": 2.884,
+    "door_leaf_created": true,
+    "room_interior_created": true,
+    "blender_vertex_group": "DORM_INT_PlayerRoom_Partition",
+    "exported": false,
+    "unreal_imported": false
+  },
+  "player_room_enclosure": {
+    "closing_wall_center_blender_m": [
+      -9.44,
+      -1.0,
+      3.975
+    ],
+    "closing_wall_dimensions_m": [
+      6.48,
+      0.16,
+      2.25
+    ],
+    "approximate_clear_bounds_blender_m": [
+      [
+        -12.68,
+        -8.68,
+        2.85
+      ],
+      [
+        -6.26,
+        -1.08,
+        5.1
+      ]
+    ],
+    "approximate_clear_floor_dimensions_m": [
+      6.42,
+      7.6
+    ],
+    "entrance": "player_room_entrance",
+    "vertex_group": "DORM_INT_PlayerRoom_ClosingWall",
+    "furnished": true,
+    "exported": false,
+    "unreal_imported": false
+  },
+  "player_room_furnishing": {
+    "finished_floor_m": 2.875,
+    "bed_center_m": [
+      -11.32,
+      -5.05,
+      2.875
+    ],
+    "desk_center_m": [
+      -12.1,
+      -3.35,
+      2.875
+    ],
+    "wardrobe_center_m": [
+      -6.665,
+      -6.64,
+      2.875
+    ],
+    "bookcase_center_m": [
+      -6.58,
+      -4.53,
+      2.875
+    ],
+    "fixed_mesh": "DORM_INT_Interior",
+    "door_object": "DORM_INT_Door_Player",
+    "lights": [
+      "DORM_INT_PR_Ceiling_0",
+      "DORM_INT_PR_Ceiling_1",
+      "DORM_INT_PR_Bedside_2",
+      "DORM_INT_PR_Desk_3",
+      "DORM_INT_PR_WindowFill",
+      "DORM_INT_PR_WindowFill.001",
+      "DORM_INT_PR_WindowFill.002",
+      "DORM_INT_PR_WindowFill.003"
+    ],
+    "room_windows_refined": 4,
+    "exported": false,
+    "unreal_imported": false
+  }
+}

@@ -91,11 +91,17 @@
       "model_id": "Dormitory",
       "source_blend": "SourceAssets/Blender/Buildings/Dormitory/Source/Dormitory_Blockout.blend",
       "fbx": [
-        "SourceAssets/Blender/Buildings/Dormitory/Source/SM_Dormitory_Blockout.fbx"
+        "SourceAssets/Blender/Buildings/Dormitory/Source/SM_Dormitory_Blockout.fbx",
+        "SourceAssets/Blender/Buildings/Dormitory/Source/SM_Dormitory_Door_Left.fbx",
+        "SourceAssets/Blender/Buildings/Dormitory/Source/SM_Dormitory_Door_Right.fbx",
+        "SourceAssets/Blender/Buildings/Dormitory/Source/SM_Dormitory_InteriorDoor.fbx"
       ],
       "unreal_asset_root": "/Game/Art/Models/Buildings/Dormitory",
       "unreal_meshes": [
-        "/Game/Art/Models/Buildings/Dormitory/SM_Dormitory_Blockout"
+        "/Game/Art/Models/Buildings/Dormitory/SM_Dormitory_Blockout",
+        "/Game/Art/Models/Buildings/Dormitory/Parts/SM_Dormitory_Door_Left",
+        "/Game/Art/Models/Buildings/Dormitory/Parts/SM_Dormitory_Door_Right",
+        "/Game/Art/Models/Buildings/Dormitory/Parts/SM_Dormitory_InteriorDoor"
       ]
     },
     {

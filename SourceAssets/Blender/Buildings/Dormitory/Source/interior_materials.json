@@ -1,0 +1,122 @@
+{
+  "DORM_INT_Cream_Plaster": {
+    "color": [
+      0.76,
+      0.665,
+      0.52
+    ],
+    "roughness": 0.88,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "DORM_INT_Honey_Oak": {
+    "color": [
+      0.37,
+      0.19,
+      0.075
+    ],
+    "roughness": 0.45,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "DORM_INT_Walnut_Trim": {
+    "color": [
+      0.155,
+      0.067,
+      0.025
+    ],
+    "roughness": 0.43,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "DORM_INT_Slate_Tile": {
+    "color": [
+      0.235,
+      0.295,
+      0.315
+    ],
+    "roughness": 0.5,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "DORM_INT_Stone_Tile": {
+    "color": [
+      0.32,
+      0.345,
+      0.34
+    ],
+    "roughness": 0.55,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "DORM_INT_Grout": {
+    "color": [
+      0.12,
+      0.16,
+      0.17
+    ],
+    "roughness": 0.9,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "DORM_INT_Sage_Fabric": {
+    "color": [
+      0.27,
+      0.36,
+      0.145
+    ],
+    "roughness": 0.94,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "DORM_INT_Blue_Wool": {
+    "color": [
+      0.09,
+      0.17,
+      0.205
+    ],
+    "roughness": 0.96,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "DORM_INT_Brushed_Brass": {
+    "color": [
+      0.62,
+      0.39,
+      0.13
+    ],
+    "roughness": 0.3,
+    "metallic": 0.72,
+    "emission_strength": 0
+  },
+  "DORM_INT_Ivory_Paper": {
+    "color": [
+      0.86,
+      0.77,
+      0.59
+    ],
+    "roughness": 0.85,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "DORM_INT_Warm_Glass": {
+    "color": [
+      1,
+      0.64,
+      0.29
+    ],
+    "roughness": 0.35,
+    "metallic": 0,
+    "emission_strength": 3.0
+  },
+  "DORM_INT_Leaf_Light": {
+    "color": [
+      0.34,
+      0.46,
+      0.12
+    ],
+    "roughness": 0.75,
+    "metallic": 0,
+    "emission_strength": 0
+  }
+}

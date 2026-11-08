@@ -1,0 +1,146 @@
+{
+  "DORM_INT_PR_Warm_Oak": {
+    "color": [
+      0.31,
+      0.185,
+      0.092
+    ],
+    "roughness": 0.48,
+    "metallic": 0,
+    "emission": 0,
+    "grain": true,
+    "fabric": false
+  },
+  "DORM_INT_PR_Floor_Oak_0": {
+    "color": [
+      0.25200000000000006,
+      0.1845,
+      0.12510000000000002
+    ],
+    "roughness": 0.66,
+    "metallic": 0,
+    "emission": 0,
+    "grain": true,
+    "fabric": false
+  },
+  "DORM_INT_PR_Floor_Oak_1": {
+    "color": [
+      0.28,
+      0.205,
+      0.139
+    ],
+    "roughness": 0.66,
+    "metallic": 0,
+    "emission": 0,
+    "grain": true,
+    "fabric": false
+  },
+  "DORM_INT_PR_Floor_Oak_2": {
+    "color": [
+      0.30240000000000006,
+      0.2214,
+      0.15012000000000003
+    ],
+    "roughness": 0.66,
+    "metallic": 0,
+    "emission": 0,
+    "grain": true,
+    "fabric": false
+  },
+  "DORM_INT_PR_Floor_Oak_3": {
+    "color": [
+      0.32480000000000003,
+      0.23779999999999996,
+      0.16124
+    ],
+    "roughness": 0.66,
+    "metallic": 0,
+    "emission": 0,
+    "grain": true,
+    "fabric": false
+  },
+  "DORM_INT_PR_Linen": {
+    "color": [
+      0.73,
+      0.68,
+      0.56
+    ],
+    "roughness": 0.92,
+    "metallic": 0,
+    "emission": 0,
+    "grain": false,
+    "fabric": true
+  },
+  "DORM_INT_PR_Slate_Weave": {
+    "color": [
+      0.16,
+      0.195,
+      0.22
+    ],
+    "roughness": 0.92,
+    "metallic": 0,
+    "emission": 0,
+    "grain": false,
+    "fabric": true
+  },
+  "DORM_INT_PR_Rug_Border": {
+    "color": [
+      0.44,
+      0.397,
+      0.315
+    ],
+    "roughness": 0.9,
+    "metallic": 0,
+    "emission": 0,
+    "grain": false,
+    "fabric": true
+  },
+  "DORM_INT_PR_Warm_Enamel": {
+    "color": [
+      0.7,
+      0.705,
+      0.64
+    ],
+    "roughness": 0.37,
+    "metallic": 0,
+    "emission": 0,
+    "grain": false,
+    "fabric": false
+  },
+  "DORM_INT_PR_Book_Russet": {
+    "color": [
+      0.31,
+      0.105,
+      0.061
+    ],
+    "roughness": 0.7,
+    "metallic": 0,
+    "emission": 0,
+    "grain": false,
+    "fabric": false
+  },
+  "DORM_INT_PR_Worn_Leather": {
+    "color": [
+      0.14,
+      0.105,
+      0.074
+    ],
+    "roughness": 0.7,
+    "metallic": 0,
+    "emission": 0,
+    "grain": false,
+    "fabric": false
+  },
+  "DORM_INT_PR_Warm_Linen_Shade": {
+    "color": [
+      1,
+      0.76,
+      0.44
+    ],
+    "roughness": 0.55,
+    "metallic": 0,
+    "emission": 1.3,
+    "grain": false,
+    "fabric": false
+  }
+}

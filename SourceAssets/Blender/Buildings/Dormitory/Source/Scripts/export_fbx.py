@@ -1,53 +1,134 @@
-import bpy,bmesh,json,math
+"""Export the current Dormitory using temporary evaluated copies.
+
+Fixed architecture goes to the existing main mesh. Named independent parts are
+grouped by asset path; linked door instances share one exported door template.
+Never modifies or saves editable source objects. EXPORT_TARGETS optionally limits
+exports to asset basenames (otherwise all meshes are exported).
+"""
+import bpy, bmesh, json
 from pathlib import Path
-from mathutils import Vector
-out=Path('D:/UEProject/ArcheoDig/SourceAssets/Blender/Buildings/Dormitory/Source')
-coll=bpy.data.collections['BLD_Dormitory']; root=bpy.data.objects['Dormitory_ROOT']
-meshes=[o for o in coll.all_objects if o.type=='MESH']
-assert len(meshes)==59
-assert root.location.length<1e-6 and all(abs(v-1)<1e-6 for v in root.scale)
+from mathutils import Vector, Matrix
+
+out=Path(bpy.data.filepath).parent
+assert out.name=='Source' and out.parent.name=='Dormitory'
 assert bpy.context.mode=='OBJECT'
-for o in bpy.context.selected_objects:o.select_set(False)
-for o in meshes:o.select_set(True)
-bpy.context.view_layer.objects.active=meshes[0]
-bpy.ops.object.transform_apply(location=False,rotation=True,scale=True)
-flipped=0
-for o in meshes:
-    bm=bmesh.new(); bm.from_mesh(o.data)
-    bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces)); bm.normal_update()
-    # Single-sided exterior surfaces need explicit outward direction.
+coll=bpy.data.collections['BLD_Dormitory']
+root=bpy.data.objects['Dormitory_ROOT']
+assert root.location.length<1e-6 and all(abs(v-1)<1e-6 for v in root.scale)
+sources=[o for o in coll.all_objects if o.type in {'MESH','FONT','CURVE'} and not o.get('export_helper',False)]
+body=[o for o in sources if not o.get('export_separately',False)]
+assert all(bpy.data.objects.get(n) in body for n in ['DORM_01_Plinth','DORM_02_Front_Floor_1','DORM_25_Pitched_Roof'])
+parts={}
+for o in sources:
+    if o.get('export_separately',False) and not o.get('export_instance',False):
+        parts.setdefault(o['unreal_asset'],[]).append(o)
+selected=list(bpy.context.selected_objects)
+active=bpy.context.view_layer.objects.active
+targets=globals().get('EXPORT_TARGETS')
+report={'assets':{},'axis_forward':'-Y','axis_up':'Z','fbx_units':'metres, FBX_SCALE_NONE; UE centimetres'}
+original_meshes={o.name:len(o.data.vertices) for o in sources if o.type=='MESH'}
+
+def fix_normals(obj):
+    n=obj.get('export_source_name',obj.name)
+    # Clipped, deliberately open surfaces have authoritative source winding.
+    # Recalculating them as closed volumes can turn exterior faces inward.
+    if n.startswith('DORM_INT_') or obj.get('export_preserve_normals',False):return
+    bm=bmesh.new();bm.from_mesh(obj.data)
+    bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.normal_update()
     for f in bm.faces:
         target=None
-        n=o.name
         if n.startswith('DORM_20_Brick_'):
-            suffix=n.split('DORM_20_Brick_')[1]
-            target=Vector({'Front':(0,-1,0),'Rear':(0,1,0),'Left':(-1,0,0),'Right':(1,0,0)}[suffix])
-        elif n.startswith(('DORM_25_','DORM_26_','DORM_32_')): target=Vector((0,0,1))
-        elif n.startswith('DORM_27_'): target=Vector((1 if f.calc_center_median().x>0 else -1,0,0))
-        elif n=='DORM_33_Porch_Trim' and len(f.verts)==3: target=Vector((0,-1,0))
-        elif n=='DORM_35_Gable_Oculi' and all(e.is_boundary for e in f.edges): target=Vector((1 if f.calc_center_median().x>0 else -1,0,0))
-        if target is not None and f.normal.dot(target)<0: f.normal_flip(); flipped+=1
-    bm.to_mesh(o.data); bm.free(); o.data.update()
-    used=sorted(set(p.material_index for p in o.data.polygons))
-    mats=[o.data.materials[i] for i in used]
-    lookup={old:new for new,old in enumerate(used)}
-    indices=[lookup[p.material_index] for p in o.data.polygons]
-    o.data.materials.clear()
-    for m in mats:o.data.materials.append(m)
-    for p,i in zip(o.data.polygons,indices):p.material_index=i
-bpy.context.view_layer.update()
-pts=[o.matrix_world@Vector(c) for o in meshes for c in o.bound_box]
-lo=[min(p[i] for p in pts) for i in range(3)]; hi=[max(p[i] for p in pts) for i in range(3)]
-assert abs(lo[2])<1e-5
-assert all(all(abs(v-1)<1e-6 for v in o.scale) and o.rotation_euler.to_matrix().is_identity for o in meshes)
-assert all(o.parent==root for o in meshes)
-report={'body_m':[26,18],'min_m':lo,'max_m':hi,'dimensions_m':[hi[i]-lo[i] for i in range(3)],'root_m':list(root.location),'mesh_count':len(meshes),'scale_all_one':True,'rotation_applied':True,'outward_surface_faces_fixed':flipped,'zero_area_faces':sum(p.area<1e-10 for o in meshes for p in o.data.polygons),'triangles':sum(len(p.vertices)-2 for o in meshes for p in o.data.polygons),'export_objects':[o.name for o in meshes],'fbx_units':'metres exported with FBX unit conversion; UE centimetres','axis_forward':'-Y','axis_up':'Z'}
-assert report['zero_area_faces']==0
-root['export_validation']=json.dumps(report)
-# Save the editable source with all architectural assemblies separate.
-bpy.ops.wm.save_as_mainfile(filepath=str(out/'Dormitory_Blockout.blend'))
-# Mesh-only selection excludes root, cameras, lights and archived test cube.
-bpy.ops.export_scene.fbx(filepath=str(out/'SM_Dormitory_Blockout.fbx'),use_selection=True,object_types={'MESH'},global_scale=1.0,apply_unit_scale=True,apply_scale_options='FBX_SCALE_NONE',use_space_transform=True,bake_space_transform=False,axis_forward='-Y',axis_up='Z',use_mesh_modifiers=True,mesh_smooth_type='FACE',use_triangles=True,bake_anim=False,path_mode='AUTO',embed_textures=False)
-(out/'SM_Dormitory_Blockout_validation.txt').write_text(json.dumps(report,indent=2),encoding='utf-8')
-result={k:v for k,v in report.items() if k!='export_objects'}
-result['blend']=str(out/'Dormitory_Blockout.blend'); result['fbx']=str(out/'SM_Dormitory_Blockout.fbx')
+            target=Vector({'Front':(0,-1,0),'Rear':(0,1,0),'Left':(-1,0,0),'Right':(1,0,0)}[n.split('DORM_20_Brick_')[1]])
+        elif n.startswith(('DORM_25_','DORM_26_','DORM_32_')):target=Vector((0,0,1))
+        elif n.startswith('DORM_27_'):target=Vector((1 if f.calc_center_median().x>0 else -1,0,0))
+        elif n=='DORM_33_Porch_Trim' and len(f.verts)==3:target=Vector((0,-1,0))
+        elif n=='DORM_35_Gable_Oculi' and all(e.is_boundary for e in f.edges):target=Vector((1 if f.calc_center_median().x>0 else -1,0,0))
+        if target is not None and f.normal.dot(target)<0:f.normal_flip()
+    bm.to_mesh(obj.data);bm.free();obj.data.update()
+
+def export(objects,name,pivot=None):
+    if targets is not None and name not in targets:return
+    temporary=[];temporary_data=[];inverse=pivot.inverted() if pivot is not None else Matrix.Identity(4)
+    try:
+        bpy.ops.object.select_all(action='DESELECT')
+        for original in objects:
+            obj=original.copy();obj.data=original.data.copy();coll.objects.link(obj)
+            temporary.append(obj);temporary_data.append(obj.data)
+            obj.parent=None;obj.matrix_world=inverse@original.matrix_world
+            obj['export_source_name']=original.name
+            obj.select_set(True)
+        bpy.context.view_layer.objects.active=temporary[0]
+        bpy.ops.object.convert(target='MESH')
+        temporary=list(bpy.context.selected_objects)
+        bpy.ops.object.transform_apply(location=False,rotation=True,scale=True)
+        for obj in temporary:
+            temporary_data.append(obj.data)
+            fix_normals(obj)
+            # Bevels on millimetre-scale keys/paper can create zero-area slivers.
+            # Remove only these non-rendering triangles on export copies.
+            if obj['export_source_name'].startswith('DORM_INT_'):
+                bm=bmesh.new();bm.from_mesh(obj.data)
+                bmesh.ops.triangulate(bm,faces=list(bm.faces))
+                bad=[f for f in bm.faces if f.calc_area()<=1e-12 or any(e.calc_length()<2e-7 for e in f.edges)]
+                if bad:bmesh.ops.delete(bm,geom=bad,context='FACES')
+                bm.to_mesh(obj.data);bm.free();obj.data.update()
+            used=sorted({p.material_index for p in obj.data.polygons})
+            mats=[obj.data.materials[i] for i in used]
+            assert all(mats),'Unassigned used material: '+obj['export_source_name']
+            indices=[used.index(p.material_index) for p in obj.data.polygons]
+            obj.data.materials.clear()
+            for mat in mats:obj.data.materials.append(mat)
+            for p,i in zip(obj.data.polygons,indices):p.material_index=i
+            if not obj.data.uv_layers and obj['export_source_name'].startswith('DORM_INT_'):
+                uv=obj.data.uv_layers.new(name='UVMap')
+                for p in obj.data.polygons:
+                    dominant=max(range(3),key=lambda i:abs(p.normal[i]));axes=[i for i in range(3) if i!=dominant]
+                    for li in p.loop_indices:
+                        co=obj.data.vertices[obj.data.loops[li].vertex_index].co
+                        uv.data[li].uv=(co[axes[0]],co[axes[1]])
+            obj.data.calc_loop_triangles()
+            assert all(t.area>1e-12 for t in obj.data.loop_triangles), 'Degenerate triangles: '+obj['export_source_name']
+        bpy.context.view_layer.update()
+        points=[o.matrix_world@v.co for o in temporary for v in o.data.vertices]
+        row={'source_objects':[o.name for o in objects],
+             'triangles':sum(len(o.data.loop_triangles) for o in temporary),
+             'min_m':[min(p[i] for p in points) for i in range(3)],
+             'max_m':[max(p[i] for p in points) for i in range(3)],
+             'materials':sorted({m.name for o in temporary for m in o.data.materials})}
+        bpy.ops.export_scene.fbx(
+            filepath=str(out/(name+'.fbx')),use_selection=True,object_types={'MESH'},
+            global_scale=1.0,apply_unit_scale=True,apply_scale_options='FBX_SCALE_NONE',
+            use_space_transform=True,bake_space_transform=False,axis_forward='-Y',axis_up='Z',
+            use_mesh_modifiers=True,mesh_smooth_type='FACE',use_triangles=True,
+            bake_anim=False,path_mode='AUTO',embed_textures=False)
+        report['assets'][name]=row
+    finally:
+        for obj in temporary:
+            if obj.name in bpy.data.objects:bpy.data.objects.remove(obj,do_unlink=True)
+        seen=set()
+        for data in temporary_data:
+            try:
+                key=data.as_pointer()
+                if key in seen:continue
+                seen.add(key)
+                if data.users==0:
+                    if isinstance(data,bpy.types.Mesh):bpy.data.meshes.remove(data)
+                    elif isinstance(data,bpy.types.Curve):bpy.data.curves.remove(data)
+            except ReferenceError:pass
+try:
+    export(body,'SM_Dormitory_Blockout')
+    for path,objects in parts.items():
+        primaries=[o for o in objects if not o.get('export_support',False)]
+        assert len(primaries)==1, (path,[o.name for o in primaries])
+        export(objects,path.rsplit('/',1)[1],primaries[0].matrix_world.copy())
+finally:
+    bpy.ops.object.select_all(action='DESELECT')
+    for obj in selected:obj.select_set(True)
+    bpy.context.view_layer.objects.active=active
+assert original_meshes=={o.name:len(o.data.vertices) for o in sources if o.type=='MESH'}
+if 'SM_Dormitory_Blockout' in report['assets']:
+    row=report['assets']['SM_Dormitory_Blockout']
+    report['triangles']=row['triangles'];report['min_m']=row['min_m'];report['max_m']=row['max_m']
+log=Path('D:/UEProject/ArcheoDig/Saved/BlenderToUE');log.mkdir(parents=True,exist_ok=True)
+(log/'dormitory_export.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
+result={name:{'objects':len(row['source_objects']),'triangles':row['triangles'],'materials':len(row['materials'])} for name,row in report['assets'].items()}
