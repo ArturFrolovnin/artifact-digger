@@ -16,6 +16,7 @@
 GameDesign/
 ├── README.md
 ├── References.md
+├── GameNaming.md
 ├── Story/
 │   ├── Scenario.md
 │   ├── ScenarioIdeas.md
@@ -58,6 +59,7 @@ GameDesign/
 - travel / loadout / rescue → `Systems/Expeditions.md`
 - музей → `Systems/Museum.md`
 - сюжет → `Story/`
+- рабочие названия игры/города, причины выбора и отказы → `GameNaming.md`
 - референсы → `References.md`
 
 Не создавать отдельный файл на каждое здание, пока оно не разрослось в самостоятельную систему.
