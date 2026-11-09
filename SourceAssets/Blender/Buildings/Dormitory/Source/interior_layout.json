@@ -110,20 +110,6 @@
       ]
     },
     {
-      "object": "DORM_INT_Door_201",
-      "asset": "/Game/Art/Models/Buildings/Dormitory/Parts/SM_Dormitory_InteriorDoor",
-      "location_blender_m": [
-        -0.5,
-        1.690000057220459,
-        2.8940000534057617
-      ],
-      "rotation_blender_deg": [
-        0.0,
-        0.0,
-        0.0
-      ]
-    },
-    {
       "object": "DORM_INT_Door_Player",
       "asset": "/Game/Art/Models/Buildings/Dormitory/Parts/SM_Dormitory_InteriorDoor",
       "location_blender_m": [
@@ -295,6 +281,21 @@
       "DORM_INT_PR_WindowFill.003"
     ],
     "room_windows_refined": 4,
+    "exported": false,
+    "unreal_imported": false
+  },
+  "second_floor_elevator": {
+    "replaces": "DORM_INT_Door_201",
+    "floor_z_m": 2.884,
+    "portal_width_m": 1.84,
+    "opening_width_m": 1.4,
+    "fixed_mesh": "DORM_INT_Interior",
+    "vertex_group": "DORM_INT_Elevator_Portal",
+    "door_objects": [
+      "DORM_INT_Elevator_Door_Left",
+      "DORM_INT_Elevator_Door_Right"
+    ],
+    "scope": "Closed landing entrance, portal, sliding leaves, call station and direction indicator; no shaft or cabin yet",
     "exported": false,
     "unreal_imported": false
   }

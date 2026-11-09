@@ -1,4 +1,4 @@
-# Dormitory — scripts
+0# Dormitory — scripts
 
 Current delivery includes the first-floor interior (2026-11-08). Use `export_fbx.py`
 with the existing saved `.blend`: it exports temporary copies, fixed architecture
