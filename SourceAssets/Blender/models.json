@@ -212,6 +212,11 @@
     {
       "model_id": "Library",
       "source_blend": "SourceAssets/Blender/Buildings/Library/Source/Library_Blockout.blend",
+      "blender_collection": "BLD_Library",
+      "blender_root": "Library_ROOT",
+      "source_config": "SourceAssets/Blender/Buildings/Library/Source/model_config.json",
+      "export_script": "SourceAssets/Blender/Buildings/Library/Source/Scripts/export_fbx.py",
+      "unreal_parts_root": "/Game/Art/Models/Buildings/Library/Parts",
       "fbx": [
         "SourceAssets/Blender/Buildings/Library/Source/SM_Library_Blockout.fbx"
       ],

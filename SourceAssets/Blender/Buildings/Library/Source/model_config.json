@@ -1,0 +1,60 @@
+{
+  "model_id": "Library",
+  "collection": "BLD_Library",
+  "root": "Library_ROOT",
+  "main_mesh": "SM_Library_Blockout",
+  "source_blend": "SourceAssets/Blender/Buildings/Library/Source/Library_Blockout.blend",
+  "source_fbx": "SourceAssets/Blender/Buildings/Library/Source/SM_Library_Blockout.fbx",
+  "unreal_asset": "/Game/Art/Models/Buildings/Library/SM_Library_Blockout",
+  "unreal_materials": "/Game/Art/Models/Buildings/Library/Materials",
+  "unreal_parts": "/Game/Art/Models/Buildings/Library/Parts",
+  "required_objects": [
+    "Main_Warm_Render",
+    "Foundation",
+    "LIB_INT_Interior"
+  ],
+  "preserve_source_normals": true,
+  "remove_degenerate_export_faces": true,
+  "repair_degenerate_uvs": true,
+  "use_complex_collision": true,
+  "generate_missing_uvs": true,
+  "axis_forward": "-Y",
+  "axis_up": "Z",
+  "global_scale": 1,
+  "unit_scale": 1,
+  "source_bounds_m": [
+    [
+      -10.653033256530762,
+      -12.475000381469727,
+      0.0
+    ],
+    [
+      10.653033256530762,
+      7.6530327796936035,
+      10.862500190734863
+    ]
+  ],
+  "parts": [
+    {
+      "object": "LIB_Door_Entrance_Left",
+      "unreal_asset": "/Game/Art/Models/Buildings/Library/Parts/SM_Library_Door_Left",
+      "pivot_m": [
+        -1.0800000429153442,
+        -7.789999961853027,
+        0.7900000214576721
+      ],
+      "status": "Imported; validated"
+    },
+    {
+      "object": "LIB_Door_Entrance_Right",
+      "unreal_asset": "/Game/Art/Models/Buildings/Library/Parts/SM_Library_Door_Right",
+      "pivot_m": [
+        1.0800000429153442,
+        -7.789999961853027,
+        0.7900000214576721
+      ],
+      "status": "Imported; validated"
+    }
+  ],
+  "reimport_method": "Existing Unreal Static Mesh > Reimport"
+}

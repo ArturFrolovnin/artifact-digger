@@ -1,0 +1,255 @@
+{
+  "LIB_INT_Cream_Plaster": {
+    "color": [
+      0.76,
+      0.67,
+      0.54,
+      1
+    ],
+    "roughness": 0.87,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Honey_Oak": {
+    "color": [
+      0.32,
+      0.16,
+      0.064,
+      1
+    ],
+    "roughness": 0.43,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Oak_Panel": {
+    "color": [
+      0.245,
+      0.115,
+      0.044,
+      1
+    ],
+    "roughness": 0.48,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Warm_Stone_Tile": {
+    "color": [
+      0.43,
+      0.405,
+      0.36,
+      1
+    ],
+    "roughness": 0.48,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Muted_Stone_Tile": {
+    "color": [
+      0.335,
+      0.33,
+      0.3,
+      1
+    ],
+    "roughness": 0.53,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Slate_Inlay": {
+    "color": [
+      0.12,
+      0.15,
+      0.155,
+      1
+    ],
+    "roughness": 0.5,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Tile_Grout": {
+    "color": [
+      0.18,
+      0.18,
+      0.16,
+      1
+    ],
+    "roughness": 0.9,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Blue_Wool": {
+    "color": [
+      0.105,
+      0.135,
+      0.185,
+      1
+    ],
+    "roughness": 0.96,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Woven_Gold": {
+    "color": [
+      0.57,
+      0.39,
+      0.17,
+      1
+    ],
+    "roughness": 0.93,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Banker_Green": {
+    "color": [
+      0.07,
+      0.225,
+      0.055,
+      1
+    ],
+    "roughness": 0.24,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Sage_Upholstery": {
+    "color": [
+      0.22,
+      0.29,
+      0.14,
+      1
+    ],
+    "roughness": 0.9,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Aged_Brass": {
+    "color": [
+      0.58,
+      0.36,
+      0.12,
+      1
+    ],
+    "roughness": 0.3,
+    "metallic": 0.75,
+    "emission_strength": 0
+  },
+  "LIB_INT_Book_Paper": {
+    "color": [
+      0.78,
+      0.71,
+      0.55,
+      1
+    ],
+    "roughness": 0.88,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Warm_Ceramic": {
+    "color": [
+      0.71,
+      0.62,
+      0.47,
+      1
+    ],
+    "roughness": 0.5,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Warm_Lamp_Glass": {
+    "color": [
+      1,
+      0.68,
+      0.32,
+      1
+    ],
+    "roughness": 0.3,
+    "metallic": 0,
+    "emission_strength": 2.3
+  },
+  "LIB_INT_Leaf_Green": {
+    "color": [
+      0.16,
+      0.29,
+      0.055,
+      1
+    ],
+    "roughness": 0.82,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Leaf_Light": {
+    "color": [
+      0.3,
+      0.43,
+      0.085,
+      1
+    ],
+    "roughness": 0.8,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Potting_Soil": {
+    "color": [
+      0.055,
+      0.032,
+      0.016,
+      1
+    ],
+    "roughness": 1,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Book_Russet": {
+    "color": [
+      0.31,
+      0.08,
+      0.038,
+      1
+    ],
+    "roughness": 0.7,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Book_Navy": {
+    "color": [
+      0.065,
+      0.11,
+      0.16,
+      1
+    ],
+    "roughness": 0.7,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Book_Forest": {
+    "color": [
+      0.105,
+      0.19,
+      0.12,
+      1
+    ],
+    "roughness": 0.7,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Book_Tan": {
+    "color": [
+      0.43,
+      0.29,
+      0.13,
+      1
+    ],
+    "roughness": 0.7,
+    "metallic": 0,
+    "emission_strength": 0
+  },
+  "LIB_INT_Book_Burgundy": {
+    "color": [
+      0.21,
+      0.055,
+      0.065,
+      1
+    ],
+    "roughness": 0.7,
+    "metallic": 0,
+    "emission_strength": 0
+  }
+}

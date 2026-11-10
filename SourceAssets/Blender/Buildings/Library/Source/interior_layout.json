@@ -1,0 +1,281 @@
+{
+  "windows": [
+    {
+      "name": "Front_Lower_Glass",
+      "axis": 1,
+      "sign": -1,
+      "u0": -8.607500076293945,
+      "u1": -7.392499923706055,
+      "z0": 1.100000023841858,
+      "z1": 3.4030001163482666,
+      "inner": -6.65,
+      "outer": -7.25
+    },
+    {
+      "name": "Front_Lower_Glass.001",
+      "axis": 1,
+      "sign": -1,
+      "u0": -4.607500076293945,
+      "u1": -3.3924999237060547,
+      "z0": 1.100000023841858,
+      "z1": 3.4030001163482666,
+      "inner": -6.65,
+      "outer": -7.25
+    },
+    {
+      "name": "Front_Lower_Glass.002",
+      "axis": 1,
+      "sign": -1,
+      "u0": 3.3924999237060547,
+      "u1": 4.607500076293945,
+      "z0": 1.100000023841858,
+      "z1": 3.4030001163482666,
+      "inner": -6.65,
+      "outer": -7.25
+    },
+    {
+      "name": "Front_Lower_Glass.003",
+      "axis": 1,
+      "sign": -1,
+      "u0": 7.392499923706055,
+      "u1": 8.607500076293945,
+      "z0": 1.100000023841858,
+      "z1": 3.4030001163482666,
+      "inner": -6.65,
+      "outer": -7.25
+    },
+    {
+      "name": "Side_Lower_Glass",
+      "axis": 0,
+      "sign": 1,
+      "u0": -5.230000019073486,
+      "u1": -3.9700000286102295,
+      "z0": 1.1100000143051147,
+      "z1": 3.319000005722046,
+      "inner": 9.65,
+      "outer": 10.199999809265137
+    },
+    {
+      "name": "Side_Lower_Glass.002",
+      "axis": 0,
+      "sign": 1,
+      "u0": 3.9700000286102295,
+      "u1": 5.230000019073486,
+      "z0": 1.1100000143051147,
+      "z1": 3.319000005722046,
+      "inner": 9.65,
+      "outer": 10.199999809265137
+    },
+    {
+      "name": "Side_Lower_Glass.003",
+      "axis": 0,
+      "sign": -1,
+      "u0": -5.230000019073486,
+      "u1": -3.9700000286102295,
+      "z0": 1.1100000143051147,
+      "z1": 3.319000005722046,
+      "inner": -9.65,
+      "outer": -10.199999809265137
+    },
+    {
+      "name": "Side_Lower_Glass.005",
+      "axis": 0,
+      "sign": -1,
+      "u0": 3.9700000286102295,
+      "u1": 5.230000019073486,
+      "z0": 1.1100000143051147,
+      "z1": 3.319000005722046,
+      "inner": -9.65,
+      "outer": -10.199999809265137
+    },
+    {
+      "name": "Rear_Lower_Glass",
+      "axis": 1,
+      "sign": 1,
+      "u0": -8.607500076293945,
+      "u1": -7.392499923706055,
+      "z0": 1.1100000143051147,
+      "z1": 3.319000005722046,
+      "inner": 6.65,
+      "outer": 7.210000038146973
+    },
+    {
+      "name": "Rear_Lower_Glass.001",
+      "axis": 1,
+      "sign": 1,
+      "u0": -4.607500076293945,
+      "u1": -3.3924999237060547,
+      "z0": 1.1100000143051147,
+      "z1": 3.319000005722046,
+      "inner": 6.65,
+      "outer": 7.210000038146973
+    },
+    {
+      "name": "Rear_Lower_Glass.002",
+      "axis": 1,
+      "sign": 1,
+      "u0": -0.6075000166893005,
+      "u1": 0.6075000166893005,
+      "z0": 1.1100000143051147,
+      "z1": 3.319000005722046,
+      "inner": 6.65,
+      "outer": 7.210000038146973
+    },
+    {
+      "name": "Rear_Lower_Glass.003",
+      "axis": 1,
+      "sign": 1,
+      "u0": 3.3924999237060547,
+      "u1": 4.607500076293945,
+      "z0": 1.1100000143051147,
+      "z1": 3.319000005722046,
+      "inner": 6.65,
+      "outer": 7.210000038146973
+    }
+  ],
+  "doors": [
+    {
+      "object": "LIB_Door_Entrance_Left",
+      "unreal_asset": "/Game/Art/Models/Buildings/Library/Parts/SM_Library_Door_Left",
+      "pivot_m": [
+        -1.0800000429153442,
+        -7.789999961853027,
+        0.7900000214576721
+      ],
+      "status": "Blender only; not imported"
+    },
+    {
+      "object": "LIB_Door_Entrance_Right",
+      "unreal_asset": "/Game/Art/Models/Buildings/Library/Parts/SM_Library_Door_Right",
+      "pivot_m": [
+        1.0800000429153442,
+        -7.789999961853027,
+        0.7900000214576721
+      ],
+      "status": "Blender only; not imported"
+    }
+  ],
+  "removed_fake_backings": [
+    "Front_Lower_Warm_Pane",
+    "Front_Lower_Warm_Pane.001",
+    "Front_Lower_Warm_Pane.002",
+    "Front_Lower_Warm_Pane.003",
+    "Side_Lower_Warm_Pane",
+    "Side_Lower_Warm_Pane.001",
+    "Side_Lower_Warm_Pane.002",
+    "Side_Lower_Warm_Pane.003",
+    "Side_Lower_Warm_Pane.004",
+    "Side_Lower_Warm_Pane.005",
+    "Rear_Lower_Warm_Pane",
+    "Rear_Lower_Warm_Pane.001",
+    "Rear_Lower_Warm_Pane.002",
+    "Rear_Lower_Warm_Pane.003",
+    "Entry_Arched_Opening_Dark_Reveal",
+    "Entry_Arched_Opening_Mullion.001",
+    "Entry_Arched_Opening_Transom",
+    "Entry_Arched_Opening_Transom.001",
+    "Entry_Arched_Opening_Transom.002",
+    "Entry_Arched_Opening_Warm_Pane",
+    "Entry_Arched_Opening_Warm_Pane.001"
+  ],
+  "fixed_interior": "LIB_INT_Interior",
+  "floor_z_m": 0.79,
+  "upper_floor_z_m": 4.39,
+  "ceiling_z_m": 4.19,
+  "stair": {
+    "center_x": -4.5,
+    "start_y": -5.3,
+    "run": 0.28,
+    "rise": 0.18,
+    "risers": 20,
+    "width": 1.8,
+    "hole": [
+      -5.8,
+      -3.2,
+      -5.55,
+      0.3
+    ]
+  },
+  "reading_tables": 4,
+  "reading_seats": 24,
+  "first_floor_only": false,
+  "unreal_imported": true,
+  "exported": true,
+  "validation": {
+    "passage_checks": 113,
+    "failures": 0,
+    "zero_area_triangles": 0,
+    "preserved_original_objects": 596
+  },
+  "second_floor": {
+    "floor_z_m": 4.402,
+    "ceiling_z_m": 7.66,
+    "reading_tables": 6,
+    "reading_seats": 36,
+    "book_trolleys": 2,
+    "window_openings": 15,
+    "table_centers": [
+      [
+        -2.0,
+        2.25
+      ],
+      [
+        -2.0,
+        4.85
+      ],
+      [
+        3.0,
+        2.25
+      ],
+      [
+        3.0,
+        4.85
+      ],
+      [
+        1.0,
+        -3.5
+      ],
+      [
+        5.2,
+        -3.5
+      ]
+    ],
+    "unreal_imported": true,
+    "validation": {
+      "passage_checks_total": 133,
+      "passage_failures": 0,
+      "upper_window_checks": 15,
+      "window_obstructions": 0,
+      "zero_area_triangles": 0
+    }
+  },
+  "service_wing_removed": true,
+  "all_windows_clear": true,
+  "windows_validation": {
+    "rays": 62,
+    "obstructions": 0
+  },
+  "ue_validation": {
+    "passage_checks": 133,
+    "window_checks": 62,
+    "failures": 0
+  },
+  "overlap_cleanup": {
+    "overlap_pairs_fixed": 4449,
+    "modified_original_faces": 2437,
+    "final_evaluated_same_facing_pairs": 0,
+    "coverage_tests": 8502,
+    "passage_checks": 133,
+    "window_checks": 62,
+    "ue_reimported": true
+  },
+  "closed_side_windows": {
+    "names": [
+      "Side_Lower_Glass.001",
+      "Side_Lower_Glass.004"
+    ],
+    "reason": "First-floor arch partition crossed the side windows",
+    "wall_ray_checks": 36,
+    "coplanar_overlap_pairs": 0
+  }
+}
