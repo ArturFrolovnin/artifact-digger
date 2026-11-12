@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "profiles": {
+    "Quinn": {
+      "reference_mesh_name": "SKM_Quinn_Simple",
+      "reference_fbx": "SourceAssets/Blender/Characters/Common/SKM_Quinn_Simple.FBX",
+      "root_bone": "root",
+      "position_tolerance_cm": 0.002,
+      "rotation_tolerance_deg": 0.02
+    }
+  },
+  "characters": {
+    "EllieRowan": {
+      "profile": "Quinn",
+      "source_blend": "SourceAssets/Blender/Characters/EllieRowan/EllieRowan.blend",
+      "armature": "root",
+      "collections": ["Ellie_Body", "Ellie_Head", "Ellie_Hair", "Ellie_Clothing", "Ellie_Accessories"],
+      "exclude_collections": ["Quinn_WeightReference"],
+      "unreal_asset": "/Game/Art/Models/Characters/EllieRowan/Meshes/SK_EllieRowan",
+      "unreal_materials": "/Game/Art/Models/Characters/EllieRowan/Materials",
+      "height_range_cm": [150, 200],
+      "bounds_tolerance_cm": 0.2,
+      "max_influences": 8
+    }
+  }
+}
