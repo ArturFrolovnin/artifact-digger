@@ -1,183 +1,74 @@
-# Правила при импорте из Blender в Unreal Engine 5
+# Blender → Unreal Engine 5.8: agent asset workflow
 
-**Статус:** обязательные правила для агентов проекта `artifact-digger`  
-**Назначение:** быстрый, безопасный и повторяемый перенос 3D-моделей из Blender 5.2.2 LTS в Unreal Engine 5.8 с минимальным расходом контекста Codex.  
-**Область действия:** любые модели и любые уровни UE5, не только `Level_6`.
+**Scope:** Blender 5.2.2 LTS → UE 5.8 for reusable assets across all levels. Read this file only for Blender/UE asset tasks. **Default: import assets, never place actors or save maps.**
 
-> **Главное правило:** не разрабатывать процесс импорта заново для каждой модели. Повторяющиеся операции выполняются существующим конвейером или переиспользуемыми скриптами. Агенты работают с результатом и ошибками, а не воспроизводят вручную одинаковые шаги.
+## 1. Pick the correct operation
 
-> **Решение 2026-11-07 — импорт без размещения:** после работы над зданием в Blender агент только обновляет уже существующий UE-ассет **по его текущему пути**, а новые самостоятельные части здания добавляет в папку `Parts/` **рядом с `Materials/`**. Агент **не создаёт экземпляры на уровнях и не изменяет их расположение**. Размещением и сборкой на уровне занимается пользователь самостоятельно.
+- **Model:** edit the existing `.blend` only. Do not export/import without a request.
+- **Import / Reimport:** update an existing UE asset **at its exact path**, or create a requested new asset. No level placement.
+- **Place / level work:** separate, explicit user task. Historical `Place` scripts do not authorize placement.
+- **Character / NPC:** use the dedicated Skeletal Mesh pipeline in `Tools/BlenderToUE/characters/README.md`, configured in `characters.json`. Do **not** use building Static Mesh scripts for NPCs.
 
-## 1. Разделение задач
+**Current tool status:** `Tools/BlenderToUE/characters/` exists. A generic **building** launcher such as `Tools/BlenderToUE/run_pipeline.ps1` is **not installed**. Do not invent or run that command. Buildings currently use their existing verified, model-specific export/import scripts. Building a shared launcher is a separate task.
 
-Различать три независимые операции:
+## 2. Locate the asset; preserve its identity
 
-- **Model:** создать или изменить редактируемую модель в Blender. **Не импортировать в UE5**, если перенос не запрошен.
-- **Import / Reimport:** для существующей модели **обновить её текущий Static Mesh Asset по тому же пути**, сохранив имя, материалы и ссылки. Для новых отдельных элементов создать самостоятельные Static Mesh Assets только в `Parts/` соответствующего здания. **Не размещать их на уровнях**.
-- **Place:** отдельная операция, которая **не входит в задания агентам по моделированию/импорту**. Пользователь самостоятельно размещает меши, собирает Blueprint и настраивает экземпляры на уровнях. Наличие команды `Place` в старых скриптах не разрешает агенту её запускать.
+1. Check `SourceAssets/Blender/models.json`, the current `.blend`, FBX and real UE Asset Registry / Content Browser entry. Verify actual state: a registry path alone does not prove an asset exists.
+2. Check Git and unsaved Blender/UE work. Do not overwrite unrelated or unsaved changes.
+3. Reuse one shared UE asset across levels; never copy it into each level folder.
+4. Preserve existing UE locations, including `/Game/Art/Models/Residential/`. For **new buildings** use `/Game/Art/Models/Buildings/<ModelId>/`; the main Static Mesh lives at its root, existing materials remain in `Materials/`.
+5. New **independent** building components (movable doors, separate stairs, independent interior pieces) belong in the model's `Parts/` beside `Materials/`. Create `Parts/` if needed. Do not duplicate those parts inside the main mesh. Existing models use their **actual** folder, not a forced migration.
+6. Editable sources, exported FBXs and scripts belong under `SourceAssets/Blender/<Category>/<ModelId>/` (follow existing layout). Source `.blend` is authoritative; do not regenerate it with historical `build_*.py`. Source moves require import-data updates, not new duplicate assets.
+7. Never rename/move `.uasset` or `.umap` in the file system. Any requested migration must use UE Asset Tools in a separate task.
 
-Если модель нужна на нескольких уровнях, использовать **один и тот же Unreal-ассет** на разных уровнях. Не плодить копии меша и материалов по папкам уровней.
+## 3. Efficient building export
 
-## 2. Обязательный короткий маршрут агента
+- Select only the model root/tree (`BLD_*`, `*_ROOT` or configured root); exclude cameras, lights, background, helpers and animation.
+- Keep source units in **meters**. Existing working FBX settings: `-Y Forward`, `Z Up`, `global_scale=1`, `apply_unit_scale=True`, `FBX_SCALE_NONE`. Expect **1 Blender meter = 100 UE centimeters**; do not add another ×100 conversion.
+- Validate root transforms, expected dimensions/origin (usually bottom at local `Z=0` unless specified), mesh normals, nondegenerate geometry and required UVs. Keep material slot names stable.
+- Evaluate modifiers and convert fonts/curves **only on temporary export copies**. Never destructively apply them to the editable source merely to export.
+- If Blender is open with unsaved edits, use the active scene through the existing Blender MCP. Do not call `open_mainfile` in that session or silently save over the source. A background export may use the saved `.blend` only after verifying it is current.
+- Use the smallest verified existing script. Skip unchanged export/reimport stages when source, FBX and target are already verified current.
 
-1. Определить модель, существующий `.blend`, текущий UE Asset Path из реестра или Content Browser и новые отдельные части, если есть. Уровень/актор для обычного импорта **не требуется**.
-2. Проверить состояние Git и несохранённые изменения в открытых Blender/UE. Не перезаписывать чужую работу.
-3. Найти реестр моделей и **готовый общий конвейер** `Tools/BlenderToUE/` (если он внедрён). Не начинать с написания нового скрипта.
-4. Для импорта: выполнить **Validate → Export → Import/Reimport → Validate**; если FBX и ассет актуальны, пропустить лишние шаги.
-5. После импорта проверить ассеты **в Content Browser**, но **не выполнять Place**, не создавать/переносить акторы и не менять `.umap`. Размещение выполняет пользователь.
-6. Сверить результат и дать **короткий отчёт**: модель, ассет, режим, изменённые файлы, итог проверок, ошибки.
+## 4. UE import / reimport
 
-**Обязательное условие существования инструмента:** на момент написания этой инструкции в `main` нет готовой общей папки `Tools/BlenderToUE/`. Команды в разделе 3 — **целевой интерфейс**, а не доказательство, что скрипт установлен. Сначала проверять наличие файла. Если он отсутствует, повторно использовать имеющиеся проверенные скрипты конкретных зданий и сообщить об отсутствии общего конвейера. Не имитировать успешный запуск и не генерировать очередную самостоятельную копию импортёра. Разработка общего инструмента — **отдельная однократная задача**.
+- Prefer the **already open** Unreal Editor and its established Python/MCP execution route; do not start a second editor on the same project. If the editor is closed, a verified `-ExecutePythonScript` workflow may be used; check scripting plugins once.
+- For reimport, update the existing main Static Mesh at its **exact** current asset path. Do not create `_1`, `_2`, `Copy` or `New` variants.
+- Create genuinely new standalone Static Mesh parts only in `Parts/`. Keep the main asset at the building root and reuse `Materials/`.
+- Preserve UE material assignments, slot order/names, custom materials (glass/two-sided), collisions, import settings and other user-defined Static Mesh settings. If reimport would change them unexpectedly, stop and report the risk.
+- Save **only** the relevant asset packages. Do not create, replace or reposition actors; do not modify or save maps (`.umap`), and do not assemble a Blueprint unless separately requested.
+- Reimporting shared geometry may change the appearance of already placed instances; it never authorizes changing those instances.
 
-## 3. Единая команда (когда общий конвейер внедрён)
+## 5. Character-specific rules
 
-Запуск из корня проекта в Windows PowerShell:
+Read `Tools/BlenderToUE/characters/README.md` and only the selected NPC configuration in `Tools/BlenderToUE/characters/characters.json`. The current pipeline exports a **Skeletal Mesh** on the existing **Quinn Skeleton**, not a building Static Mesh. Its temporary export copies switch meter-based source geometry to centimeters while keeping root-bone scale 1. Preserve the Skeleton/Reference Pose, material slots and other NPC assets. The character pipeline does not place actors, bake artistic procedural textures or fix the character's appearance.
 
-```powershell
-# Проверка без записи файлов и ассетов
-.\Tools\BlenderToUE\run_pipeline.ps1 -Model TownHall -Mode Validate -DryRun
+## 6. Verify and report
 
-# Обновить существующий ассет, не трогая уровень
-.\Tools\BlenderToUE\run_pipeline.ps1 -Model TownHall -Mode Reimport
+Use **Validate → Export → Import/Reimport → Validate** when the operation requires it; skip verified unchanged stages. Confirm:
 
-# Новые самостоятельные части здания импортируются в
-# /Game/Art/Models/Buildings/TownHall/Parts/
-# Конкретную команду брать только из реально существующего конвейера.
-```
+- Target asset exists at its original path; new independent parts are in `Parts/`; no duplicates or unexpected asset edits.
+- UE bounds match Blender dimensions; expected material slots/assignments and settings remain intact.
+- No map saves, actor placement or transform changes occurred.
+- No fatal log errors; inspect only affected assets, not the whole city.
 
-**Ожидаемые режимы существующего конвейера:** `Validate`, `Export`, `Import`, `Reimport`; исторический `Place` может существовать, но **в этой задаче не используется**. Агент работает только с ассетами, не с расстановкой. Параметры и названия должны совпадать с фактически реализованным CLI.
-
-## 4. Источники и пути
-
-Для **персонажей** установлен общий конвейер `Tools/BlenderToUE/characters/`.
-Конфигурация по NPC и запуск описаны в `Tools/BlenderToUE/characters/README.md`.
-Он использует Skeletal Mesh и существующий Skeleton Quinn, не заменяет скрипты зданий
-и не размещает персонажей. Исходная сцена остаётся в метрах; только временные копии
-персонажа переводятся в сантиметры для экспорта с масштабом корневой кости 1.
-
-- Редактируемый **`.blend` — основной источник геометрии**. Не перестраивать модель из исторических `build_*.py` и не заменять исходник временной экспортной копией.
-- Одна модель имеет **одну каноническую запись** в реестре: `model_id`, исходный `.blend`, FBX, Unreal Asset Path, материалы, Blender root.
-- **Для новых зданий** стандартный каталог UE-ассетов: `/Game/Art/Models/Buildings/<ModelId>/`. Основной Static Mesh здания хранится **в корне его каталога**; существующие `Materials/` и материалы сохраняются. Level_6 содержит экземпляры общих моделей и не является их основным каталогом.
-- **Новые отдельные элементы здания** (например, открывающиеся створки дверей, лестницы, независимые части интерьера) складывать в `<каталог здания>/Parts/` — **на одном уровне с `Materials/`**. Если `Parts/` отсутствует, создать. Не складывать детали в корень здания или `Materials/`, не создавать папки `Parts` на уровне карты. У существующих моделей, уже размещённых в `Residential/` или другом общем каталоге, использовать **их фактическую модельную папку**, а не переносить её ради единого названия.
-- **Для существующих моделей** сохранять имена и фактические актуальные пути. Миграция разрешена только отдельным заданием и выполняется Unreal Asset Tools; существующие общие каталоги, включая `/Game/Art/Models/Residential/`, автоматически не перестраивать.
-- **Состояние каталогов 2026-11-07:** общие UE-ассеты находятся в `/Game/Art/Models/Buildings/` и существующем `/Game/Art/Models/Residential/` (включая MiaHouse и TownHall). Старая папка Level_6/Blender удалена. Текущие пути моделей перечислены в `SourceAssets/Blender/models.json`; наличие конкретного меша проверять в редакторе.
-- **Исходники:** `.blend`, `.fbx`, манифесты и существующие скрипты хранятся в `SourceAssets/Blender/<Category>/<ModelId>/`, вне `Content/`, чтобы Unreal не создавал лишние per-object ассеты. При переносе исходников обязательно обновлять import data существующих мешей без повторного импорта геометрии.
-- **При импорте не задавать уровень, координаты и акторов.** Файлы карт не редактировать: пользователь самостоятельно размещает и настраивает ассеты позже.
-- Файлы диагностики и временные файлы помещать в `Saved/BlenderToUE/` или другую согласованную служебную папку; не захламлять `Content/` отчётами в `.json`. При необходимости совместимости с текущими зданиями использовать исторические `.txt`-отчёты.
-- **Никогда** не перемещать или переименовывать `.uasset/.umap` через файловую систему. Для этого использовать Unreal Editor API, сохраняющий внутренние ссылки.
-
-## 5. Правила экспорта Blender
-
-Перед экспортом автоматически проверить:
-
-- экспортируется только нужное дерево модели (`BLD_*` / `*_ROOT` или заданный в реестре корень); камеры, свет, фон и helper-объекты исключены;
-- единицы: **метры**; для текущего проверенного FBX-процесса: `-Y Forward`, `Z Up`, `global_scale=1`, `apply_unit_scale=True`, `FBX_SCALE_NONE`;
-- `ROOT` и экспортная геометрия имеют ожидаемые преобразования; низ модели относительно локального origin обычно `Z=0` — исключения задаются явно;
-- отсутствуют вырожденные полигоны и недопустимые нормали; UV существует, если необходимо для импорта;
-- имена material slots стабильны; манифест содержит цвета и PBR-параметры, которые реально нужны UE;
-- Modifiers, трансформации и `FONT/CURVE` преобразуются **только на временных экспортных копиях**; исходная сцена остаётся редактируемой;
-- FBX содержит только требуемую геометрию, без анимаций.
-
-Проверять фактические размеры результата в UE: **1 метр Blender = 100 сантиметров UE**. Не добавлять ручной множитель ×100, если уже работает проверенное преобразование.
-
-Если Blender открыт с несохранёнными правками, брать актуальную сцену через существующий Blender MCP. Не запускать в ней `open_mainfile` и не сохранять поверх исходника без необходимости. При фоновом экспорте сначала гарантировать, что `.blend` на диске актуален.
-
-## 6. Правила импорта Unreal Engine 5.8
-
-- Если UE уже открыт, выполнять Python-импорт **в текущем редакторе** через имеющийся Unreal MCP / проверенный способ запуска Python. Не открывать второй UE с тем же проектом.
-- Если UE закрыт, допустим запуск редактора с `-ExecutePythonScript=...`; наличие плагинов Python Editor Script Plugin и Editor Scripting Utilities проверить один раз.
-- Импортировать модель **один раз** в целевой Asset Path из реестра. Использовать настроенный для проекта FBX-import/reimport; не заменять механизм импорта без необходимости.
-- Для `Reimport` **обновлять существующий главный ассет в точности по его текущему пути** (например, `/Game/Art/Models/Buildings/Dormitory/SM_Dormitory_Blockout`). Не перемещать его, не переименовывать, не создавать `_1`, `_2`, `New`, `Copy` и т. п.
-- Если добавлена геометрия, которая должна жить самостоятельно (например, дверь с вращением), экспортировать/импортировать её как **новый отдельный Static Mesh в `Parts/`**. Не включать подвижную часть одновременно в основной меш, чтобы не получить дублированную геометрию. Новые части не должны автоматически появляться на уровне.
-- При необходимости создать `Parts/` средствами UE Asset Tools / Editor Asset Library. Сохранить главный ассет в корне папки здания, существующие материалы — в `Materials/`.
-- Сохранять материализацию по стабильным именам слотов. Переиспользовать уже созданные UE-материалы и Material Instances; не пересоздавать их при каждом импорте. Специальные материалы (стекло, прозрачность, two-sided и т. д.) сохранять.
-- Если состав слотов, коллизия, пользовательские настройки Static Mesh или import settings заметно изменились — остановиться/предупредить, прежде чем потерять пользовательские настройки при переимпорте.
-- Не создавать дублирующие акторы, не изменять другую модель, другой уровень или другой ассет побочным действием.
-- Сохранять **только** затронутые ассеты. При обычном `Import/Reimport` **не сохранять и не модифицировать уровни**; никакого размещения, замены акторов или Blueprint-сборки за пользователя. Миграция путей — отдельная специально согласованная операция.
-
-## 7. Размещение и взаимодействие с уровнями
-
-**Размещением и сборкой ассетов на уровне занимается только пользователь.** После моделирования или реимпорта агент должен оставить обновлённые объекты в Content Browser и закончить задачу.
-
-1. Не добавлять Static Mesh Actors на `Level_6`, `Level_7` или другие карты.
-2. Не заменять меши у уже размещённых акторов, не менять Location/Rotation/Scale, не создавать новые экземпляры и не сохранять `.umap`.
-3. Не создавать Blueprint здания или компонентные сборки как побочный эффект обычного импорта: это отдельная задача, которую пользователь может запросить позже.
-4. Не запускать исторические скрипты/режим `Place` и команды расстановки без **нового отдельного прямого запроса пользователя**; по текущему рабочему правилу размещение остаётся ручным.
-5. При реимпорте существующего меша возможны визуальные изменения **у уже размещённых экземпляров** этого ассета. Это нормальное следствие обновления общей геометрии, не разрешение агенту изменять сами акторы.
-6. Если изменение геометрии (например, вырезание проёма из старого единого меша) меняет коллизию или material slots, проверить это на уровне **самого ассета**, предупредить о риске и не пытаться автоматически «чинить» сцену.
-
-**Пример ожидаемого результата для общежития:**
+On failure, **stop**, retain diagnostics in `Saved/BlenderToUE/`, and name the exact problem. Do not retry indefinitely with renamed assets or claim a rollback you did not verify.
 
 ```text
-/Game/Art/Models/Buildings/Dormitory/
-├── SM_Dormitory_Blockout        # обновлён по исходному пути
-├── Materials/                   # существующие материалы
-└── Parts/                       # создать, если не было
-    ├── SM_Dormitory_Door_Left
-    └── SM_Dormitory_Door_Right
-```
-
-Двери здесь — только импортированные `Static Mesh` ассеты. Их размещение, настройка `Movable` и логики открытия в `BP_Door` выполняются пользователем отдельно.
-
-## 8. Экономия токенов и времени
-
-**Делать:**
-
-- запускать готовую команду, а не заново писать экспортёр/импортёр;
-- использовать контрольные суммы исходных данных/FBX и пропускать неизменённые стадии;
-- читать только нужную конфигурацию модели и короткий результат выполнения;
-- сохранять полный лог в файл; открывать его только при ошибке;
-- проверять только изменённый ассет и затронутые акторы, а не сканировать весь город;
-- использовать существующие Material Instances и импортные настройки.
-
-**Не делать:**
-
-- перечитывать лор, сценарий и дизайн-документы для обычного импорта готовой модели;
-- запускать `build_*.py`, если задача — только экспорт/импорт существующей модели;
-- создавать отдельные `export_fbx.py`, `import_ue.py` и `place_ue.py` для каждого нового здания после внедрения общего конвейера;
-- делать скриншоты, рендеры, 3D-превью и отчёты в нескольких форматах без запроса или ошибки;
-- каждый раз пересоздавать материалы, акторы, level layout и импортные настройки;
-- создавать резервные копии и коммиты на каждый шаг без задачи/необходимости.
-
-## 9. Проверка успеха и ошибки
-
-Минимальная автоматическая проверка импорта:
-
-- основной Static Mesh обновлён **по прежнему пути**, без дубликатов и перемещений; новые самостоятельные части (если появились) находятся только в `Parts/` рядом с `Materials/`;
-- размеры модели в сантиметрах соответствуют Blender с заданным допуском;
-- число и имена material slots ожидаемы; материалы назначены;
-- импорт не затронул посторонние ассеты;
-- для `Reimport` не изменились расположения существующих акторов;
-- **на уровнях ничего не размещено и не изменено** (нет новых акторов, изменений трансформаций или сохранений карт агентом);
-- отсутствуют фатальные ошибки в логе.
-
-Если проверка не пройдена: **остановить цепочку**, сохранить диагностику и сообщить точную причину. Не начинать циклически импортировать заново с новыми именами, чтобы обойти ошибку. Если импорт мог частично изменить ассет, явно указать это; не утверждать, что выполнен полный rollback, без его проверки.
-
-Краткий вывод агенту:
-
-```text
-MODEL: TownHall
-MODE: Reimport
+MODEL: <ModelId>
+MODE: Model | Import | Reimport
 STATUS: SUCCESS | SKIPPED | FAILED
-ASSET: /Game/.../SM_TownHall_Blockout
-GEOMETRY: updated | unchanged
-MATERIALS: OK | error
-LEVEL/PLACEMENT: untouched (user places assets manually)
-ERRORS: 0 | <brief reason>
-LOG: <path>
+ASSET: /Game/... (or none)
+CHECKS: geometry/materials/levels
+ERROR: none | concise reason
+LOG: Saved/... (if any)
 ```
 
-## 10. Известные источники реализации в репозитории
+## 7. Keep context and tool calls small
 
-Обязательные отправные точки **только при создании/исправлении конвейера**, а не для каждого обычного запуска:
+- Read `AGENTS.md`, this document and **only the relevant model's** manifest/script. Do not load unrelated city lore or digging systems for an import.
+- Use existing MCP connections from `.codex/config.toml`; do not recreate connections or invent pipeline commands.
+- Read short command summaries; inspect detailed logs only when needed. No unsolicited screenshots, renders, preview folders, duplicate import scripts, backups or intermediate commits.
+- For exceptional pipeline repair, consult `SourceAssets/Blender/README.md`, `Docs/GameDesign/Buildings/BlenderWorkflow.md` and the **specific** known scripts under `SourceAssets/Blender/`. Do not inspect all historical generators during routine imports.
 
-- `Docs/GameDesign/Buildings/BlenderWorkflow.md` — актуальные принципы Blender → UE5.
-- `SourceAssets/Blender/README.md` — актуальная структура исходников и правила работы.
-- `SourceAssets/Blender/Residential/TownHall/Source/Scripts/{export_fbx,import_ue,place_ue}.py` — проверенные части экспорта, импорта и размещения.
-- `SourceAssets/Blender/Buildings/RudyPawnshop/Source/{export_fbx,finish_ue_import}.py` — пример `Reimport` с восстановлением материалов; не затрагивает Dormitory и не сохраняет уровень.
-- `SourceAssets/Blender/Buildings/Museum/Scripts/` — проверка меша и размещения.
-- `.codex/config.toml` — существующие Blender MCP и Unreal MCP. Не создавать повторные MCP-подключения.
-
-**Приоритет при противоречиях:** явное текущее задание пользователя → фактический актуальный Unreal Asset/Scene + текущая конфигурация инструмента → утверждённые записи реестра → эта инструкция → историческая документация. Если операция опасна или не определена, не угадывать её параметры.
-
-**Критерий готовности общего конвейера:** новая модель переносится одной командой без написания индивидуального Python-кода, повторный перенос идемпотентен, а размещение на нескольких уровнях не порождает повторные меши и материалы.
+**If instructions conflict:** explicit current user task → actual editor/tool state → verified model registry → this document → historical guidance. Never guess an unsafe path or destructive operation.

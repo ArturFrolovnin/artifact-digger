@@ -1,17 +1,20 @@
-# Инструкции для агентов — artifact-digger
+# Agent instructions — artifact-digger
 
-При создании, экспорте, импорте, повторном импорте или размещении моделей Blender в Unreal Engine 5 обязательно прочитать и соблюдать:
+Applies to this entire Unreal Engine 5.8 repository. **Work only within the user's requested scope**; do not rebuild existing systems or change unrelated game content.
 
-`Docs/Technical/BlenderToUE_ImportRules.md`
+## Find the relevant instructions
 
-Ключевые правила:
-- Не создавать новый импортёр для каждой модели. Переиспользовать общий конвейер `Tools/BlenderToUE/`, если он реально установлен; если нет — существующие проверенные скрипты модели, без выдумывания результата.
-- Не изменять исходную редактируемую `.blend`-модель при экспорте; не запускать исторические генераторы зданий ради переноса.
-- После редактирования существующей модели в Blender выполнять **Reimport текущего Unreal Static Mesh Asset по его существующему пути**, без перемещения и без дублирования.
-- Новые самостоятельные части здания импортировать в `Parts/` рядом с `Materials/` внутри папки данного здания; создать `Parts/`, если её нет. Основной меш остаётся в корне папки здания.
-- **Не размещать ассеты на уровнях, не изменять акторов и не сохранять карты.** Пользователь самостоятельно собирает и расставляет объекты. Исторический `Place` не запускать без отдельного прямого запроса.
-- Одна модель = один переиспользуемый UE Static Mesh Asset, который можно разместить на многих уровнях.
-- Не переименовывать и не перемещать существующие Unreal-ассеты напрямую в файловой системе.
-- Не делать лишние скриншоты, архивы и длинные отчёты; показывать краткий результат, подробности читать только при ошибках.
+- **Building/interior Blender ↔ UE asset work:** read `Docs/Technical/BlenderToUE_ImportRules.md`. Use `SourceAssets/Blender/models.json` for model paths; verify actual assets in Unreal.
+- **NPC/character import:** additionally read `Tools/BlenderToUE/characters/README.md` and the NPC entry in `Tools/BlenderToUE/characters/characters.json`. Characters use a Skeletal Mesh pipeline; do not apply building Static Mesh import steps to them.
+- **Design/gameplay changes:** consult only the relevant files under `Docs/GameDesign/` or `Docs/DiggingArchitecture.md`. Do not load the entire lore for an asset import.
 
-Эти правила не разрешают автоматически изменять модели, уровни или лор без соответствующего задания пользователя.
+## Non-negotiable defaults
+
+1. **Model** means edit the existing Blender source. **Import/reimport** means update the existing UE asset in place. Do not import merely because modeling was requested.
+2. **No automatic placement:** do not add/move actors, assemble Blueprints, change transforms, edit or save `.umap` files unless the user explicitly asks for level work. Existing placed instances may update visually after reimporting their shared asset.
+3. Keep the editable `.blend` intact during export; use temporary export copies. Never run old `build_*.py` generators just to reimport a model.
+4. Reimport to the **exact existing UE asset path**. Preserve names, materials, links and user settings. Import new independent building parts only into that building's `Parts/` next to `Materials/`. Never move/rename `.uasset` or `.umap` using the file system.
+5. Use existing, verified scripts and MCP connections. The shared pipeline currently exists **for characters only**; do not assume a generic building CLI exists. Never claim a tool ran or succeeded without verification.
+6. Avoid unsolicited screenshots, renders, GUI/computer-control sessions, backup copies, extra folders, commits and long logs. Keep full diagnostics in `Saved/`; report a short outcome and actual errors.
+
+Before making changes, check working state and preserve unrelated edits. If an unsafe operation is ambiguous, stop and explain rather than inventing paths or parameters.
