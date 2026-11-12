@@ -12,7 +12,7 @@ source=project/Path(cfg['source_blend']).parent
 log=project/'Saved/BlenderToUE';log.mkdir(parents=True,exist_ok=True)
 model=cfg['model_id'].lower()
 base=cfg['unreal_asset'].rsplit('/',1)[0]
-manifest=json.loads((source/'material_manifest.json').read_text(encoding='utf-8'))
+manifest=json.loads((source/cfg.get('material_manifest','material_manifest.json')).read_text(encoding='utf-8'))
 expected=json.loads((log/(model+'_export.json')).read_text(encoding='utf-8'))['assets']
 assets=unreal.AssetToolsHelpers.get_asset_tools();lib=unreal.MaterialEditingLibrary
 sub=unreal.get_editor_subsystem(unreal.StaticMeshEditorSubsystem)
@@ -24,10 +24,26 @@ def scalar(mat,value,prop,y):
     n=lib.create_material_expression(mat,unreal.MaterialExpressionConstant,-300,y);n.set_editor_property('r',value);assert lib.connect_material_property(n,'',prop)
 def color(mat,value,prop,y):
     n=lib.create_material_expression(mat,unreal.MaterialExpressionConstant3Vector,-300,y);n.set_editor_property('constant',unreal.LinearColor(*value));assert lib.connect_material_property(n,'',prop)
+def configure_complex_collision(mesh):
+    body=mesh.get_editor_property('body_setup')
+    if sub.get_simple_collision_count(mesh):
+        assert cfg.get('remove_generated_simple_collision',False),'Unexpected simple collision; refusing to delete it'
+        geom=json.loads(unreal.ToolsetLibrary.get_object_properties(body,['aggGeom']))['aggGeom']
+        shapes=[s for group in geom.values() if isinstance(group,list) for s in group]
+        assert shapes and all(s.get('bIsGenerated',False) for s in shapes),'Authored collision found; refusing to delete it'
+    body.set_editor_property('collision_trace_flag',unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE)
+    # Recook and refresh components; changing the flag alone may leave old hulls.
+    assert sub.remove_collisions(mesh),'Failed to refresh complex collision'
+    assert sub.get_simple_collision_count(mesh)==0
+    assert sub.get_collision_complexity(mesh)==unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE
+
 def material(name,old):
     # Keep authored assignments; WorldGrid/DefaultMaterial are missing materials.
     previous=old.get(key(name))
     if previous and previous.get_path_name().startswith('/Game/'):return previous
+    # Rudy's manifest describes only its new interior materials.
+    existing=unreal.load_asset(cfg['unreal_materials']+'/'+key(name))
+    if existing:return existing
     values=next((p for n,p in manifest.items() if key(n)==key(name)),None)
     assert values is not None,'Missing material manifest: '+name
     path=values.get('unreal_material',cfg['unreal_materials']+'/'+key(name))
@@ -41,7 +57,7 @@ def material(name,old):
     if values.get('transmission',0)>.5:
         mat.set_editor_property('blend_mode',unreal.BlendMode.BLEND_TRANSLUCENT)
         mat.set_editor_property('translucency_lighting_mode',unreal.TranslucencyLightingMode.TLM_SURFACE_PER_PIXEL_LIGHTING)
-        scalar(mat,.12,unreal.MaterialProperty.MP_OPACITY,330)
+        scalar(mat,values.get('opacity',.12),unreal.MaterialProperty.MP_OPACITY,330)
         # Flat architectural panes: no screen-space refraction distortion.
         scalar(mat,1,unreal.MaterialProperty.MP_REFRACTION,430)
     if values.get('emission_strength',0)>0:
@@ -53,6 +69,16 @@ def material(name,old):
 main=unreal.load_asset(cfg['unreal_asset']);assert isinstance(main,unreal.StaticMesh)
 before_maps=maps();before_instances=instances(main)
 old_materials={key(s.material_slot_name):s.material_interface for s in main.static_materials}
+targets=[cfg['unreal_asset']]+[p['unreal_asset'] for p in cfg.get('parts',[])]
+# Check every file and material before mutating the first mesh.
+for target in targets:
+    name=target.rsplit('/',1)[1]
+    assert target==cfg['unreal_asset'] or target.rsplit('/',1)[0]==cfg['unreal_parts']
+    assert name in expected and (source/(name+'.fbx')).is_file(),name
+    existing=unreal.load_asset(target)
+    assigned={key(s.material_slot_name):s.material_interface for s in existing.static_materials} if existing else old_materials
+    for slot in expected[name]['materials']:
+        assert assigned.get(key(slot)) or unreal.load_asset(cfg['unreal_materials']+'/'+key(slot)) or any(key(n)==key(slot) for n in manifest),'Missing material: '+slot
 rows=[]
 # Force FbxFactory so FbxImportUI options cannot silently be ignored by Interchange.
 # The previous CVar value is restored even when an import fails.
@@ -60,13 +86,14 @@ cvar='Interchange.FeatureFlags.Import.FBX'
 previous=unreal.SystemLibrary.get_console_variable_int_value(cvar)
 try:
     unreal.SystemLibrary.execute_console_command(None,cvar+' 0')
-    for target in [cfg['unreal_asset']]+[p['unreal_asset'] for p in cfg.get('parts',[])]:
+    for target in targets:
         name=target.rsplit('/',1)[1];directory=target.rsplit('/',1)[0]
         assert target==cfg['unreal_asset'] or directory==cfg['unreal_parts']
         assert name in expected
         existing=unreal.load_asset(target)
         previous_materials={key(s.material_slot_name):s.material_interface for s in existing.static_materials} if existing else old_materials
         previous_settings=existing.get_editor_property('nanite_settings') if existing else None
+        previous_slots=[str(s.material_slot_name) for s in existing.static_materials] if existing else []
         options=unreal.FbxImportUI();options.automated_import_should_detect_type=False
         options.import_mesh=True;options.import_as_skeletal=False
         options.mesh_type_to_import=unreal.FBXImportType.FBXIT_STATIC_MESH
@@ -80,6 +107,8 @@ try:
         task.automated=True;task.async_=False;task.replace_existing=bool(existing);task.replace_existing_settings=False;task.save=False
         task.options=options;task.factory=unreal.FbxFactory()
         assets.import_asset_tasks([task])
+        assert task.imported_object_paths,'Import produced no assets: '+target
+        assert all(p==target or p==target+'.'+name for p in task.imported_object_paths),list(task.imported_object_paths)
         mesh=unreal.load_asset(target);assert isinstance(mesh,unreal.StaticMesh),target
         assert mesh.get_path_name()==target+'.'+name
         wanted={key(n) for n in expected[name]['materials']}
@@ -90,10 +119,10 @@ try:
             assigned.append({'slot':slot,'material':mat.get_path_name()})
         mesh.set_editor_property('static_materials',slots)
         assert wanted.issubset({key(s.material_slot_name) for s in mesh.static_materials}),(name,wanted)
+        assert [str(s.material_slot_name) for s in mesh.static_materials][:len(previous_slots)]==previous_slots,'Existing material slot order changed: '+target
         if previous_settings is not None:mesh.set_editor_property('nanite_settings',previous_settings)
         if target==cfg['unreal_asset'] and cfg.get('use_complex_collision'):
-            assert sub.get_simple_collision_count(mesh)==0,'Unexpected authored simple collision; refusing to delete it'
-            mesh.get_editor_property('body_setup').set_editor_property('collision_trace_flag',unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE)
+            configure_complex_collision(mesh)
         elif target!=cfg['unreal_asset'] and sub.get_simple_collision_count(mesh)==0:
             sub.add_simple_collisions(mesh,unreal.ScriptCollisionShapeType.BOX)
         b=mesh.get_bounding_box();bounds=[[b.min.x,b.min.y,b.min.z],[b.max.x,b.max.y,b.max.z]]

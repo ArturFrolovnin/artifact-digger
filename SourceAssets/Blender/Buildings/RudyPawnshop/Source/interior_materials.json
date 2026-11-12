@@ -1,0 +1,79 @@
+{
+  "RUDY_INT_Clear_Glass": {
+    "color": [
+      0.72,
+      0.84,
+      0.79,
+      0.18
+    ],
+    "roughness": 0.11999999731779099,
+    "metallic": 0.0,
+    "transmission": 1.0,
+    "emission_strength": 0.0,
+    "opacity": 0.12,
+    "unreal_blend_mode": "Translucent",
+    "unreal_lighting_mode": "Surface ForwardShading",
+    "two_sided": true,
+    "refraction": 1.0
+  },
+  "RUDY_INT_Aged_Brass": {
+    "color": [
+      0.3400000035762787,
+      0.20000000298023224,
+      0.07500000298023224,
+      1.0
+    ],
+    "roughness": 0.3199999928474426,
+    "metallic": 0.7799999713897705,
+    "transmission": 0.0,
+    "emission_strength": 0.0
+  },
+  "RUDY_INT_Burgundy": {
+    "color": [
+      0.23000000417232513,
+      0.03500000014901161,
+      0.04500000178813934,
+      1.0
+    ],
+    "roughness": 0.8600000143051147,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "emission_strength": 0.0
+  },
+  "RUDY_INT_Warm_Plaster": {
+    "color": [
+      0.7200000286102295,
+      0.6600000262260437,
+      0.5299999713897705,
+      1.0
+    ],
+    "roughness": 0.8999999761581421,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "emission_strength": 0.0
+  },
+  "RUDY_INT_Paper": {
+    "color": [
+      0.8299999833106995,
+      0.7599999904632568,
+      0.5799999833106995,
+      1.0
+    ],
+    "roughness": 0.8799999952316284,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "emission_strength": 0.0
+  },
+  "RUDY_INT_Amber_Light": {
+    "color": [
+      1.0,
+      0.550000011920929,
+      0.1599999964237213,
+      1.0
+    ],
+    "roughness": 0.2800000011920929,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "emission_strength": 5.0
+  }
+}
