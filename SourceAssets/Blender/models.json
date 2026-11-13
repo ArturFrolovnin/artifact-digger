@@ -119,11 +119,13 @@
       "model_id": "GrahamShop",
       "source_blend": "SourceAssets/Blender/Buildings/GrahamShop/Source/GrahamShop_Blockout.blend",
       "fbx": [
-        "SourceAssets/Blender/Buildings/GrahamShop/Source/SM_GrahamShop_Blockout.fbx"
+        "SourceAssets/Blender/Buildings/GrahamShop/Source/SM_GrahamShop_Blockout.fbx",
+        "SourceAssets/Blender/Buildings/GrahamShop/Source/SM_GrahamShop_Door_Entrance.fbx"
       ],
       "unreal_asset_root": "/Game/Art/Models/Buildings/GrahamShop",
       "unreal_meshes": [
-        "/Game/Art/Models/Buildings/GrahamShop/SM_GrahamShop_Blockout"
+        "/Game/Art/Models/Buildings/GrahamShop/SM_GrahamShop_Blockout",
+        "/Game/Art/Models/Buildings/GrahamShop/Parts/SM_GrahamShop_Door_Entrance"
       ]
     },
     {

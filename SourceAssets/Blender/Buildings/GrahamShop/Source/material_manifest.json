@@ -1,0 +1,612 @@
+{
+  "Graham_Aged brass": {
+    "color": [
+      0.47999998927116394,
+      0.3199999928474426,
+      0.11999999731779099,
+      1.0
+    ],
+    "roughness": 0.3799999952316284,
+    "metallic": 0.6499999761581421,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_Metal_Aged_brass"
+  },
+  "Graham_Amber lamp": {
+    "color": [
+      0.949999988079071,
+      0.47999998927116394,
+      0.10000000149011612,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      0.4399999976158142,
+      0.07999999821186066,
+      1.0
+    ],
+    "emission_strength": 2.5,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_WarmLight_Amber_lamp"
+  },
+  "Graham_Basalt 0": {
+    "color": [
+      0.09000000357627869,
+      0.09300000220537186,
+      0.08699999749660492,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_Stone_Basalt_0"
+  },
+  "Graham_Basalt 1": {
+    "color": [
+      0.09840000420808792,
+      0.10080000013113022,
+      0.094200000166893,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_Stone_Basalt_1"
+  },
+  "Graham_Basalt 2": {
+    "color": [
+      0.10680000483989716,
+      0.10859999805688858,
+      0.10140000283718109,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_Stone_Basalt_2"
+  },
+  "Graham_Basalt 3": {
+    "color": [
+      0.1151999980211258,
+      0.11640000343322754,
+      0.10859999805688858,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_Stone_Basalt_3"
+  },
+  "Graham_Basalt 4": {
+    "color": [
+      0.12359999865293503,
+      0.1242000013589859,
+      0.11580000072717667,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_Stone_Basalt_4"
+  },
+  "Graham_Basalt 5": {
+    "color": [
+      0.13199999928474426,
+      0.13199999928474426,
+      0.12299999594688416,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_Stone_Basalt_5"
+  },
+  "Graham_Clear storefront glass": {
+    "color": [
+      0.30000001192092896,
+      0.41999998688697815,
+      0.4000000059604645,
+      1.0
+    ],
+    "roughness": 0.1599999964237213,
+    "metallic": 0.0,
+    "transmission": 1.0,
+    "blender_transmission": 0.0,
+    "opacity": 0.09000000357627869,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_Glass_Clear_storefront_glass"
+  },
+  "Graham_Deep green painted wood": {
+    "color": [
+      0.06499999761581421,
+      0.10000000149011612,
+      0.08299999684095383,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_GreenPaint_Deep_green_painted_wood"
+  },
+  "Graham_Graphite standing seam": {
+    "color": [
+      0.06499999761581421,
+      0.0820000022649765,
+      0.09099999815225601,
+      1.0
+    ],
+    "roughness": 0.47999998927116394,
+    "metallic": 0.550000011920929,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_Roof_Graphite_standing_seam"
+  },
+  "Graham_Iron": {
+    "color": [
+      0.04500000178813934,
+      0.054999999701976776,
+      0.054999999701976776,
+      1.0
+    ],
+    "roughness": 0.4000000059604645,
+    "metallic": 0.699999988079071,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_Metal_Iron"
+  },
+  "Graham_Oak edges": {
+    "color": [
+      0.38999998569488525,
+      0.25999999046325684,
+      0.12999999523162842,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_Wood_Oak_edges"
+  },
+  "Graham_Olive canvas": {
+    "color": [
+      0.20000000298023224,
+      0.23499999940395355,
+      0.11999999731779099,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_Canvas_Olive_canvas"
+  },
+  "Graham_Shadow recess": {
+    "color": [
+      0.023000000044703484,
+      0.028999999165534973,
+      0.026000000536441803,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_Equipment_Shadow_recess"
+  },
+  "Graham_Sign lettering": {
+    "color": [
+      0.8299999833106995,
+      0.75,
+      0.5400000214576721,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_Sign_Sign_lettering"
+  },
+  "Graham_Smoky residential glass": {
+    "color": [
+      0.11999999731779099,
+      0.20000000298023224,
+      0.20000000298023224,
+      1.0
+    ],
+    "roughness": 0.23000000417232513,
+    "metallic": 0.20000000298023224,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_Glass_Smoky_residential_glass"
+  },
+  "Graham_Terracotta": {
+    "color": [
+      0.3799999952316284,
+      0.1599999964237213,
+      0.06499999761581421,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_Equipment_Terracotta"
+  },
+  "Graham_Warm aged plaster.001": {
+    "color": [
+      0.550000011920929,
+      0.49000000953674316,
+      0.3799999952316284,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_Plaster_Warm_aged_plaster_001"
+  },
+  "Graham_Weathered oak": {
+    "color": [
+      0.28999999165534973,
+      0.18000000715255737,
+      0.08500000089406967,
+      1.0
+    ],
+    "roughness": 0.699999988079071,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0,
+    "unreal_material": "/Game/Art/Models/Buildings/GrahamShop/Materials/GRM_Wood_Weathered_oak"
+  },
+  "GRM_INT_AmberGlow": {
+    "color": [
+      1.0,
+      0.46000000834465027,
+      0.09000000357627869,
+      1.0
+    ],
+    "roughness": 0.44999998807907104,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      0.47999998927116394,
+      0.11999999731779099,
+      1.0
+    ],
+    "emission_strength": 4.0
+  },
+  "GRM_INT_BlackIron": {
+    "color": [
+      0.02500000037252903,
+      0.03200000151991844,
+      0.02800000086426735,
+      1.0
+    ],
+    "roughness": 0.44999998807907104,
+    "metallic": 0.6499999761581421,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "GRM_INT_Brass": {
+    "color": [
+      0.4699999988079071,
+      0.28999999165534973,
+      0.08500000089406967,
+      1.0
+    ],
+    "roughness": 0.44999998807907104,
+    "metallic": 0.75,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "GRM_INT_ClearGlass": {
+    "color": [
+      0.8999999761581421,
+      0.9700000286102295,
+      0.949999988079071,
+      1.0
+    ],
+    "roughness": 0.03999999910593033,
+    "metallic": 0.0,
+    "transmission": 1,
+    "opacity": 0.12,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "GRM_INT_ForestRug": {
+    "color": [
+      0.054999999701976776,
+      0.10499999672174454,
+      0.07000000029802322,
+      1.0
+    ],
+    "roughness": 0.44999998807907104,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "GRM_INT_Hemp": {
+    "color": [
+      0.47999998927116394,
+      0.3400000035762787,
+      0.1599999964237213,
+      1.0
+    ],
+    "roughness": 0.44999998807907104,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "GRM_INT_Labels": {
+    "color": [
+      0.7300000190734863,
+      0.6499999761581421,
+      0.4300000071525574,
+      1.0
+    ],
+    "roughness": 0.44999998807907104,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "GRM_INT_Oak": {
+    "color": [
+      0.3199999928474426,
+      0.1599999964237213,
+      0.06499999761581421,
+      1.0
+    ],
+    "roughness": 0.44999998807907104,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "GRM_INT_OliveCanvas": {
+    "color": [
+      0.11999999731779099,
+      0.17000000178813934,
+      0.06499999761581421,
+      1.0
+    ],
+    "roughness": 0.44999998807907104,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "GRM_INT_TanLeather": {
+    "color": [
+      0.3700000047683716,
+      0.23000000417232513,
+      0.09000000357627869,
+      1.0
+    ],
+    "roughness": 0.44999998807907104,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  },
+  "GRM_INT_Walnut": {
+    "color": [
+      0.1599999964237213,
+      0.06499999761581421,
+      0.02500000037252903,
+      1.0
+    ],
+    "roughness": 0.44999998807907104,
+    "metallic": 0.0,
+    "transmission": 0.0,
+    "opacity": 1.0,
+    "emission_color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "emission_strength": 0.0
+  }
+}

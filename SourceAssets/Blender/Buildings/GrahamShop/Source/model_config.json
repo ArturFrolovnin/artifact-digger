@@ -1,0 +1,38 @@
+{
+  "model_id": "GrahamShop",
+  "collection": "BLD_GrahamShop",
+  "root": "GrahamShop_ROOT",
+  "main_mesh": "SM_GrahamShop_Blockout",
+  "source_blend": "SourceAssets/Blender/Buildings/GrahamShop/Source/GrahamShop_Blockout.blend",
+  "source_fbx": "SourceAssets/Blender/Buildings/GrahamShop/Source/SM_GrahamShop_Blockout.fbx",
+  "unreal_asset": "/Game/Art/Models/Buildings/GrahamShop/SM_GrahamShop_Blockout",
+  "unreal_materials": "/Game/Art/Models/Buildings/GrahamShop/Materials",
+  "unreal_parts": "/Game/Art/Models/Buildings/GrahamShop/Parts",
+  "material_manifest": "material_manifest.json",
+  "required_objects": [
+    "Basalt plinth block"
+  ],
+  "preserve_source_normals": true,
+  "generate_missing_uvs": true,
+  "repair_degenerate_uvs": true,
+  "remove_degenerate_export_faces": true,
+  "use_complex_collision": true,
+  "remove_generated_simple_collision": true,
+  "axis_forward": "-Y",
+  "axis_up": "Z",
+  "global_scale": 1,
+  "unit_scale": 1,
+  "parts": [
+    {
+      "object": "GRM_Door_Entrance",
+      "fbx": "SM_GrahamShop_Door_Entrance.fbx",
+      "unreal_asset": "/Game/Art/Models/Buildings/GrahamShop/Parts/SM_GrahamShop_Door_Entrance",
+      "pivot_m": [
+        -0.6100000143051147,
+        -5.090000152587891,
+        0.25
+      ]
+    }
+  ],
+  "reimport_method": "Source/export_fbx.py in Blender, then Source/finish_ue_import.py in Unreal Editor Python"
+}
