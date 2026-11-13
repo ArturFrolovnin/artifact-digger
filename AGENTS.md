@@ -6,7 +6,7 @@ Applies to this entire Unreal Engine 5.8 repository. **Work only within the user
 
 - **Building/interior Blender ↔ UE asset work:** read `Docs/Technical/BlenderToUE_ImportRules.md`. Use `SourceAssets/Blender/models.json` for model paths; verify actual assets in Unreal.
 - **NPC/character import:** additionally read `Tools/BlenderToUE/characters/README.md` and the NPC entry in `Tools/BlenderToUE/characters/characters.json`. Characters use a Skeletal Mesh pipeline; do not apply building Static Mesh import steps to them.
-- **Production game architecture:** read `Docs/Technical/GameCoreArchitecture.md` before introducing new gameplay systems, game maps or persistent player state. Keep production systems separate from `Content/TestLevel/`.
+- **Production game architecture:** read `Docs/Technical/GameCoreArchitecture.md` before introducing new gameplay systems, game maps or persistent player state. Gameplay framework Blueprints live in `Content/Game/Gameplay/`, menu Blueprints and `WBP_MainMenu` in `Content/Game/MainMenu/`, and production maps in `Content/Game/Levels/`. Keep production systems separate from `Content/TestLevel/`.
 - **Design/gameplay changes:** consult only the relevant files under `Docs/GameDesign/` or `Docs/DiggingArchitecture.md`. Do not load the entire lore for an asset import.
 
 ## Non-negotiable defaults

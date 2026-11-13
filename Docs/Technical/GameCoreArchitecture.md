@@ -19,11 +19,16 @@ Content/
 │   └── Level_7/
 ├── Art/Models/                      # existing reusable imported meshes
 └── Game/                            # production assets
-    ├── Maps/
-    │   ├── Menu/                    # L_MainMenu (future .umap)
-    │   ├── Town/                    # L_Town (future .umap)
-    │   └── DigSites/                # L_DigSite_01, future Dig Sites
-    ├── Core/                        # game modes, player/controller BP
+    ├── Gameplay/
+    │   ├── BP_PlayerCharacter
+    │   ├── BP_GameplayPlayerController
+    │   └── BP_GameplayGameMode
+    ├── MainMenu/
+    │   ├── BP_MenuGameMode
+    │   ├── BP_MenuPlayerController
+    │   └── WBP_MainMenu
+    ├── Characters/
+    │   └── NPC/
     ├── Features/
     │   ├── Interaction/             # interaction BP and prompts
     │   ├── Travel/                  # stop/exit destination configuration
@@ -31,12 +36,23 @@ Content/
     │   ├── Inventory/               # inventory widgets and configuration
     │   ├── Economy/                 # pawnshop UI and currency presentation
     │   └── Digging/                 # production digging BP/VFX (not tests)
+    ├── Levels/
+    │   ├── MainMenu/                # L_MainMenu.umap
+    │   └── Town/                    # L_Town.umap
     └── UI/
-        ├── Menu/                    # WBP_MainMenu
         └── HUD/                     # shared in-game HUD
 ```
 
-**Current maps are not renamed by this structure change.** The actual town map is currently under `Content/TestLevel/Level_6/`; check whether `NewMap` or `level_6_create_map` is the intended source in Unreal before producing `L_Town`. Create/copy/migrate Unreal map assets **inside Unreal Editor** (and verify dependencies/redirectors), never via a raw Git/file-system rename. Do not duplicate all city models. `L_MainMenu`, `L_Town` and `L_DigSite_01` are **future asset names**, not files created by this documentation-only change.
+This is the current production Content layout. Unreal mounts `Content/` as `/Game/`, so `Content/Game/Gameplay/` is `/Game/Game/Gameplay/` in asset references. `Features/`, `Characters/NPC/` and `UI/HUD/` reserve ownership for future content; their presence does not imply that those systems are implemented.
+
+**Production maps keep their existing paths:** `/Game/Game/Levels/MainMenu/L_MainMenu` and `/Game/Game/Levels/Town/L_Town`. Experimental town blockouts under `Content/TestLevel/Level_6/` remain separate reference maps. `L_DigSite_01` is still planned. Create or move Unreal assets **inside Unreal Editor / Asset Tools**, update and save their referencers, then run **Fix Up Redirectors in Folder** (called **Update Redirector References** in UE 5.8). Verify old paths have no remaining referencers before removing unused redirectors or empty folders. Never move `.uasset` or `.umap` files through Git or the file system.
+
+### Existing gameplay and menu wiring
+
+- `L_MainMenu` overrides its GameMode with `/Game/Game/MainMenu/BP_MenuGameMode`. That mode uses `BP_MenuPlayerController`, which creates `WBP_MainMenu` and sets UI input mode. The widget has **Start** and **Exit** buttons. Start sets game input mode and opens `L_Town`; Exit calls `QuitGame`.
+- `L_Town` overrides its GameMode with `/Game/Game/Gameplay/BP_GameplayGameMode`. Its default controller is `BP_GameplayPlayerController`, and its default pawn is `BP_PlayerCharacter`, both in the same `Gameplay/` folder.
+- Gameplay uses Enhanced Input with the existing `/Game/Input/IMC_Default` and `/Game/Input/IMC_MouseLook`. The character binds the corresponding actions under `/Game/Input/Actions/` for WASD movement, mouse look and jumping. Keep these exact context references; the Voxel Plugin contains unrelated contexts with matching short names.
+- `BP_PlayerCharacter` retains the existing first-person movement and camera logic. Experimental digging is not part of this production character. The test character and its test maps stay under `Content/TestLevel/`.
 
 ## C++ layout (one existing ArcheoDig module)
 
@@ -80,18 +96,18 @@ For our **single-player** first slice, a small `UInventorySubsystem : UGameInsta
 
 ## First playable sequence
 
-1. Build `L_MainMenu` with `WBP_MainMenu`: **Start** and **Exit** only. Start opens the production town map; Exit quits.
-2. Create `L_Town` (using the approved city assets/layout without moving existing test maps). Place player and one interactive bus stop.
+1. Keep the existing `L_MainMenu` → `L_Town` foundation working: **Start**, **Exit**, first-person movement, mouse look and jump.
+2. Extend the existing production `L_Town` with approved city content and one interactive bus stop when that work is requested. Do not move or modify the experimental town maps as part of production folder maintenance.
 3. Create `L_DigSite_01`, add return travel, then validate town → site → town in editor **and** a Windows packaged Development build.
 4. Add one repeatable digging action, one collectible, minimal session inventory and pawnshop transaction. Verify item and money survive travel.
 5. Package again and play the complete loop twice.
 
-**Build/config:** `Config/DefaultEngine.ini` currently points at the experimental Level_1. Change Game Default Map to `L_MainMenu` and add only intended production maps to packaging settings **after these map assets exist**. Do not change startup settings as part of empty-folder creation.
+**Build/config:** `Config/DefaultEngine.ini` still uses the experimental Level_1 as Editor Startup Map and Game Default Map, with the ThirdPerson global GameMode. The production maps use their own GameMode overrides. Startup and packaging settings were not changed by this folder migration; change them only when production startup/packaging work is explicitly requested.
 
 ## Definition of done and change policy
 
 - A feature should work in more than one map/actor without copying its C++ business logic.
 - Keep `.h` and `.cpp` organized under matching `Public/Game/<Feature>/` and `Private/Game/<Feature>/` directories; Blueprints and Data Assets go under the corresponding `Content/Game/Features/<Feature>/`.
 - Use small, incremental, verified changes. No speculative features or empty C++ classes just to fill directories.
-- Existing assets and source maps are not relocated/renamed as part of this layout task.
+- Framework Blueprints belong in `Content/Game/Gameplay/`; menu Blueprints and the menu widget belong together in `Content/Game/MainMenu/`. Production maps stay under `Content/Game/Levels/`. This Blueprint organization does not rename the C++ `Public/Game/Core/` and `Private/Game/Core/` ownership paths.
 - For UE assets, create/move through **Content Browser / Unreal Asset Tools**, not Git or file system; empty placeholder folders may not appear in Content Browser until they contain an Unreal asset.
